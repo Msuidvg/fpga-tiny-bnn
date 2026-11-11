@@ -12,6 +12,12 @@
   → integer scores / gesture ID / score margin
 ```
 
+## 手势识别结果
+
+![六组手势识别示例，包含原始掩膜、最大连通域框、32×32 ROI、真实标签和预测类别](docs/images/gesture-recognition.png)
+
+图中选五类手势各一个正确示例，并展示一个手势 5 被预测为手势 4 的案例。204 帧诊断样本中，模型预测与真实标签一致 97 帧（47.55%），RTL 与 Python 在全部 204 帧上逐项一致。 [样本与预测数据](testvectors/pipeline/vectors.json) · [RTL 对拍记录](https://github.com/Msuidvg/fpga-tiny-bnn/actions/runs/42954281044)
+
 ## 快速验证
 
 需要 Python 3.11 或更新版本。命令均在仓库根目录执行：
@@ -52,6 +58,12 @@ python scripts/run_checks.py --rtl
 软件与 RTL 一致性不代表识别准确率为 100%。78.69% 和 96.09% 均对应历史 4579 张数据，不作为随附清洗集的新评估结果。V1 保留原冻结权重，清洗集用于重训与当前算术复核；其重新训练结果应另行报告。204 组 parity 数据属于碎裂轮廓诊断域，历史真实标签正确率为 47.55%，未用于训练。困难背景仍是模型短板。本仓库不提供独立核布局布线结果，不将整片系统资源或时序作为该核指标。
 
 冻结模型 SHA-256：`12dd5fe1e6ae5402d0b08fe530f0a2937a59587bb6daebd8943f709c1d3c6717`。
+
+### V1 跨批评估
+
+![V1 历史六折跨批评估混淆矩阵和分批准确率，汇总准确率 78.69%](docs/images/v1-cross-batch-results.png)
+
+图中汇总了历史 4579 张样本的六折留一批次评估。混淆矩阵显示样本数和真实类别内占比，右图给出每个留出批次的准确率。 [V1 评估数据](reports/training_v1.json)
 
 ## 训练与导出
 
