@@ -2,8 +2,17 @@ name: Verify Python and RTL
 on: [push, pull_request, workflow_dispatch]
 jobs:
   parity:
+    name: ${{ matrix.bench }}
     runs-on: ubuntu-latest
     timeout-minutes: 30
+    strategy:
+      fail-fast: false
+      matrix:
+        bench:
+          - tb_gesture_bnn_core
+          - tb_gesture_bnn_largest_component_parity
+          - tb_gesture_bnn_roi_normalizer
+          - tb_gesture_bnn_pipeline
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
@@ -12,9 +21,9 @@ jobs:
           cache: pip
       - run: sudo apt-get update && sudo apt-get install -y iverilog
       - run: python -m pip install -r requirements.txt
-      - run: python scripts/run_checks.py --rtl
+      - run: python scripts/run_checks.py --rtl --bench ${{ matrix.bench }}
       - uses: actions/upload-artifact@v4
         if: always()
         with:
-          name: verification-results
+          name: verification-${{ matrix.bench }}
           path: build/

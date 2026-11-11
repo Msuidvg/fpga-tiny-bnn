@@ -22,7 +22,10 @@ def run(args,log_name):
 def main():
     parser=argparse.ArgumentParser()
     parser.add_argument("--rtl",action="store_true",help="require Icarus Verilog on PATH")
+    parser.add_argument("--bench",choices=[p.stem for p in sorted((ROOT/"sim").glob("tb_*.v"))],
+                        help="run one RTL bench, for independent CI jobs")
     args=parser.parse_args()
+    if args.bench and not args.rtl:parser.error("--bench requires --rtl")
     (ROOT/"build").mkdir(exist_ok=True)
     started=time.time()
     run([sys.executable,"-m","unittest","discover","-s","tools/bnn/tests","-v"],"python_tests.log")
@@ -38,6 +41,7 @@ def main():
         if not iv or not vv: raise SystemExit("Install iverilog and vvp, then retry --rtl")
         sources=sorted((ROOT/"rtl").glob("*.v"))
         for bench in sorted((ROOT/"sim").glob("tb_*.v")):
+            if args.bench and bench.stem != args.bench:continue
             output=ROOT/"build"/(bench.stem+".vvp")
             run([iv,"-g2012","-DBNN_SIM_DEBUG","-I","testvectors/core","-I","testvectors/pipeline",
                  "-s",bench.stem,"-o",output,*sources,bench],bench.stem+"_compile.log")
