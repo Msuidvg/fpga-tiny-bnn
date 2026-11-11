@@ -1,0 +1,836 @@
+{
+  "schema_version": 1,
+  "model": "models/v1/model.npz",
+  "dataset": "data/gesture_v1.npz",
+  "vectors": 48,
+  "vectors_per_batch": 8,
+  "selection": "per batch: lowest-margin correct sample, hardest labels 3/4/5, up to three errors, then lowest-margin samples",
+  "correct_vectors": 28,
+  "incorrect_vectors": 20,
+  "batch_counts": {
+    "background_06": 8,
+    "background_07": 8,
+    "daylight_front_01": 8,
+    "different_scene_03": 8,
+    "distance_angle_05": 8,
+    "normal_light_04": 8
+  },
+  "items": [
+    {
+      "vector_index": 0,
+      "dataset_index": 386,
+      "path": "background_06/3/background_06_3_000387.png",
+      "batch": "background_06",
+      "true_label": 3,
+      "expected_model_label": 3,
+      "model_correct": true,
+      "confidence_margin": 1,
+      "scores": [
+        -13,
+        0,
+        27,
+        26,
+        11
+      ]
+    },
+    {
+      "vector_index": 1,
+      "dataset_index": 527,
+      "path": "background_06/4/background_06_4_000528.png",
+      "batch": "background_06",
+      "true_label": 4,
+      "expected_model_label": 5,
+      "model_correct": false,
+      "confidence_margin": 1,
+      "scores": [
+        -5,
+        12,
+        3,
+        14,
+        15
+      ]
+    },
+    {
+      "vector_index": 2,
+      "dataset_index": 693,
+      "path": "background_06/5/background_06_5_000694.png",
+      "batch": "background_06",
+      "true_label": 5,
+      "expected_model_label": 5,
+      "model_correct": true,
+      "confidence_margin": 5,
+      "scores": [
+        -7,
+        2,
+        5,
+        20,
+        25
+      ]
+    },
+    {
+      "vector_index": 3,
+      "dataset_index": 236,
+      "path": "background_06/2/background_06_2_000237.png",
+      "batch": "background_06",
+      "true_label": 2,
+      "expected_model_label": 1,
+      "model_correct": false,
+      "confidence_margin": 0,
+      "scores": [
+        13,
+        6,
+        13,
+        -8,
+        -11
+      ]
+    },
+    {
+      "vector_index": 4,
+      "dataset_index": 411,
+      "path": "background_06/3/background_06_3_000412.png",
+      "batch": "background_06",
+      "true_label": 3,
+      "expected_model_label": 2,
+      "model_correct": false,
+      "confidence_margin": 1,
+      "scores": [
+        -5,
+        28,
+        27,
+        -6,
+        -17
+      ]
+    },
+    {
+      "vector_index": 5,
+      "dataset_index": 389,
+      "path": "background_06/3/background_06_3_000390.png",
+      "batch": "background_06",
+      "true_label": 3,
+      "expected_model_label": 3,
+      "model_correct": true,
+      "confidence_margin": 1,
+      "scores": [
+        -13,
+        8,
+        27,
+        26,
+        -1
+      ]
+    },
+    {
+      "vector_index": 6,
+      "dataset_index": 408,
+      "path": "background_06/3/background_06_3_000409.png",
+      "batch": "background_06",
+      "true_label": 3,
+      "expected_model_label": 3,
+      "model_correct": true,
+      "confidence_margin": 1,
+      "scores": [
+        -17,
+        0,
+        27,
+        26,
+        3
+      ]
+    },
+    {
+      "vector_index": 7,
+      "dataset_index": 425,
+      "path": "background_06/3/background_06_3_000426.png",
+      "batch": "background_06",
+      "true_label": 3,
+      "expected_model_label": 3,
+      "model_correct": true,
+      "confidence_margin": 1,
+      "scores": [
+        -15,
+        -6,
+        25,
+        24,
+        13
+      ]
+    },
+    {
+      "vector_index": 8,
+      "dataset_index": 1216,
+      "path": "background_07/3/background_07_3_000447.png",
+      "batch": "background_07",
+      "true_label": 3,
+      "expected_model_label": 3,
+      "model_correct": true,
+      "confidence_margin": 0,
+      "scores": [
+        -7,
+        6,
+        17,
+        8,
+        17
+      ]
+    },
+    {
+      "vector_index": 9,
+      "dataset_index": 1431,
+      "path": "background_07/4/background_07_4_000665.png",
+      "batch": "background_07",
+      "true_label": 4,
+      "expected_model_label": 5,
+      "model_correct": false,
+      "confidence_margin": 1,
+      "scores": [
+        -3,
+        -14,
+        -7,
+        24,
+        25
+      ]
+    },
+    {
+      "vector_index": 10,
+      "dataset_index": 1711,
+      "path": "background_07/5/background_07_5_000945.png",
+      "batch": "background_07",
+      "true_label": 5,
+      "expected_model_label": 1,
+      "model_correct": false,
+      "confidence_margin": 0,
+      "scores": [
+        17,
+        -18,
+        -27,
+        0,
+        17
+      ]
+    },
+    {
+      "vector_index": 11,
+      "dataset_index": 1763,
+      "path": "background_07/5/background_07_5_000997.png",
+      "batch": "background_07",
+      "true_label": 5,
+      "expected_model_label": 1,
+      "model_correct": false,
+      "confidence_margin": 0,
+      "scores": [
+        13,
+        6,
+        1,
+        -8,
+        13
+      ]
+    },
+    {
+      "vector_index": 12,
+      "dataset_index": 1229,
+      "path": "background_07/3/background_07_3_000460.png",
+      "batch": "background_07",
+      "true_label": 3,
+      "expected_model_label": 3,
+      "model_correct": true,
+      "confidence_margin": 0,
+      "scores": [
+        -9,
+        -8,
+        19,
+        14,
+        19
+      ]
+    },
+    {
+      "vector_index": 13,
+      "dataset_index": 1292,
+      "path": "background_07/3/background_07_3_000523.png",
+      "batch": "background_07",
+      "true_label": 3,
+      "expected_model_label": 3,
+      "model_correct": true,
+      "confidence_margin": 0,
+      "scores": [
+        -5,
+        0,
+        19,
+        18,
+        19
+      ]
+    },
+    {
+      "vector_index": 14,
+      "dataset_index": 1337,
+      "path": "background_07/3/background_07_3_000568.png",
+      "batch": "background_07",
+      "true_label": 3,
+      "expected_model_label": 3,
+      "model_correct": true,
+      "confidence_margin": 0,
+      "scores": [
+        -11,
+        -10,
+        17,
+        16,
+        17
+      ]
+    },
+    {
+      "vector_index": 15,
+      "dataset_index": 1768,
+      "path": "background_07/5/background_07_5_001002.png",
+      "batch": "background_07",
+      "true_label": 5,
+      "expected_model_label": 1,
+      "model_correct": false,
+      "confidence_margin": 0,
+      "scores": [
+        17,
+        -22,
+        -3,
+        4,
+        17
+      ]
+    },
+    {
+      "vector_index": 16,
+      "dataset_index": 2004,
+      "path": "daylight_front_01/4/daylight_front_01_4_000210.png",
+      "batch": "daylight_front_01",
+      "true_label": 4,
+      "expected_model_label": 4,
+      "model_correct": true,
+      "confidence_margin": 3,
+      "scores": [
+        -3,
+        6,
+        21,
+        24,
+        -11
+      ]
+    },
+    {
+      "vector_index": 17,
+      "dataset_index": 1936,
+      "path": "daylight_front_01/3/daylight_front_01_3_000142.png",
+      "batch": "daylight_front_01",
+      "true_label": 3,
+      "expected_model_label": 3,
+      "model_correct": true,
+      "confidence_margin": 9,
+      "scores": [
+        -21,
+        0,
+        31,
+        22,
+        7
+      ]
+    },
+    {
+      "vector_index": 18,
+      "dataset_index": 2084,
+      "path": "daylight_front_01/5/daylight_front_01_5_000290.png",
+      "batch": "daylight_front_01",
+      "true_label": 5,
+      "expected_model_label": 5,
+      "model_correct": true,
+      "confidence_margin": 25,
+      "scores": [
+        -11,
+        -14,
+        -3,
+        12,
+        37
+      ]
+    },
+    {
+      "vector_index": 19,
+      "dataset_index": 1963,
+      "path": "daylight_front_01/3/daylight_front_01_3_000169.png",
+      "batch": "daylight_front_01",
+      "true_label": 3,
+      "expected_model_label": 3,
+      "model_correct": true,
+      "confidence_margin": 11,
+      "scores": [
+        -19,
+        22,
+        33,
+        4,
+        1
+      ]
+    },
+    {
+      "vector_index": 20,
+      "dataset_index": 1988,
+      "path": "daylight_front_01/4/daylight_front_01_4_000194.png",
+      "batch": "daylight_front_01",
+      "true_label": 4,
+      "expected_model_label": 4,
+      "model_correct": true,
+      "confidence_margin": 11,
+      "scores": [
+        -13,
+        -20,
+        -5,
+        30,
+        19
+      ]
+    },
+    {
+      "vector_index": 21,
+      "dataset_index": 1948,
+      "path": "daylight_front_01/3/daylight_front_01_3_000154.png",
+      "batch": "daylight_front_01",
+      "true_label": 3,
+      "expected_model_label": 3,
+      "model_correct": true,
+      "confidence_margin": 13,
+      "scores": [
+        -19,
+        -2,
+        29,
+        16,
+        9
+      ]
+    },
+    {
+      "vector_index": 22,
+      "dataset_index": 1977,
+      "path": "daylight_front_01/4/daylight_front_01_4_000183.png",
+      "batch": "daylight_front_01",
+      "true_label": 4,
+      "expected_model_label": 4,
+      "model_correct": true,
+      "confidence_margin": 15,
+      "scores": [
+        -11,
+        -10,
+        1,
+        32,
+        17
+      ]
+    },
+    {
+      "vector_index": 23,
+      "dataset_index": 1987,
+      "path": "daylight_front_01/4/daylight_front_01_4_000193.png",
+      "batch": "daylight_front_01",
+      "true_label": 4,
+      "expected_model_label": 4,
+      "model_correct": true,
+      "confidence_margin": 15,
+      "scores": [
+        -11,
+        -10,
+        1,
+        32,
+        17
+      ]
+    },
+    {
+      "vector_index": 24,
+      "dataset_index": 2241,
+      "path": "different_scene_03/1/different_scene_03_1_000132.png",
+      "batch": "different_scene_03",
+      "true_label": 1,
+      "expected_model_label": 1,
+      "model_correct": true,
+      "confidence_margin": 0,
+      "scores": [
+        11,
+        8,
+        11,
+        2,
+        -1
+      ]
+    },
+    {
+      "vector_index": 25,
+      "dataset_index": 2382,
+      "path": "different_scene_03/3/different_scene_03_3_000273.png",
+      "batch": "different_scene_03",
+      "true_label": 3,
+      "expected_model_label": 3,
+      "model_correct": true,
+      "confidence_margin": 5,
+      "scores": [
+        -9,
+        -4,
+        27,
+        22,
+        3
+      ]
+    },
+    {
+      "vector_index": 26,
+      "dataset_index": 2533,
+      "path": "different_scene_03/4/different_scene_03_4_000424.png",
+      "batch": "different_scene_03",
+      "true_label": 4,
+      "expected_model_label": 5,
+      "model_correct": false,
+      "confidence_margin": 1,
+      "scores": [
+        -3,
+        -18,
+        1,
+        24,
+        25
+      ]
+    },
+    {
+      "vector_index": 27,
+      "dataset_index": 2624,
+      "path": "different_scene_03/5/different_scene_03_5_000518.png",
+      "batch": "different_scene_03",
+      "true_label": 5,
+      "expected_model_label": 5,
+      "model_correct": true,
+      "confidence_margin": 13,
+      "scores": [
+        -1,
+        -24,
+        -17,
+        18,
+        31
+      ]
+    },
+    {
+      "vector_index": 28,
+      "dataset_index": 2228,
+      "path": "different_scene_03/1/different_scene_03_1_000119.png",
+      "batch": "different_scene_03",
+      "true_label": 1,
+      "expected_model_label": 2,
+      "model_correct": false,
+      "confidence_margin": 1,
+      "scores": [
+        23,
+        24,
+        -5,
+        -18,
+        -25
+      ]
+    },
+    {
+      "vector_index": 29,
+      "dataset_index": 2232,
+      "path": "different_scene_03/1/different_scene_03_1_000123.png",
+      "batch": "different_scene_03",
+      "true_label": 1,
+      "expected_model_label": 2,
+      "model_correct": false,
+      "confidence_margin": 1,
+      "scores": [
+        23,
+        24,
+        -5,
+        -18,
+        -25
+      ]
+    },
+    {
+      "vector_index": 30,
+      "dataset_index": 2238,
+      "path": "different_scene_03/1/different_scene_03_1_000129.png",
+      "batch": "different_scene_03",
+      "true_label": 1,
+      "expected_model_label": 2,
+      "model_correct": false,
+      "confidence_margin": 1,
+      "scores": [
+        13,
+        14,
+        9,
+        4,
+        -19
+      ]
+    },
+    {
+      "vector_index": 31,
+      "dataset_index": 2266,
+      "path": "different_scene_03/1/different_scene_03_1_000157.png",
+      "batch": "different_scene_03",
+      "true_label": 1,
+      "expected_model_label": 2,
+      "model_correct": false,
+      "confidence_margin": 1,
+      "scores": [
+        21,
+        22,
+        -7,
+        8,
+        -27
+      ]
+    },
+    {
+      "vector_index": 32,
+      "dataset_index": 3044,
+      "path": "distance_angle_05/2/distance_angle_05_2_000413.png",
+      "batch": "distance_angle_05",
+      "true_label": 2,
+      "expected_model_label": 2,
+      "model_correct": true,
+      "confidence_margin": 1,
+      "scores": [
+        19,
+        20,
+        -1,
+        6,
+        -5
+      ]
+    },
+    {
+      "vector_index": 33,
+      "dataset_index": 3152,
+      "path": "distance_angle_05/3/distance_angle_05_3_000521.png",
+      "batch": "distance_angle_05",
+      "true_label": 3,
+      "expected_model_label": 5,
+      "model_correct": false,
+      "confidence_margin": 1,
+      "scores": [
+        -23,
+        -2,
+        17,
+        20,
+        21
+      ]
+    },
+    {
+      "vector_index": 34,
+      "dataset_index": 3548,
+      "path": "distance_angle_05/4/distance_angle_05_4_000917.png",
+      "batch": "distance_angle_05",
+      "true_label": 4,
+      "expected_model_label": 5,
+      "model_correct": false,
+      "confidence_margin": 1,
+      "scores": [
+        -3,
+        -22,
+        -11,
+        24,
+        25
+      ]
+    },
+    {
+      "vector_index": 35,
+      "dataset_index": 3675,
+      "path": "distance_angle_05/5/distance_angle_05_5_001013.png",
+      "batch": "distance_angle_05",
+      "true_label": 5,
+      "expected_model_label": 5,
+      "model_correct": true,
+      "confidence_margin": 1,
+      "scores": [
+        -15,
+        -10,
+        -3,
+        24,
+        25
+      ]
+    },
+    {
+      "vector_index": 36,
+      "dataset_index": 2754,
+      "path": "distance_angle_05/1/distance_angle_05_1_000123.png",
+      "batch": "distance_angle_05",
+      "true_label": 1,
+      "expected_model_label": 2,
+      "model_correct": false,
+      "confidence_margin": 1,
+      "scores": [
+        23,
+        24,
+        -5,
+        -14,
+        -33
+      ]
+    },
+    {
+      "vector_index": 37,
+      "dataset_index": 2847,
+      "path": "distance_angle_05/1/distance_angle_05_1_000216.png",
+      "batch": "distance_angle_05",
+      "true_label": 1,
+      "expected_model_label": 2,
+      "model_correct": false,
+      "confidence_margin": 1,
+      "scores": [
+        21,
+        22,
+        -7,
+        8,
+        -19
+      ]
+    },
+    {
+      "vector_index": 38,
+      "dataset_index": 2900,
+      "path": "distance_angle_05/1/distance_angle_05_1_000269.png",
+      "batch": "distance_angle_05",
+      "true_label": 1,
+      "expected_model_label": 2,
+      "model_correct": false,
+      "confidence_margin": 1,
+      "scores": [
+        23,
+        24,
+        -1,
+        -14,
+        -17
+      ]
+    },
+    {
+      "vector_index": 39,
+      "dataset_index": 3169,
+      "path": "distance_angle_05/3/distance_angle_05_3_000538.png",
+      "batch": "distance_angle_05",
+      "true_label": 3,
+      "expected_model_label": 3,
+      "model_correct": true,
+      "confidence_margin": 1,
+      "scores": [
+        -11,
+        -6,
+        25,
+        24,
+        1
+      ]
+    },
+    {
+      "vector_index": 40,
+      "dataset_index": 4264,
+      "path": "normal_light_04/3/normal_light_04_3_000511.png",
+      "batch": "normal_light_04",
+      "true_label": 3,
+      "expected_model_label": 3,
+      "model_correct": true,
+      "confidence_margin": 0,
+      "scores": [
+        -13,
+        -4,
+        19,
+        -10,
+        19
+      ]
+    },
+    {
+      "vector_index": 41,
+      "dataset_index": 4419,
+      "path": "normal_light_04/4/normal_light_04_4_000666.png",
+      "batch": "normal_light_04",
+      "true_label": 4,
+      "expected_model_label": 4,
+      "model_correct": true,
+      "confidence_margin": 3,
+      "scores": [
+        -13,
+        -8,
+        7,
+        26,
+        23
+      ]
+    },
+    {
+      "vector_index": 42,
+      "dataset_index": 4532,
+      "path": "normal_light_04/5/normal_light_04_5_000779.png",
+      "batch": "normal_light_04",
+      "true_label": 5,
+      "expected_model_label": 5,
+      "model_correct": true,
+      "confidence_margin": 9,
+      "scores": [
+        -1,
+        -20,
+        -17,
+        18,
+        27
+      ]
+    },
+    {
+      "vector_index": 43,
+      "dataset_index": 4254,
+      "path": "normal_light_04/3/normal_light_04_3_000501.png",
+      "batch": "normal_light_04",
+      "true_label": 3,
+      "expected_model_label": 2,
+      "model_correct": false,
+      "confidence_margin": 1,
+      "scores": [
+        -5,
+        24,
+        23,
+        -2,
+        -13
+      ]
+    },
+    {
+      "vector_index": 44,
+      "dataset_index": 4324,
+      "path": "normal_light_04/3/normal_light_04_3_000571.png",
+      "batch": "normal_light_04",
+      "true_label": 3,
+      "expected_model_label": 2,
+      "model_correct": false,
+      "confidence_margin": 1,
+      "scores": [
+        -5,
+        28,
+        27,
+        2,
+        -21
+      ]
+    },
+    {
+      "vector_index": 45,
+      "dataset_index": 3950,
+      "path": "normal_light_04/2/normal_light_04_2_000197.png",
+      "batch": "normal_light_04",
+      "true_label": 2,
+      "expected_model_label": 3,
+      "model_correct": false,
+      "confidence_margin": 3,
+      "scores": [
+        -11,
+        26,
+        29,
+        -4,
+        -7
+      ]
+    },
+    {
+      "vector_index": 46,
+      "dataset_index": 4271,
+      "path": "normal_light_04/3/normal_light_04_3_000518.png",
+      "batch": "normal_light_04",
+      "true_label": 3,
+      "expected_model_label": 3,
+      "model_correct": true,
+      "confidence_margin": 0,
+      "scores": [
+        -13,
+        -4,
+        19,
+        -10,
+        19
+      ]
+    },
+    {
+      "vector_index": 47,
+      "dataset_index": 4322,
+      "path": "normal_light_04/3/normal_light_04_3_000569.png",
+      "batch": "normal_light_04",
+      "true_label": 3,
+      "expected_model_label": 3,
+      "model_correct": true,
+      "confidence_margin": 0,
+      "scores": [
+        -13,
+        -8,
+        19,
+        6,
+        19
+      ]
+    }
+  ]
+}

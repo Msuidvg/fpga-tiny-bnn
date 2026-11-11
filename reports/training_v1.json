@@ -1,0 +1,556 @@
+{
+  "schema_version": 1,
+  "dataset": "data/gesture_v1.npz",
+  "dataset_summary": {
+    "samples": 4579,
+    "batches": [
+      "background_06",
+      "background_07",
+      "daylight_front_01",
+      "different_scene_03",
+      "distance_angle_05",
+      "normal_light_04"
+    ],
+    "counts": {
+      "background_06": {
+        "1": 154,
+        "2": 169,
+        "3": 159,
+        "4": 154,
+        "5": 134
+      },
+      "background_07": {
+        "1": 203,
+        "2": 235,
+        "3": 215,
+        "4": 179,
+        "5": 195
+      },
+      "daylight_front_01": {
+        "1": 41,
+        "2": 79,
+        "3": 52,
+        "4": 67,
+        "5": 74
+      },
+      "different_scene_03": {
+        "1": 182,
+        "2": 77,
+        "3": 89,
+        "4": 114,
+        "5": 105
+      },
+      "distance_angle_05": {
+        "1": 258,
+        "2": 194,
+        "3": 215,
+        "4": 240,
+        "5": 170
+      },
+      "normal_light_04": {
+        "1": 180,
+        "2": 200,
+        "3": 213,
+        "4": 115,
+        "5": 117
+      }
+    },
+    "cross_batch_duplicate_images": 0,
+    "curation_files": [
+      "datasets/gesture_bnn/background_07/curation.json",
+      "datasets/gesture_bnn/daylight_front_01/curation.json",
+      "datasets/gesture_bnn/different_scene_03/curation.json",
+      "datasets/gesture_bnn/distance_angle_05/curation.json"
+    ],
+    "excluded_batches": [
+      "different_light_02"
+    ]
+  },
+  "seed": 20260930,
+  "training": {
+    "epochs": 240,
+    "batch_size": 128,
+    "learning_rate": 0.005,
+    "max_shift": 1,
+    "noise_probability": 0.002,
+    "max_rotation": 0.0,
+    "scale_jitter": 0.0,
+    "morph_probability": 0.0,
+    "background_noise_probability": 0.0,
+    "max_background_blobs": 0,
+    "sampling": "batch-class-balanced",
+    "evaluation_inference": "integer 1-bit deployment model"
+  },
+  "leave_one_batch_out": {
+    "folds": [
+      {
+        "held_out_batch": "background_06",
+        "samples": 770,
+        "accuracy": 0.6558441558441559,
+        "macro_recall": 0.6509004970868368,
+        "per_class_recall": {
+          "1": 0.7662337662337663,
+          "2": 0.7988165680473372,
+          "3": 0.48427672955974843,
+          "4": 0.6753246753246753,
+          "5": 0.5298507462686567
+        },
+        "confusion_matrix": [
+          [
+            118,
+            25,
+            3,
+            4,
+            4
+          ],
+          [
+            19,
+            135,
+            8,
+            7,
+            0
+          ],
+          [
+            11,
+            27,
+            77,
+            44,
+            0
+          ],
+          [
+            2,
+            9,
+            31,
+            104,
+            8
+          ],
+          [
+            2,
+            4,
+            15,
+            42,
+            71
+          ]
+        ],
+        "confusion_labels": [
+          1,
+          2,
+          3,
+          4,
+          5
+        ]
+      },
+      {
+        "held_out_batch": "background_07",
+        "samples": 1027,
+        "accuracy": 0.6134371957156767,
+        "macro_recall": 0.6017309571266688,
+        "per_class_recall": {
+          "1": 0.9655172413793104,
+          "2": 0.7404255319148936,
+          "3": 0.5488372093023256,
+          "4": 0.3128491620111732,
+          "5": 0.441025641025641
+        },
+        "confusion_matrix": [
+          [
+            196,
+            7,
+            0,
+            0,
+            0
+          ],
+          [
+            48,
+            174,
+            7,
+            4,
+            2
+          ],
+          [
+            36,
+            53,
+            118,
+            6,
+            2
+          ],
+          [
+            17,
+            27,
+            71,
+            56,
+            8
+          ],
+          [
+            48,
+            13,
+            36,
+            12,
+            86
+          ]
+        ],
+        "confusion_labels": [
+          1,
+          2,
+          3,
+          4,
+          5
+        ]
+      },
+      {
+        "held_out_batch": "daylight_front_01",
+        "samples": 313,
+        "accuracy": 0.9041533546325878,
+        "macro_recall": 0.9141193089661614,
+        "per_class_recall": {
+          "1": 0.975609756097561,
+          "2": 0.7721518987341772,
+          "3": 0.9230769230769231,
+          "4": 0.9402985074626866,
+          "5": 0.9594594594594594
+        },
+        "confusion_matrix": [
+          [
+            40,
+            0,
+            0,
+            0,
+            1
+          ],
+          [
+            16,
+            61,
+            1,
+            1,
+            0
+          ],
+          [
+            0,
+            1,
+            48,
+            3,
+            0
+          ],
+          [
+            0,
+            1,
+            0,
+            63,
+            3
+          ],
+          [
+            0,
+            0,
+            0,
+            3,
+            71
+          ]
+        ],
+        "confusion_labels": [
+          1,
+          2,
+          3,
+          4,
+          5
+        ]
+      },
+      {
+        "held_out_batch": "different_scene_03",
+        "samples": 567,
+        "accuracy": 0.91005291005291,
+        "macro_recall": 0.9237783623827385,
+        "per_class_recall": {
+          "1": 0.8681318681318682,
+          "2": 0.974025974025974,
+          "3": 0.9887640449438202,
+          "4": 0.8070175438596491,
+          "5": 0.9809523809523809
+        },
+        "confusion_matrix": [
+          [
+            158,
+            10,
+            4,
+            4,
+            6
+          ],
+          [
+            0,
+            75,
+            1,
+            1,
+            0
+          ],
+          [
+            0,
+            0,
+            88,
+            1,
+            0
+          ],
+          [
+            0,
+            4,
+            4,
+            92,
+            14
+          ],
+          [
+            0,
+            0,
+            0,
+            2,
+            103
+          ]
+        ],
+        "confusion_labels": [
+          1,
+          2,
+          3,
+          4,
+          5
+        ]
+      },
+      {
+        "held_out_batch": "distance_angle_05",
+        "samples": 1077,
+        "accuracy": 0.9080779944289693,
+        "macro_recall": 0.9080701247173527,
+        "per_class_recall": {
+          "1": 0.9573643410852714,
+          "2": 0.8298969072164949,
+          "3": 0.8790697674418605,
+          "4": 0.8916666666666667,
+          "5": 0.9823529411764705
+        },
+        "confusion_matrix": [
+          [
+            247,
+            4,
+            3,
+            2,
+            2
+          ],
+          [
+            1,
+            161,
+            19,
+            13,
+            0
+          ],
+          [
+            1,
+            0,
+            189,
+            19,
+            6
+          ],
+          [
+            0,
+            0,
+            13,
+            214,
+            13
+          ],
+          [
+            0,
+            0,
+            1,
+            2,
+            167
+          ]
+        ],
+        "confusion_labels": [
+          1,
+          2,
+          3,
+          4,
+          5
+        ]
+      },
+      {
+        "held_out_batch": "normal_light_04",
+        "samples": 825,
+        "accuracy": 0.8375757575757575,
+        "macro_recall": 0.855199381349412,
+        "per_class_recall": {
+          "1": 0.8666666666666667,
+          "2": 0.745,
+          "3": 0.7934272300469484,
+          "4": 0.9478260869565217,
+          "5": 0.9230769230769231
+        },
+        "confusion_matrix": [
+          [
+            156,
+            8,
+            0,
+            3,
+            13
+          ],
+          [
+            15,
+            149,
+            11,
+            25,
+            0
+          ],
+          [
+            1,
+            8,
+            169,
+            29,
+            6
+          ],
+          [
+            0,
+            0,
+            3,
+            109,
+            3
+          ],
+          [
+            0,
+            0,
+            0,
+            9,
+            108
+          ]
+        ],
+        "confusion_labels": [
+          1,
+          2,
+          3,
+          4,
+          5
+        ]
+      }
+    ],
+    "aggregate": {
+      "samples": 4579,
+      "accuracy": 0.7868530246778772,
+      "macro_recall": 0.7834628136106726,
+      "per_class_recall": {
+        "1": 0.8988212180746562,
+        "2": 0.7914046121593291,
+        "3": 0.7306468716861082,
+        "4": 0.7341772151898734,
+        "5": 0.7622641509433963
+      },
+      "confusion_matrix": [
+        [
+          915,
+          54,
+          10,
+          13,
+          26
+        ],
+        [
+          99,
+          755,
+          47,
+          51,
+          2
+        ],
+        [
+          49,
+          89,
+          689,
+          102,
+          14
+        ],
+        [
+          19,
+          41,
+          122,
+          638,
+          49
+        ],
+        [
+          50,
+          17,
+          52,
+          70,
+          606
+        ]
+      ],
+      "confusion_labels": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ]
+    }
+  },
+  "full_dataset_fit": {
+    "samples": 4579,
+    "accuracy": 0.9609084953046517,
+    "macro_recall": 0.961452954805863,
+    "per_class_recall": {
+      "1": 0.9705304518664047,
+      "2": 0.9685534591194969,
+      "3": 0.9310710498409331,
+      "4": 0.9459148446490219,
+      "5": 0.9911949685534591
+    },
+    "confusion_matrix": [
+      [
+        988,
+        29,
+        0,
+        0,
+        1
+      ],
+      [
+        3,
+        924,
+        23,
+        2,
+        2
+      ],
+      [
+        0,
+        13,
+        878,
+        35,
+        17
+      ],
+      [
+        1,
+        0,
+        6,
+        822,
+        40
+      ],
+      [
+        3,
+        0,
+        0,
+        4,
+        788
+      ]
+    ],
+    "confusion_labels": [
+      1,
+      2,
+      3,
+      4,
+      5
+    ]
+  },
+  "model": {
+    "path": "models/v1/model.npz",
+    "sha256": "12dd5fe1e6ae5402d0b08fe530f0a2937a59587bb6daebd8943f709c1d3c6717",
+    "architecture": [
+      1024,
+      96,
+      48,
+      5
+    ],
+    "binary_weight_bits": 103152,
+    "binary_weight_bytes": 12894,
+    "hidden_activations": "1-bit signed {-1,+1}",
+    "biases": "signed int32 folded comparator/score offsets"
+  }
+}

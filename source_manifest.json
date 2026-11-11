@@ -1,0 +1,296 @@
+{
+  "extracted_on": "2026-11-11",
+  "source": "FPGA gesture recognition competition workspace",
+  "files": [
+    {
+      "file": "rtl/gesture_bnn_core.v",
+      "source": "src/vendor/lab_ex1/hdl_source/gesture/gesture_bnn_core.v",
+      "source_sha256": "681de055f949de55db4fc8a9633520d1f4c30deef11347450464bdc43644ef96"
+    },
+    {
+      "file": "rtl/gesture_bnn_largest_component_bbox.v",
+      "source": "src/vendor/lab_ex1/hdl_source/gesture/gesture_bnn_largest_component_bbox.v",
+      "source_sha256": "e524e7f5a73b4051d37dc3380ca2004f8f66629310845b262544c87b749cdd94"
+    },
+    {
+      "file": "rtl/gesture_bnn_roi_normalizer.v",
+      "source": "src/vendor/lab_ex1/hdl_source/gesture/gesture_bnn_roi_normalizer.v",
+      "source_sha256": "994989a2cfee486d2555608ba615324bf2a57ea7238450122f98c13a7e255bfd"
+    },
+    {
+      "file": "rtl/gesture_bnn_pipeline.v",
+      "source": "src/vendor/lab_ex1/hdl_source/gesture/gesture_bnn_pipeline.v",
+      "source_sha256": "8f1ef51d3232ab77f953dbfefb7d0905073d386bcf192ee3c2d46400163706c6"
+    },
+    {
+      "file": "sim/tb_gesture_bnn_core.v",
+      "source": "src/vendor/lab_ex1/hdl_source/gesture/sim/tb_gesture_bnn_core.v",
+      "source_sha256": "0e768951c6a2e3602707254e998806290c4784017cf93dd16f949014f96b0f75"
+    },
+    {
+      "file": "sim/tb_gesture_bnn_largest_component_parity.v",
+      "source": "src/vendor/lab_ex1/hdl_source/gesture/sim/tb_gesture_bnn_largest_component_parity.v",
+      "source_sha256": "c6e9fdcc6dbd3b060874093767c0e488715a536a6d3b4729bfcd227b07f7d420"
+    },
+    {
+      "file": "sim/tb_gesture_bnn_roi_normalizer.v",
+      "source": "src/vendor/lab_ex1/hdl_source/gesture/sim/tb_gesture_bnn_roi_normalizer.v",
+      "source_sha256": "9845470a3721c84ea2588931ead07f5b89f53a4cf8ad9b26cc6902493fba530c"
+    },
+    {
+      "file": "sim/tb_gesture_bnn_pipeline.v",
+      "source": "src/vendor/lab_ex1/hdl_source/gesture/sim/tb_gesture_bnn_pipeline.v",
+      "source_sha256": "c0d329d419b58c29d2d90d33c61b402dd1ecd933d7c3835a4cf036a7bea71989"
+    },
+    {
+      "file": "tools/bnn/__init__.py",
+      "source": "tools/bnn/__init__.py",
+      "source_sha256": "d22298ba780b38cbb642a3ce796f48205a63721f2db4d12787de50cdfdd8663b"
+    },
+    {
+      "file": "tools/bnn/bitexact.py",
+      "source": "tools/bnn/bitexact.py",
+      "source_sha256": "efeca6e404cd78ae1c1982ec36f003b84d010f8836a90d3fd26209a3f8a16dab"
+    },
+    {
+      "file": "tools/bnn/preprocess.py",
+      "source": "tools/bnn/preprocess.py",
+      "source_sha256": "f94e4326df175296f5b73ccd8729f17ba0cf20a5c9b8f19e675da00b0023ccc6"
+    },
+    {
+      "file": "tools/bnn/fpga_preprocess.py",
+      "source": "tools/bnn/fpga_preprocess.py",
+      "source_sha256": "1cbf20753cb0f71e23b328a026212535dcb17a0c98aed2b21e8f414c4e29d92f"
+    },
+    {
+      "file": "tools/bnn/train_bnn.py",
+      "source": "tools/bnn/train_bnn.py",
+      "source_sha256": "dc993c0c9492e43bdc13b3f345340c13bd2dc856c16884363dd72d7799c825f0"
+    },
+    {
+      "file": "tools/bnn/conv_bnn.py",
+      "source": "tools/bnn/conv_bnn.py",
+      "source_sha256": "2c94956d08c2a96b95c24ddb3bcd76a9f00ef74fbd7ddd80671f3bd1dbe2a01a"
+    },
+    {
+      "file": "tools/bnn/export_bnn_fpga.py",
+      "source": "tools/bnn/export_bnn_fpga.py",
+      "source_sha256": "3b1a1edb048bdbc229d0d4b82349ba5d5b3d8e7e42018251846a37f01f40dcea"
+    },
+    {
+      "file": "tools/bnn/export_bnn_eram32.py",
+      "source": "tools/bnn/export_bnn_eram32.py",
+      "source_sha256": "52671fd0f2fed50cec178e75dd9baa248dd52bda6125e855f6e5a36ccb7ae96f"
+    },
+    {
+      "file": "tools/bnn/verify_bitexact.py",
+      "source": "tools/bnn/verify_bitexact.py",
+      "source_sha256": "559cf491d432383fde9d3206e40629ff6a6e16d09629e14b4596abd8a46aa21e"
+    },
+    {
+      "file": "tools/bnn/generate_rtl_vectors.py",
+      "source": "tools/bnn/generate_rtl_vectors.py",
+      "source_sha256": "37b444ad3b1b51075efdec0fac7e5a1a2cde679deb67e694778bd5d84ba4e059"
+    },
+    {
+      "file": "tools/bnn/tests/__init__.py",
+      "source": "tools/bnn/tests/__init__.py",
+      "source_sha256": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b"
+    },
+    {
+      "file": "tools/bnn/tests/test_bitexact.py",
+      "source": "tools/bnn/tests/test_bitexact.py",
+      "source_sha256": "96b8b65e748b7e90c75ac073b8bdd565a40231006e2f414612d1823a931ae4ea"
+    },
+    {
+      "file": "tools/bnn/tests/test_preprocess.py",
+      "source": "tools/bnn/tests/test_preprocess.py",
+      "source_sha256": "3004ba60ebd62d750c344aa10c80c4a9cd52cc77868789817f9a3d8474b1f342"
+    },
+    {
+      "file": "tools/bnn/tests/test_fpga_preprocess.py",
+      "source": "tools/bnn/tests/test_fpga_preprocess.py",
+      "source_sha256": "c1b135f8a08a9242e58fd8ee1b40f78bc1e3bdca16c2d5b803bf07975f0e20ea"
+    },
+    {
+      "file": "tools/bnn/tests/test_export_bnn_eram32.py",
+      "source": "tools/bnn/tests/test_export_bnn_eram32.py",
+      "source_sha256": "378f4902d944394b7c9ceea69577d888f20520e162eafabbad6e14e363857630"
+    },
+    {
+      "file": "tools/bnn/tests/test_train_bnn.py",
+      "source": "tools/bnn/tests/test_train_bnn.py",
+      "source_sha256": "dfccdb121e7da0224ca398bbffef3b692015d2bfeb8fbf7dc8a7d8f813516f90"
+    },
+    {
+      "file": "tools/bnn/tests/test_s5_sync_header.py",
+      "source": "tools/bnn/tests/test_s5_sync_header.py",
+      "source_sha256": "d5353029da5ecf307f232e45c093158c03ecbca854797b18917c40c474514be0"
+    },
+    {
+      "file": "models/v1/model.npz",
+      "source": "datasets/releases/gesture_tiny_bnn_v1_20261002/gesture_tiny_bnn_v1.npz",
+      "source_sha256": "12dd5fe1e6ae5402d0b08fe530f0a2937a59587bb6daebd8943f709c1d3c6717"
+    },
+    {
+      "file": "reports/training_v1.json",
+      "source": "datasets/releases/gesture_tiny_bnn_v1_20261002/gesture_tiny_bnn_v1_report.json",
+      "source_sha256": "eec6da6002aa6a8846294236da6c78a23be3a82dd51307e09d125b188ae59897"
+    },
+    {
+      "file": "models/v1/fpga/bnn_b3.mem",
+      "source": "datasets/releases/gesture_tiny_bnn_v1_20261002/fpga/bnn_b3.mem",
+      "source_sha256": "7b6a3322b15c30b243599fc759e646471d30026cef84fb9a711cf6b3f8c53e08"
+    },
+    {
+      "file": "models/v1/fpga/bnn_t1.mem",
+      "source": "datasets/releases/gesture_tiny_bnn_v1_20261002/fpga/bnn_t1.mem",
+      "source_sha256": "b6b3b29f00d1fa9401eafeb8279c31f6d41f04cb2c400fe114f7b57b9db74160"
+    },
+    {
+      "file": "models/v1/fpga/bnn_t2.mem",
+      "source": "datasets/releases/gesture_tiny_bnn_v1_20261002/fpga/bnn_t2.mem",
+      "source_sha256": "d22e71fcd8e43213bfdd9c6d8f73a280dc8eeb2662f69d2a48bd3246376bca79"
+    },
+    {
+      "file": "models/v1/fpga/bnn_w1.mem",
+      "source": "datasets/releases/gesture_tiny_bnn_v1_20261002/fpga/bnn_w1.mem",
+      "source_sha256": "69d38bd153c7806d95990df86f41cb6ee7bb295ec67dd016edd0596a6e41fc94"
+    },
+    {
+      "file": "models/v1/fpga/bnn_w1_32.mem",
+      "source": "datasets/releases/gesture_tiny_bnn_v1_20261002/fpga/bnn_w1_32.mem",
+      "source_sha256": "c3ea66d5fbdb9e79f8704f036ff5224f52a9eca136527d4e3cb97ad581a9a9c6"
+    },
+    {
+      "file": "models/v1/fpga/bnn_w2.mem",
+      "source": "datasets/releases/gesture_tiny_bnn_v1_20261002/fpga/bnn_w2.mem",
+      "source_sha256": "a24ab27b033e1f54c33d0e0ae852570c5d3702a9dac1a307e82d62dc965ee266"
+    },
+    {
+      "file": "models/v1/fpga/bnn_w2_32.mem",
+      "source": "datasets/releases/gesture_tiny_bnn_v1_20261002/fpga/bnn_w2_32.mem",
+      "source_sha256": "d23a4b3f632b2da333b800f228228f61266edccd6fb7fa1dfab01de01dc8834c"
+    },
+    {
+      "file": "models/v1/fpga/bnn_w3.mem",
+      "source": "datasets/releases/gesture_tiny_bnn_v1_20261002/fpga/bnn_w3.mem",
+      "source_sha256": "6b3a7d88fae971e7c92b06646f3cd3e2688a482e6dca790b206fa623a0f1c7d0"
+    },
+    {
+      "file": "models/v1/fpga/bnn_w3_32.mem",
+      "source": "datasets/releases/gesture_tiny_bnn_v1_20261002/fpga/bnn_w3_32.mem",
+      "source_sha256": "0f441ef8172a6489ce9f7a2eea96fa7c532400134495be3be6c2f030a2f3eb28"
+    },
+    {
+      "file": "testvectors/core/bnn_test_vectors.vh",
+      "source": "datasets/releases/gesture_tiny_bnn_v1_20261002/fpga/testvectors/bnn_test_vectors.vh",
+      "source_sha256": "c1d83c20e89c2b50c7b1bfcd50146c0d872073f95b1b8d9025ee54d13f353f3c"
+    },
+    {
+      "file": "testvectors/core/expected_confidence.mem",
+      "source": "datasets/releases/gesture_tiny_bnn_v1_20261002/fpga/testvectors/expected_confidence.mem",
+      "source_sha256": "90bd04edb6442fb7b69d37d2b7effd437c077e10c22e2b749892446ca2fc7198"
+    },
+    {
+      "file": "testvectors/core/expected_h1.mem",
+      "source": "datasets/releases/gesture_tiny_bnn_v1_20261002/fpga/testvectors/expected_h1.mem",
+      "source_sha256": "5e22de8176ce800b56a9e70e309f325940ef10517c1ab5b3c8c23de61971f079"
+    },
+    {
+      "file": "testvectors/core/expected_h2.mem",
+      "source": "datasets/releases/gesture_tiny_bnn_v1_20261002/fpga/testvectors/expected_h2.mem",
+      "source_sha256": "3ba97f1a2b24eaf2d3f1b8198dafb45ecabd091a9fcc1a700d961fedf5522bfd"
+    },
+    {
+      "file": "testvectors/core/expected_l1_popcounts.mem",
+      "source": "datasets/releases/gesture_tiny_bnn_v1_20261002/fpga/testvectors/expected_l1_popcounts.mem",
+      "source_sha256": "a11e5fdd9863e5c01558dc11de3021ca4f40bc4c9e078dc7239e7419cd5cf4b7"
+    },
+    {
+      "file": "testvectors/core/expected_l2_popcounts.mem",
+      "source": "datasets/releases/gesture_tiny_bnn_v1_20261002/fpga/testvectors/expected_l2_popcounts.mem",
+      "source_sha256": "ad91c63d8b74dbd4a776eaf0b500a51b766c5c14df286543d04e827d78e76aac"
+    },
+    {
+      "file": "testvectors/core/expected_l3_popcounts.mem",
+      "source": "datasets/releases/gesture_tiny_bnn_v1_20261002/fpga/testvectors/expected_l3_popcounts.mem",
+      "source_sha256": "9fd3feb5c950ef36657e453bb8f8789b9ffd0badf84173faa8148d6f77ec9cc0"
+    },
+    {
+      "file": "testvectors/core/expected_labels.mem",
+      "source": "datasets/releases/gesture_tiny_bnn_v1_20261002/fpga/testvectors/expected_labels.mem",
+      "source_sha256": "601e82da084e286f3488527c6acdde7779c321cf9940bd3a0e85e43af4c297bd"
+    },
+    {
+      "file": "testvectors/core/expected_scores.mem",
+      "source": "datasets/releases/gesture_tiny_bnn_v1_20261002/fpga/testvectors/expected_scores.mem",
+      "source_sha256": "7f4b627d3cca0cc03f231758b03c552145ab3ceb146b7313b195d598894e0be8"
+    },
+    {
+      "file": "testvectors/core/inputs.mem",
+      "source": "datasets/releases/gesture_tiny_bnn_v1_20261002/fpga/testvectors/inputs.mem",
+      "source_sha256": "7d97d545be4598249d4f2be830a90870706566648b3636c5205553964508bc22"
+    },
+    {
+      "file": "testvectors/core/vectors.json",
+      "source": "datasets/releases/gesture_tiny_bnn_v1_20261002/fpga/testvectors/vectors.json",
+      "source_sha256": "0b33f8e99f4e5b65659f3e2d9e36d2456f733932d436f267969776db7f2e218d"
+    },
+    {
+      "file": "testvectors/pipeline/areas.mem",
+      "source": "datasets/bnn_parity/s5_parity_01/rtl_vectors/areas.mem",
+      "source_sha256": "eafa1cd29b7d55fa341bd24842c166c89f678f257d532f9b52a3e21c8ceaae21"
+    },
+    {
+      "file": "testvectors/pipeline/bboxes.mem",
+      "source": "datasets/bnn_parity/s5_parity_01/rtl_vectors/bboxes.mem",
+      "source_sha256": "2aeec8e18919cce68b1c7311cb11b2f8bcd734b55f78c1d3ba6b0edc9586ae27"
+    },
+    {
+      "file": "testvectors/pipeline/bnn_roi_test_vectors.vh",
+      "source": "datasets/bnn_parity/s5_parity_01/rtl_vectors/bnn_roi_test_vectors.vh",
+      "source_sha256": "e159884e44a9d15b9545605f0a82be9d09c17597e7991db9012efd26ca09a23d"
+    },
+    {
+      "file": "testvectors/pipeline/expected_confidence.mem",
+      "source": "datasets/bnn_parity/s5_parity_01/rtl_vectors/expected_confidence.mem",
+      "source_sha256": "d33f47bd521e0d314a231e17091093320b0021e009f32ade450a240ebac60929"
+    },
+    {
+      "file": "testvectors/pipeline/expected_gestures.mem",
+      "source": "datasets/bnn_parity/s5_parity_01/rtl_vectors/expected_gestures.mem",
+      "source_sha256": "3c0e05169569e2a9eaf6856bd4eb4fa5fc64c5fb500dcd1f46337e9906e70da1"
+    },
+    {
+      "file": "testvectors/pipeline/expected_normalized.mem",
+      "source": "datasets/bnn_parity/s5_parity_01/rtl_vectors/expected_normalized.mem",
+      "source_sha256": "5a1a4f7ab7f3f8f71aa2bd7733f2632fc8bf3e119d7b85b5fdac3324b10059d4"
+    },
+    {
+      "file": "testvectors/pipeline/expected_scores.mem",
+      "source": "datasets/bnn_parity/s5_parity_01/rtl_vectors/expected_scores.mem",
+      "source_sha256": "3e97feb047236f63ccc8b3ec5c0c115fac4e8c8560f71ca86c0775188058f03e"
+    },
+    {
+      "file": "testvectors/pipeline/raw_masks.mem",
+      "source": "datasets/bnn_parity/s5_parity_01/rtl_vectors/raw_masks.mem",
+      "source_sha256": "eb70435d9f544a6e495a9e37bb482821af93a5870c8fd9a43a0aab6bb81ea794"
+    },
+    {
+      "file": "testvectors/pipeline/vectors.json",
+      "source": "datasets/bnn_parity/s5_parity_01/rtl_vectors/vectors.json",
+      "source_sha256": "30f9bd64100f66ced8f27d925adee06a82af0a733e16931832b227a97d3759da"
+    },
+    {
+      "file": "reports/historical_pipeline_parity.json",
+      "source": "datasets/bnn_parity/s5_parity_01/rtl_pipeline_report.json",
+      "source_sha256": "cd5b0193781d314da738feb97a2b577a11f73b25186629901e1ad441fc681503"
+    },
+    {
+      "file": "reports/historical_core_cosim.json",
+      "source": "datasets/releases/gesture_tiny_bnn_v1_20261002/rtl_cosim_report.json",
+      "source_sha256": "b8f746dfa7a09ee52f998b88ff3482014a10f029519ef27b56bcab1dab07e5af"
+    }
+  ]
+}

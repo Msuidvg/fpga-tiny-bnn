@@ -1,0 +1,43 @@
+{
+  "schema_version": 1,
+  "passed": true,
+  "rtl_core": "rtl/gesture_bnn_core.v",
+  "testbench": "sim/tb_gesture_bnn_core.v",
+  "vectors": {
+    "total": 48,
+    "per_batch": 8,
+    "batches": 6,
+    "model_correct": 28,
+    "model_incorrect_hard_cases": 20,
+    "includes_true_labels": [
+      1,
+      2,
+      3,
+      4,
+      5
+    ]
+  },
+  "comparisons_per_vector": {
+    "layer1_popcounts": 96,
+    "layer1_activation_bits": 96,
+    "layer2_popcounts": 48,
+    "layer2_activation_bits": 48,
+    "layer3_popcounts": 5,
+    "class_scores": 5,
+    "gesture_id": 1,
+    "confidence": 1
+  },
+  "mismatches": 0,
+  "latency_clocks": 103153,
+  "main_video_pipeline_modified": false,
+  "sha256": {
+    "gesture_bnn_core.v": "9f5bcfb958613b19765428231d153beb4c4d3239c1378f291f4d0ff421bd1a80",
+    "tb_gesture_bnn_core.v": "92cba042b4e3f5c417551dc42e3d3ed463fa2ab6fb66cb6d6da043ae55ee3002",
+    "testvectors/vectors.json": "0b33f8e99f4e5b65659f3e2d9e36d2456f733932d436f267969776db7f2e218d"
+  },
+  "integration_gate": {
+    "ready_for_core_integration": true,
+    "ready_for_s5_preprocess_integration": false,
+    "reason": "The training set retains only normalized 32x32 PNGs, not the original 256x144 S5 masks. Existing RTL derives its bbox from the opened mask with a 24-pixel minimum, while training derives an OpenCV 8-connected bbox from the S5 majority mask with an 80-pixel minimum. Connecting these paths without a parity capture would violate the input-distribution contract."
+  }
+}

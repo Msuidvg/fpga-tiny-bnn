@@ -1,0 +1,160 @@
+{
+  "schema_version": 1,
+  "verified_at": "2026-10-04",
+  "parity_batch": "datasets/bnn_parity/s5_parity_01",
+  "model": "models/v1/model.npz",
+  "samples": 204,
+  "sample_counts_by_label": {
+    "1": 36,
+    "2": 42,
+    "3": 34,
+    "4": 52,
+    "5": 40
+  },
+  "capture_integrity": {
+    "raw_s5_hash_mismatches": 0,
+    "python32_hash_mismatches": 0,
+    "shape_mismatches": 0,
+    "python_bbox_mismatches_on_recompute": 0,
+    "python_component_area_mismatches_on_recompute": 0,
+    "python_normalization_pixel_mismatches_on_recompute": 0
+  },
+  "coverage": {
+    "bbox_x_range": [
+      11,
+      171
+    ],
+    "bbox_y_range": [
+      3,
+      116
+    ],
+    "bbox_width_range": [
+      15,
+      135
+    ],
+    "bbox_height_range": [
+      28,
+      141
+    ],
+    "component_area_range": [
+      214,
+      4373
+    ],
+    "margin_clipped_samples": 116,
+    "bankers_rounding_tie_samples": 33,
+    "portrait_samples": 187,
+    "landscape_samples": 16,
+    "square_samples": 1
+  },
+  "rtl_results": {
+    "largest_component": {
+      "samples_checked": 204,
+      "label_slots": 31,
+      "label_overflows": 0,
+      "bbox_mismatches": 0,
+      "component_area_mismatches": 0
+    },
+    "roi_normalizer": {
+      "samples_checked": 204,
+      "normalized_pixel_mismatches": 0,
+      "standalone_latency_clocks": 1025
+    },
+    "end_to_end_pipeline": {
+      "samples_checked": 204,
+      "normalized_mask_mismatches": 0,
+      "class_score_mismatches": 0,
+      "gesture_mismatches_against_python": 0,
+      "confidence_mismatches": 0,
+      "normalizer_wait_after_testbench_send": [
+        1015,
+        1018
+      ],
+      "bnn_wait_after_normalized_valid": 103154
+    }
+  },
+  "model_quality_on_parity_batch": {
+    "correct": 97,
+    "accuracy": 0.47549019607843135,
+    "confusion_matrix_rows_true_columns_predicted_1_to_5": [
+      [
+        20,
+        2,
+        2,
+        5,
+        7
+      ],
+      [
+        21,
+        12,
+        5,
+        4,
+        0
+      ],
+      [
+        3,
+        6,
+        12,
+        3,
+        10
+      ],
+      [
+        6,
+        0,
+        5,
+        26,
+        15
+      ],
+      [
+        2,
+        2,
+        2,
+        7,
+        27
+      ]
+    ],
+    "interpretation": "The RTL is bit-exact with Python, but V1 generalization to this newly captured environment is not yet deployment-ready."
+  },
+  "domain_drift_diagnosis": {
+    "audit_image": "reports/BNN对拍批01模型审计.png",
+    "mean_white_pixels_32x32": {
+      "six_training_batches": 239.1813,
+      "parity_batch": 194.3578
+    },
+    "parity_white_pixel_change_by_label_vs_training": {
+      "1": 0.062,
+      "2": -0.182,
+      "3": -0.324,
+      "4": -0.232,
+      "5": -0.258
+    },
+    "simple_postprocess_checks": {
+      "identity": {
+        "training_fit": 0.9609,
+        "parity_accuracy": 0.4755
+      },
+      "drop_components_smaller_than_2_pixels": {
+        "training_fit": 0.9596,
+        "parity_accuracy": 0.4755
+      },
+      "keep_only_largest_32x32_component": {
+        "training_fit": 0.9393,
+        "parity_accuracy": 0.3039
+      },
+      "morphological_close_3x3": {
+        "training_fit": 0.8794,
+        "parity_accuracy": 0.549
+      }
+    },
+    "conclusion": "The parity masks for gestures 2-5 are materially thinner. No tested fixed postprocess improves the new batch without a substantial regression on the six training batches; do not patch V1 preprocessing in place."
+  },
+  "scope": {
+    "gesture_top_modified": false,
+    "hdmi_or_ddr_path_modified": false,
+    "bitstream_generated": false
+  },
+  "dataset_status": {
+    "representative_of_expected_s5_operation": false,
+    "training_enabled": false,
+    "reason": "A later independent S5 batch produced clear solid masks and 98.02% V1 accuracy; the fragmented parity capture is retained to prove RTL bit-exactness but is not treated as the normal deployment distribution."
+  }
+}

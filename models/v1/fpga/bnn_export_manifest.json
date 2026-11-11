@@ -1,0 +1,86 @@
+{
+  "schema_version": 1,
+  "source_model": {
+    "path": "models/v1/model.npz",
+    "sha256": "12dd5fe1e6ae5402d0b08fe530f0a2937a59587bb6daebd8943f709c1d3c6717"
+  },
+  "architecture": [
+    1024,
+    96,
+    48,
+    5
+  ],
+  "class_labels": [
+    1,
+    2,
+    3,
+    4,
+    5
+  ],
+  "encoding": {
+    "activation_and_weight": "0 => -1, 1 => +1",
+    "weight_row_order": "one output neuron per line",
+    "weight_bit_order": "Verilog word bit i corresponds to input feature i",
+    "hex_text_order": "most-significant hexadecimal digit first",
+    "hidden_rule": "output_bit = (XNOR_popcount >= threshold)",
+    "output_score": "2 * XNOR_popcount - 48 + signed_b3",
+    "argmax_tie_break": "lowest class index wins"
+  },
+  "widths": {
+    "layer1_popcount_bits": 11,
+    "layer1_signed_accumulator_bits": 12,
+    "layer2_popcount_bits": 7,
+    "layer2_signed_accumulator_bits": 8,
+    "layer3_popcount_bits": 6,
+    "layer3_signed_score_bits": 7,
+    "exported_b3_bits": 32
+  },
+  "thresholds": {
+    "layer1_min": 508,
+    "layer1_max": 516,
+    "layer2_min": 48,
+    "layer2_max": 49,
+    "output_bias": [
+      3,
+      0,
+      -1,
+      0,
+      -1
+    ]
+  },
+  "round_trip_verified": true,
+  "files": {
+    "bnn_w1.mem": {
+      "bytes": 24768,
+      "sha256": "69d38bd153c7806d95990df86f41cb6ee7bb295ec67dd016edd0596a6e41fc94"
+    },
+    "bnn_w2.mem": {
+      "bytes": 1248,
+      "sha256": "a24ab27b033e1f54c33d0e0ae852570c5d3702a9dac1a307e82d62dc965ee266"
+    },
+    "bnn_w3.mem": {
+      "bytes": 70,
+      "sha256": "6b3a7d88fae971e7c92b06646f3cd3e2688a482e6dca790b206fa623a0f1c7d0"
+    },
+    "bnn_t1.mem": {
+      "bytes": 480,
+      "sha256": "b6b3b29f00d1fa9401eafeb8279c31f6d41f04cb2c400fe114f7b57b9db74160"
+    },
+    "bnn_t2.mem": {
+      "bytes": 192,
+      "sha256": "d22e71fcd8e43213bfdd9c6d8f73a280dc8eeb2662f69d2a48bd3246376bca79"
+    },
+    "bnn_b3.mem": {
+      "bytes": 50,
+      "sha256": "7b6a3322b15c30b243599fc759e646471d30026cef84fb9a711cf6b3f8c53e08"
+    },
+    "bnn_params.vh": {
+      "bytes": 433,
+      "sha256": "1f5f2106d6707938762bbbefb3ec77b2ab514eb9cf0765ac2e628007a693a3ed"
+    },
+    "README.md": {
+      "bytes": 989,
+      "sha256": "04a354d96b06a6471c85bdd57f159295895507e869c00f18bcb848041f77b9d1"
+    }
+  }
+}

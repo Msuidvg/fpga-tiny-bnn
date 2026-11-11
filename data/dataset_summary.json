@@ -1,0 +1,64 @@
+{
+  "samples": 4567,
+  "batches": [
+    "background_06",
+    "background_07",
+    "daylight_front_01",
+    "different_scene_03",
+    "distance_angle_05",
+    "normal_light_04"
+  ],
+  "counts": {
+    "background_06": {
+      "1": 149,
+      "2": 169,
+      "3": 159,
+      "4": 154,
+      "5": 134
+    },
+    "background_07": {
+      "1": 203,
+      "2": 229,
+      "3": 215,
+      "4": 179,
+      "5": 195
+    },
+    "daylight_front_01": {
+      "1": 40,
+      "2": 79,
+      "3": 52,
+      "4": 67,
+      "5": 74
+    },
+    "different_scene_03": {
+      "1": 182,
+      "2": 77,
+      "3": 89,
+      "4": 114,
+      "5": 105
+    },
+    "distance_angle_05": {
+      "1": 258,
+      "2": 194,
+      "3": 215,
+      "4": 240,
+      "5": 170
+    },
+    "normal_light_04": {
+      "1": 180,
+      "2": 200,
+      "3": 213,
+      "4": 115,
+      "5": 117
+    }
+  },
+  "cross_batch_duplicate_images": 0,
+  "curation_files": [
+    "Original exclusion/relabel rules were applied before archive creation."
+  ],
+  "excluded_batches": [
+    "different_light_02",
+    "parity_s5_08",
+    "thin_mask_validation_09"
+  ]
+}
