@@ -1,0 +1,152 @@
+{
+  "method": "Frozen V1 software replay from normalized 32x32 masks",
+  "model_sha256": "12dd5fe1e6ae5402d0b08fe530f0a2937a59587bb6daebd8943f709c1d3c6717",
+  "labels": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5
+  ],
+  "zero_label": "No hand (true label) or no component (prediction)",
+  "batches": {
+    "thin_mask_validation_09": {
+      "confusion": [
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          126,
+          1,
+          0,
+          0,
+          1
+        ],
+        [
+          0,
+          0,
+          128,
+          2,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          4,
+          174,
+          5,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          148,
+          1
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          118
+        ]
+      ],
+      "hand_samples": 708,
+      "correct_hand_predictions": 694,
+      "hand_accuracy": 0.980225988700565,
+      "hand_no_component": 0,
+      "recall": {
+        "1": 0.984375,
+        "2": 0.9846153846153847,
+        "3": 0.9508196721311475,
+        "4": 0.9932885906040269,
+        "5": 1.0
+      },
+      "no_hand_samples": 0,
+      "no_hand_false_positives": 0,
+      "no_hand_false_positive_rate": null,
+      "manifest_sha256": "e25e14294720f839f476518c872533144d2c433f632eac05bd32edd42f3d0161",
+      "curation_sha256": "c9c80782f56e07dbd115ffee48cb2d48da25c0cc7c828d45c6234c3f4c24a80e",
+      "input_samples": 727,
+      "excluded_by_curation": 19,
+      "excluded_exact_training_mask_overlap": 0
+    }
+  },
+  "total": {
+    "confusion": [
+      [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        126,
+        1,
+        0,
+        0,
+        1
+      ],
+      [
+        0,
+        0,
+        128,
+        2,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        4,
+        174,
+        5,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        0,
+        148,
+        1
+      ],
+      [
+        0,
+        0,
+        0,
+        0,
+        0,
+        118
+      ]
+    ],
+    "hand_samples": 708,
+    "correct_hand_predictions": 694,
+    "hand_accuracy": 0.980225988700565,
+    "hand_no_component": 0,
+    "recall": {
+      "1": 0.984375,
+      "2": 0.9846153846153847,
+      "3": 0.9508196721311475,
+      "4": 0.9932885906040269,
+      "5": 1.0
+    },
+    "no_hand_samples": 0,
+    "no_hand_false_positives": 0,
+    "no_hand_false_positive_rate": null
+  }
+}

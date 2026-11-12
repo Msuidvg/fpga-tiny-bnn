@@ -1,0 +1,41 @@
+name: PH1P35 UART replay simulation
+on:
+  push:
+    paths:
+      - 'examples/ph1p35/**'
+      - 'rtl/**'
+      - 'models/v1/fpga/**'
+      - 'testvectors/pipeline/**'
+      - '.github/workflows/replay.yml'
+  pull_request:
+    paths:
+      - 'examples/ph1p35/**'
+      - 'rtl/**'
+      - 'models/v1/fpga/**'
+      - 'testvectors/pipeline/**'
+      - '.github/workflows/replay.yml'
+  workflow_dispatch:
+
+jobs:
+  replay:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    strategy:
+      fail-fast: false
+      matrix:
+        mode: [core, pipeline]
+    env:
+      REPLAY_MODE: ${{ matrix.mode }}
+    steps:
+      - uses: actions/checkout@v4
+      - run: sudo apt-get update && sudo apt-get install -y iverilog
+      - shell: bash
+        run: |
+          python3 examples/ph1p35/replay.py --mode "$REPLAY_MODE" --output build/replay
+          cp models/v1/fpga/*.mem build/replay/
+          cd build/replay
+          top=tb_replay
+          if [ "$REPLAY_MODE" = core ]; then top=tb_replay_core; fi
+          iverilog -g2012 -s "$top" -o replay.vvp ../../rtl/*.v ../../examples/ph1p35/replay_top.v ../../examples/ph1p35/tb_replay.v
+          vvp replay.vvp | tee simulation.log
+          grep 'PASS tb_replay' simulation.log

@@ -24,8 +24,11 @@
 
 ```sh
 python -m pip install -r requirements.txt
+python -m tools.bnn.demo --vector 0 --preview build/demo.png
 python scripts/run_checks.py
 ```
+
+单图命令输出包围框、类别、五类整数分数和分数差，并保存带 32×32 ROI 的预览。也可以用 `--mask hand.png` 输入自己的 `256×144` 单通道二值掩膜，前景为白色。样本 0 的类别为 `1`，分数为 `[23, -16, -1, 2, 3]`。
 
 完整 RTL 对拍另需 PATH 中有 `iverilog` 和 `vvp`：
 
@@ -34,6 +37,10 @@ python scripts/run_checks.py --rtl
 ```
 
 日志和新结果写入 `build/`。GitHub Actions 在 Ubuntu 上运行相同命令，覆盖 48 组核心向量与 204 组 CCL、归一化及完整管线向量。无需开发板和厂商工具即可运行仿真。
+
+## PH1P35 上板示例
+
+示例在 PH1P35MDG324 上以 50 MHz 构建，分别提供分类核回放和 `256×144` 掩膜完整管线回放。按 K3 复位后，FPGA 从 ROM 循环读取三个固定样本，经 UART 输出类别、五类分数和周期计数。两个构建已通过布线后静态时序检查，UART 数据包已通过 RTL 仿真。物理板卡验收待执行。 [接线、构建和性能表](examples/ph1p35/README.md) · [v0.2.0 位流与源码包](https://github.com/Msuidvg/fpga-tiny-bnn/releases/tag/v0.2.0)
 
 ## 实现要点
 
@@ -55,7 +62,7 @@ python scripts/run_checks.py --rtl
 | 完整管线历史对拍 | 204/204，比较归一化图像、分数、类别与置信差 |
 | V1 核延迟 | 103153 个时钟；75 MHz 下理论约 1.38 ms，仅指分类核 |
 
-软件与 RTL 一致性不代表识别准确率为 100%。78.69% 和 96.09% 均对应历史 4579 张数据，不作为随附清洗集的新评估结果。V1 保留原冻结权重，清洗集用于重训与当前算术复核；其重新训练结果应另行报告。204 组 parity 数据属于碎裂轮廓诊断域，历史真实标签正确率为 47.55%，未用于训练。困难背景仍是模型短板。本仓库不提供独立核布局布线结果，不将整片系统资源或时序作为该核指标。
+78.69% 和 96.09% 均对应历史 4579 张数据。V1 保留原冻结权重，清洗集用于重训和整数对拍。204 组 parity 数据来自碎裂轮廓诊断采集，该批模型准确率为 47.55%。另复算了 708 张独立归一化掩膜及 606 张单类诊断掩膜。 [留出评估及采集范围](docs/EVALUATION.md)
 
 冻结模型 SHA-256：`12dd5fe1e6ae5402d0b08fe530f0a2937a59587bb6daebd8943f709c1d3c6717`。
 
@@ -86,6 +93,7 @@ python -m tools.bnn.export_bnn_eram32 --help
 | `models/v1/` | 冻结模型及 FPGA 内存文件 |
 | `data/` | 清洗后的二值数据与批次统计 |
 | `testvectors/` | 核心及完整管线对拍输入和期望值 |
+| `examples/ph1p35/` | TD 构建、UART 回放 RTL、约束及实板验收命令 |
 | `docs/` | [接口](docs/INTERFACES.md)、[验证](docs/VERIFICATION.md)、[来源](docs/PROVENANCE.md) |
 
 代码、随附模型与二值数据按 [MIT](LICENSE) 许可提供。NumPy、OpenCV、Icarus Verilog 为独立依赖，遵循各自许可证；仓库未包含厂商专有 IP。

@@ -1,0 +1,223 @@
+{
+  "method": "Frozen V1 software replay from binary 256x144 masks",
+  "model_sha256": "12dd5fe1e6ae5402d0b08fe530f0a2937a59587bb6daebd8943f709c1d3c6717",
+  "labels": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5
+  ],
+  "zero_label": "No hand (true label) or no component (prediction)",
+  "batches": {
+    "v3_aligned_01": {
+      "confusion": [
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          216,
+          56,
+          15,
+          1,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      ],
+      "hand_samples": 288,
+      "correct_hand_predictions": 216,
+      "hand_accuracy": 0.75,
+      "hand_no_component": 0,
+      "recall": {
+        "1": 0.75,
+        "2": null,
+        "3": null,
+        "4": null,
+        "5": null
+      },
+      "no_hand_samples": 0,
+      "no_hand_false_positives": 0,
+      "no_hand_false_positive_rate": null,
+      "manifest_sha256": "cd03d094ce4b21215f287d4eec7dceb2b74c5fae5557ab60c2ba9f858d617b6c",
+      "curation_sha256": null,
+      "input_samples": 288,
+      "excluded_by_curation": 0,
+      "excluded_exact_training_mask_overlap": 0
+    },
+    "v3_aligned_02": {
+      "confusion": [
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          275,
+          40,
+          1,
+          1,
+          1
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      ],
+      "hand_samples": 318,
+      "correct_hand_predictions": 275,
+      "hand_accuracy": 0.8647798742138365,
+      "hand_no_component": 0,
+      "recall": {
+        "1": 0.8647798742138365,
+        "2": null,
+        "3": null,
+        "4": null,
+        "5": null
+      },
+      "no_hand_samples": 0,
+      "no_hand_false_positives": 0,
+      "no_hand_false_positive_rate": null,
+      "manifest_sha256": "c9ea8487b02323133321208d2b09ce1696809391716ff278e42526b7913a0dd2",
+      "curation_sha256": null,
+      "input_samples": 318,
+      "excluded_by_curation": 0,
+      "excluded_exact_training_mask_overlap": 0
+    }
+  },
+  "total": {
+    "confusion": [
+      [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        491,
+        96,
+        16,
+        2,
+        1
+      ],
+      [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    ],
+    "hand_samples": 606,
+    "correct_hand_predictions": 491,
+    "hand_accuracy": 0.8102310231023102,
+    "hand_no_component": 0,
+    "recall": {
+      "1": 0.8102310231023102,
+      "2": null,
+      "3": null,
+      "4": null,
+      "5": null
+    },
+    "no_hand_samples": 0,
+    "no_hand_false_positives": 0,
+    "no_hand_false_positive_rate": null
+  }
+}

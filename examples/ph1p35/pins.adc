@@ -1,0 +1,3 @@
+set_pin_assignment { I_sys_clk } { LOCATION = C4; IOSTANDARD = LVCMOS33; PULLTYPE = PULLUP; }
+set_pin_assignment { I_reset_n } { LOCATION = B9; IOSTANDARD = LVCMOS33; PULLTYPE = PULLUP; }
+set_pin_assignment { O_uart_tx } { LOCATION = V4; IOSTANDARD = LVCMOS33; DRIVESTRENGTH = 8; PULLTYPE = PULLUP; }

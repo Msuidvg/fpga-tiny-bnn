@@ -1,0 +1,153 @@
+{
+  "device": "PH1P35MDG324",
+  "speed_grade": "-3",
+  "tool": "Anlogic TD 6.2.168116",
+  "clock_hz": 50000000,
+  "physical_uart_status": "pending_board_access",
+  "modes": {
+    "core": {
+      "routed_top": {
+        "logic_lut": 1104,
+        "ripple": 138,
+        "seq": 1784,
+        "eram20k": 9,
+        "dsp": 1
+      },
+      "routed_inference_instance": {
+        "logic_lut": 769,
+        "ripple": 74,
+        "seq": 370,
+        "eram20k": 8,
+        "dsp": 1
+      },
+      "timing_ns": {
+        "SWNS": 8.392,
+        "STNS": 0.0,
+        "HWNS": 0.059,
+        "HTNS": 0.0
+      },
+      "replay_cycles": 103154,
+      "cases": [
+        {
+          "case": 0,
+          "vector": 0,
+          "label": 1,
+          "class_id": 1,
+          "score_margin": 20,
+          "scores": [
+            23,
+            -16,
+            -1,
+            2,
+            3
+          ],
+          "cycles": 103154
+        },
+        {
+          "case": 1,
+          "vector": 79,
+          "label": 3,
+          "class_id": 3,
+          "score_margin": 9,
+          "scores": [
+            -17,
+            0,
+            27,
+            18,
+            11
+          ],
+          "cycles": 103154
+        },
+        {
+          "case": 2,
+          "vector": 170,
+          "label": 5,
+          "class_id": 4,
+          "score_margin": 31,
+          "scores": [
+            -13,
+            -8,
+            11,
+            42,
+            7
+          ],
+          "cycles": 103154
+        }
+      ],
+      "bitstream_sha256": "913284771f07b97cfa0063147a8064f8109399890e6462651599532b46d8ea37",
+      "bitstream_bytes": 1789531
+    },
+    "pipeline": {
+      "routed_top": {
+        "logic_lut": 5298,
+        "ripple": 232,
+        "seq": 3955,
+        "eram20k": 18,
+        "dsp": 3
+      },
+      "routed_inference_instance": {
+        "logic_lut": 5027,
+        "ripple": 154,
+        "seq": 3551,
+        "eram20k": 11,
+        "dsp": 3
+      },
+      "timing_ns": {
+        "SWNS": 1.798,
+        "STNS": 0.0,
+        "HWNS": 0.022,
+        "HTNS": 0.0
+      },
+      "replay_cycles": 257386,
+      "cases": [
+        {
+          "case": 0,
+          "vector": 0,
+          "label": 1,
+          "class_id": 1,
+          "score_margin": 20,
+          "scores": [
+            23,
+            -16,
+            -1,
+            2,
+            3
+          ],
+          "cycles": 257386
+        },
+        {
+          "case": 1,
+          "vector": 79,
+          "label": 3,
+          "class_id": 3,
+          "score_margin": 9,
+          "scores": [
+            -17,
+            0,
+            27,
+            18,
+            11
+          ],
+          "cycles": 257386
+        },
+        {
+          "case": 2,
+          "vector": 170,
+          "label": 5,
+          "class_id": 4,
+          "score_margin": 31,
+          "scores": [
+            -13,
+            -8,
+            11,
+            42,
+            7
+          ],
+          "cycles": 257386
+        }
+      ],
+      "bitstream_sha256": "f7636d7ee78093e3b78629c4ebfd8e22f50c337b2e1fed74bc1f97e7c4b4124f",
+      "bitstream_bytes": 1789531
+    }
+  }
+}

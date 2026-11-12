@@ -1,0 +1,15 @@
+Vivado XSim 2020.2 RTL UART replay. Decoded and compared every byte of four packets per mode.
+
+core
+UART case=0 cycles=103154
+UART case=1 cycles=103154
+UART case=2 cycles=103154
+UART case=0 cycles=103154
+PASS tb_replay CORE_ONLY=1 packets=4
+
+pipeline
+UART case=0 cycles=257386
+UART case=1 cycles=257386
+UART case=2 cycles=257386
+UART case=0 cycles=257386
+PASS tb_replay CORE_ONLY=0 packets=4

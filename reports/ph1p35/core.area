@@ -1,0 +1,85 @@
+standard
+***Report Model: replay_top Device: PH1P35MDG324***
+
+Design Statistics
+#IO                         3   out of    160    1.88%
+  #input                    2
+  #output                   1
+  #inout                    0
+#lut6                    1242   out of  21216    5.85%
+#reg                     1784
+  #slice reg             1784   out of  42432    4.20%
+  #pad reg                  0
+
+Utilization Statistics
+#slice                   1815   out of  21216    8.55%
+  #used ram                 0
+    #dram lut               0
+    #shifter lut            0
+  #used logic            1815
+    #with luts           1104
+    #with adder           138
+    #reg only             573
+#feedthrough              301
+#f7mux                    153   out of  10608    1.44%
+#f8mux                     74   out of   5304    1.40%
+#eram                       9   out of    108    8.33%
+  #eram20k                  9
+  #fifo20k                  0
+#dsp                        1   out of     40    2.50%
+#ddr_byte                   0   out of     12    0.00%
+#mipi_tx                    0   out of      2    0.00%
+#mipi_rx                    0   out of      2    0.00%
+#pad                        3   out of    160    1.88%
+#pll                        0   out of      6    0.00%
+#gclk                       1   out of     32    3.12%
+#lclk                       0   out of     12    0.00%
+#sclk                       4   out of     48    8.33%
+#mlclk                      0   out of      6    0.00%
+#ioclk                      0   out of     18    0.00%
+
+
+Detailed IO Report
+
+    Name       Direction    Location    IOStandard    IOType    DriveStrength    PullType    PackReg
+  I_reset_n      INPUT         B9        LVCMOS33      HDIO          N/A          PULLUP      NONE
+  I_sys_clk      INPUT         C4        LVCMOS33      HDIO          N/A          PULLUP      NONE
+  O_uart_tx     OUTPUT         V4        LVCMOS33      HDIO           8           PULLUP      NONE
+
+Report Clock Domain Luts:
+
+------------------------------------------------------------------------------------------------------------------
+  Index   |  Name         |  Frequency   |  LUT As Logic   |  LUT As Shifter   |  LUT As Dram   |  BRAM   |  DSP
+------------------------------------------------------------------------------------------------------------------
+  #1      |  sys_clk_50m  |  50MHz       |  1227           |  0                |  0             |  9      |  1
+------------------------------------------------------------------------------------------------------------------
+
+Clock Resource Statistics
+Index     ClockNet           Type            DriverType         Driver                ClockFanout        GclkLocation
+#1        I_sys_clk_dup_1    InferredGclk    hdio               I_sys_clk_syn_2.di    1140               x23y39z16
+
+Report Hierarchy Area:
++--------------------------------------------------------------------------------------------------------------------------------------------------+
+|Instance        |Module                 |logic lut |ripple  |seq     |eram    |dsp     |dram lut |shifter lut |f7mux   |f8mux   |pll     |ddr     |
++--------------------------------------------------------------------------------------------------------------------------------------------------+
+|top             |replay_top             |1104      |138     |1784    |9       |1       |0        |0           |153     |74      |0       |0       |
+|  g_core$u_core |gesture_bnn_core       |769       |74      |370     |8       |1       |0        |0           |153     |74      |0       |0       |
+|    U_W1_ROM    |gesture_bnn_weight_rom |3         |0       |1       |6       |0       |0        |0           |0       |0       |0       |0       |
+|    U_W2_ROM    |gesture_bnn_weight_rom |11        |0       |0       |1       |0       |0        |0           |0       |0       |0       |0       |
+|    U_W3_ROM    |gesture_bnn_weight_rom |5         |0       |0       |1       |0       |0        |0           |0       |0       |0       |0       |
+|  u_uart        |replay_uart_tx         |18        |0       |22      |0       |0       |0        |0           |0       |0       |0       |0       |
++--------------------------------------------------------------------------------------------------------------------------------------------------+
+
+
+DataNet Average Fanout:
+
+   Index     Fanout     Nets
+    #1          1       2663
+    #2          2       268
+    #3          3        97
+    #4          4        48
+    #5        5-10       89
+    #6        11-50     108
+    #7       51-100      4
+    #8       101-500     8
+  Average     2.46

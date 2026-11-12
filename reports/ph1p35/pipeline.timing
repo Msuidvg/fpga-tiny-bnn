@@ -1,0 +1,1609 @@
+Created by          : Tang Dynasty v6.2.168116
+                    : Copyright (c) 2012-2025 Anlogic Inc.
+Generated           : Thu Nov 12 10:10:57 2026
+
+Top Model           : replay_top
+Device              : PH1P35MDG324
+Speed               : 3
+STA coverage        : 100.00%
+Constraint File     : timing.sdc
+Confidence          : Routed
+Check Corner        : Both (Slow and Fast)
+CRPR Enabled        : Yes
+Report Scheme       : 10 end point(s) per path group, 1 path(s) per end point
+
+
+Check Status
+-------------
+
+Corner   | Max      Min
+------------------------------------
+Slow     | yes      yes
+Fast     | yes      yes
+
+
+Timing Status
+--------------------
+	SWNS: 1.798ns, STNS: 0.000ns
+	HWNS: 0.022ns, HTNS: 0.000ns
+	Period Check WNS: 17.200ns
+
+
+Clock Summary
+--------------------
+
+       Clock-Id:       C-Freq       Fanout   Clock-Name
+--------------------------------------------------------------------------------
+           clk0:       50.000         3035   sys_clk_50m
+--------------------------------------------------------------------------------
+
+       Name            Type         Rise(ns)   Fall(ns)          C-Period(ns)     C-Freq(MHz)          R-Period(ns)     R-Freq(MHz)         SWNS(ns)   STNS(ns)         HWNS(ns)   HTNS(ns)         Skew(ns)           Fanout        Max-Level        CC-From    CC-To
+       clk0   Inferred GCLK            0.000     10.000                20.000          50.000                18.202          54.939            1.798      0.000            0.022      0.000            0.223             3035               16             no       no
+
+Notes
+----------
+C-Period  :  constraint period
+C-Freq    :  constraint freq
+R-Period  :  report min period
+R-Freq    :  report fmax
+CC-From   :  has path(s) from cross-domain clock
+CC-To     :  has path(s) to cross-domain clock
+
+
+*   Clock R-Period data only takes intra-clock timing. SWNS/STNS/HWNS/HTNS take both intra-clock and inter-clock timing.
+*   If there is mismatch between R-Period and SWNS, check inter-clock timing of this clock as capture clock.
+*   SWNS/STNS/HWNS/HTNS of timing exception (SMCP/SMD) only counted in global Timing Status, not counted in Clock Summary.
+
+Intra clock domain timing
+--------------------------------------------------
+
+----------------------------------------------------------------------------------------------------
+Path Group     :     sys_clk_50m -> sys_clk_50m
+Type           :     Self
+From Clock     :     sys_clk_50m
+To Clock       :     sys_clk_50m
+Min Period     :     18.202ns
+Fmax           :     54.939MHz
+
+Statistics:
+Max            : SWNS      1.798ns, STNS      0.000ns,         0 Viol Endpoints,      9804 Total Endpoints, 205118837 Paths Analyzed
+Min            : HWNS      0.022ns, HTNS      0.000ns,         0 Viol Endpoints,      9804 Total Endpoints, 205118837 Paths Analyzed
+----------------------------------------------------------------------------------------------------
+
+Max Paths
+----------------------------------------------------------------------------------------------------
+Slack               : 1.798ns
+Begin Point         : col_reg[2]_syn_2.clk (rising edge triggered by clock sys_clk_50m  { rise@0.000000ns  fall@10.000000ns  period=20.000000 })
+End Point           : g_pipeline$u_pipeline/U_CCL/S_row_root_active_reg[18]_syn_7.ia (rising edge triggered by clock sys_clk_50m  { rise@0.000000ns  fall@10.000000ns  period=20.000000 })
+Check Type          : setup
+Process             : slow_m40c
+Budget              : 20.000ns { sys_clk_50m rising@20.000ns - sys_clk_50m rising@0.000ns }
+Data Path Delay     : 17.954ns (cell 4.076ns (22%), net 13.878ns (78%))
+Clock Skew          : 0.109ns
+Logic Level         : 12 ( LUT6=5  LUT4=3  LUT5=2  LUT3=2 )
+Max Fanout          : 51
+Clock Uncertainty   : 0.075ns (sdc uncertainty: 0.000ns, default uncertainty: 0.075ns)
+
+Delay Type          Location             Incr           Path   Level  Netlist Info
+--------------------------------------------------------------------  ---------------
+source latency                          0.000          0.000
+port                C4                  0.000          0.000          pin: I_sys_clk
+hierarchy                               0.000          0.000          pin: I_sys_clk_syn_2.ipad
+HDIO                x033y078            0.810          0.810          pin: I_sys_clk_syn_2.sg09_di
+HDIO                x033y078            0.684          1.494          pin: I_sys_clk_syn_2.di
+net (fo=1)                              0.574          2.068          net: I_sys_clk_dup_1,  replay_top.v(10)
+                                                                      pin: I_sys_clk_dup_1_created_gclkinst.clkin[0]
+GCLK                x023y039z16         0.016          2.084          pin: I_sys_clk_dup_1_created_gclkinst.clkout
+net (fo=4)                              0.385          2.469          net: I_sys_clk_syn_3,  replay_top.v(10)
+                                                                      pin: I_sys_clk_dup_1_created_gclkinst_auto_created_sclk_s_1_r_bk1.clkin
+SCLK                x023y059z12         0.079          2.548          pin: I_sys_clk_dup_1_created_gclkinst_auto_created_sclk_s_1_r_bk1.clkout
+net (fo=448)                            0.636          3.184          net: I_sys_clk_dup_1_created_gclkinst_auto_created_sclk_s_1_r_bk1_sclk_outnet,  NOFILE(0)
+                                                                      pin: col_reg[2]_syn_2.clk
+launch edge                             0.000    r     3.184
+--------------------------------------------------------------------  ---------------
+clk2q               x025y044z2          0.137    r     3.321          pin: col_reg[2]_syn_2.oqb
+net (fo=51)                             1.199          4.520          net: g_pipeline$u_pipeline/U_CCL/I_x[1],  gesture_bnn_largest_component_bbox.v(25)
+                                                                      pin: g_pipeline$u_pipeline/U_CCL/S_min_y_reg[235]_syn_2.ib
+LUT4                x025y047z5          0.487    r     5.007       1  pin: g_pipeline$u_pipeline/U_CCL/S_min_y_reg[235]_syn_2.ofa
+net (fo=2)                              0.773          5.780          net: add2_syn_32,  replay_top.v(115)
+                                                                      pin: col_reg[7]_syn_2.ie
+LUT5                x021y043z7          0.262    f     6.042       2  pin: col_reg[7]_syn_2.ofa
+net (fo=5)                              0.776          6.818          net: col_b4[7],  NOFILE(0)
+                                                                      pin: g_pipeline$u_pipeline/U_CCL/S_cleanup_active_reg_syn_1555.imf
+LUT6                x025y041z6          0.168    r     6.986       3  pin: g_pipeline$u_pipeline/U_CCL/S_cleanup_active_reg_syn_1555.ofb
+net (fo=46)                             4.078         11.064          net: g_pipeline$u_pipeline/U_CCL/S_cleanup_active_reg_syn_379,  gesture_bnn_largest_component_bbox.v(263)
+                                                                      pin: g_pipeline$u_pipeline/U_CCL/S_cleanup_active_reg_syn_1147.ic
+LUT4                x005y039z3          0.283    r    11.347       4  pin: g_pipeline$u_pipeline/U_CCL/S_cleanup_active_reg_syn_1147.ofb
+net (fo=1)                              0.302         11.649          net: g_pipeline$u_pipeline/U_CCL/S_cleanup_active_reg_syn_459,  gesture_bnn_largest_component_bbox.v(263)
+                                                                      pin: g_pipeline$u_pipeline/U_CCL/S_cleanup_active_reg_syn_1160.ie
+LUT6                x005y040z1          0.190    r    11.839       5  pin: g_pipeline$u_pipeline/U_CCL/S_cleanup_active_reg_syn_1160.ofb
+net (fo=2)                              0.948         12.787          net: g_pipeline$u_pipeline/U_CCL/S_cleanup_active_reg_syn_465,  gesture_bnn_largest_component_bbox.v(263)
+                                                                      pin: g_pipeline$u_pipeline/U_CCL/S_cleanup_active_reg_syn_1255.ic
+LUT5                x011y043z5          0.283    r    13.070       6  pin: g_pipeline$u_pipeline/U_CCL/S_cleanup_active_reg_syn_1255.ofb
+net (fo=6)                              1.180         14.250          net: g_pipeline$u_pipeline/U_CCL/S_cleanup_active_reg_syn_473,  gesture_bnn_largest_component_bbox.v(263)
+                                                                      pin: g_pipeline$u_pipeline/U_CCL/S_pending_root_up_right_reg[4]_syn_2.id
+LUT6                x010y043z5          0.231    f    14.481       7  pin: g_pipeline$u_pipeline/U_CCL/S_pending_root_up_right_reg[4]_syn_2.ofb
+net (fo=3)                              1.035         15.516          net: g_pipeline$u_pipeline/U_CCL/C_root_up_right[4],  gesture_bnn_largest_component_bbox.v(86)
+                                                                      pin: g_pipeline$u_pipeline/U_CCL/S_max_x_reg[96]_syn_2.ib
+LUT4                x011y047z1          0.408    f    15.924       8  pin: g_pipeline$u_pipeline/U_CCL/S_max_x_reg[96]_syn_2.ofb
+net (fo=1)                              0.179         16.103          net: g_pipeline$u_pipeline/U_CCL/S_cleanup_active_reg_syn_596,  gesture_bnn_largest_component_bbox.v(263)
+                                                                      pin: g_pipeline$u_pipeline/U_CCL/S_cleanup_active_reg_syn_1330.ie
+LUT6                x011y047z4          0.190    r    16.293       9  pin: g_pipeline$u_pipeline/U_CCL/S_cleanup_active_reg_syn_1330.ofb
+net (fo=11)                             0.204         16.497          net: g_pipeline$u_pipeline/U_CCL/S_cleanup_active_reg_syn_600,  gesture_bnn_largest_component_bbox.v(263)
+                                                                      pin: g_pipeline$u_pipeline/U_CCL/S_cleanup_active_reg_syn_1289.ia
+LUT3                x010y046z6          0.473    r    16.970      10  pin: g_pipeline$u_pipeline/U_CCL/S_cleanup_active_reg_syn_1289.ofa
+net (fo=10)                             0.630         17.600          net: g_pipeline$u_pipeline/U_CCL/S_cleanup_active_reg_syn_1023,  gesture_bnn_largest_component_bbox.v(263)
+                                                                      pin: g_pipeline$u_pipeline/U_CCL/S_row_label_present_reg[30]_syn_12.ib
+LUT3                x011y043z6          0.408    f    18.008      11  pin: g_pipeline$u_pipeline/U_CCL/S_row_label_present_reg[30]_syn_12.ofb
+net (fo=25)                             2.574         20.582          net: g_pipeline$u_pipeline/U_CCL/S_row_label_present_reg[30]_syn_6,  gesture_bnn_largest_component_bbox.v(263)
+                                                                      pin: g_pipeline$u_pipeline/U_CCL/S_row_root_active_reg[18]_syn_7.ia
+LUT6 (reg)          x002y043z3          0.556    f    21.138      12  net: g_pipeline$u_pipeline/U_CCL/S_row_root_active[18],  gesture_bnn_largest_component_bbox.v(47)
+--------------------------------------------------------------------  ---------------
+Arrival                                               21.138
+
+source latency                          0.000          0.000
+port                C4                  0.000          0.000          pin: I_sys_clk
+hierarchy                               0.000          0.000          pin: I_sys_clk_syn_2.ipad
+HDIO                x033y078            0.745          0.745          pin: I_sys_clk_syn_2.sg09_di
+HDIO                x033y078            0.629          1.374          pin: I_sys_clk_syn_2.di
+net (fo=1)                              0.492          1.866          net: I_sys_clk_dup_1,  replay_top.v(10)
+                                                                      pin: I_sys_clk_dup_1_created_gclkinst.clkin[0]
+GCLK                x023y039z16         0.014          1.880          pin: I_sys_clk_dup_1_created_gclkinst.clkout
+net (fo=4)                              0.331          2.211          net: I_sys_clk_syn_3,  replay_top.v(10)
+                                                                      pin: I_sys_clk_dup_1_created_gclkinst_auto_created_sclk_s_1_l_bk1.clkin
+SCLK                x023y059z0          0.068          2.279          pin: I_sys_clk_dup_1_created_gclkinst_auto_created_sclk_s_1_l_bk1.clkout
+net (fo=874)                            0.569          2.848          net: I_sys_clk_dup_1_created_gclkinst_auto_created_sclk_s_1_l_bk1_sclk_outnet,  NOFILE(0)
+                                                                      pin: g_pipeline$u_pipeline/U_CCL/S_row_root_active_reg[18]_syn_7.clk
+capture edge                           20.000    r    22.848
+--------------------------------------------------------------------  ---------------
+setup                                  -0.064         22.784
+clock uncertainty                      -0.075         22.709
+clock pessimism                         0.227         22.936
+--------------------------------------------------------------------  ---------------
+Required                                              22.936
+--------------------------------------------------------------------  ---------------
+Slack                                                  1.798
+
+Slack               : 1.801ns
+Begin Point         : col_reg[2]_syn_2.clk (rising edge triggered by clock sys_clk_50m  { rise@0.000000ns  fall@10.000000ns  period=20.000000 })
+End Point           : g_pipeline$u_pipeline/U_CCL/S_row_root_active_reg[26]_syn_7.ia (rising edge triggered by clock sys_clk_50m  { rise@0.000000ns  fall@10.000000ns  period=20.000000 })
+Check Type          : setup
+Process             : slow_m40c
+Budget              : 20.000ns { sys_clk_50m rising@20.000ns - sys_clk_50m rising@0.000ns }
+Data Path Delay     : 17.951ns (cell 4.076ns (22%), net 13.875ns (78%))
+Clock Skew          : 0.109ns
+Logic Level         : 12 ( LUT6=5  LUT4=3  LUT5=2  LUT3=2 )
+Max Fanout          : 51
+Clock Uncertainty   : 0.075ns (sdc uncertainty: 0.000ns, default uncertainty: 0.075ns)
+
+Delay Type          Location             Incr           Path   Level  Netlist Info
+--------------------------------------------------------------------  ---------------
+source latency                          0.000          0.000
+port                C4                  0.000          0.000          pin: I_sys_clk
+hierarchy                               0.000          0.000          pin: I_sys_clk_syn_2.ipad
+HDIO                x033y078            0.810          0.810          pin: I_sys_clk_syn_2.sg09_di
+HDIO                x033y078            0.684          1.494          pin: I_sys_clk_syn_2.di
+net (fo=1)                              0.574          2.068          net: I_sys_clk_dup_1,  replay_top.v(10)
+                                                                      pin: I_sys_clk_dup_1_created_gclkinst.clkin[0]
+GCLK                x023y039z16         0.016          2.084          pin: I_sys_clk_dup_1_created_gclkinst.clkout
+net (fo=4)                              0.385          2.469          net: I_sys_clk_syn_3,  replay_top.v(10)
+                                                                      pin: I_sys_clk_dup_1_created_gclkinst_auto_created_sclk_s_1_r_bk1.clkin
+SCLK                x023y059z12         0.079          2.548          pin: I_sys_clk_dup_1_created_gclkinst_auto_created_sclk_s_1_r_bk1.clkout
+net (fo=448)                            0.636          3.184          net: I_sys_clk_dup_1_created_gclkinst_auto_created_sclk_s_1_r_bk1_sclk_outnet,  NOFILE(0)
+                                                                      pin: col_reg[2]_syn_2.clk
+launch edge                             0.000    r     3.184
+--------------------------------------------------------------------  ---------------
+clk2q               x025y044z2          0.137    r     3.321          pin: col_reg[2]_syn_2.oqb
+net (fo=51)                             1.199          4.520          net: g_pipeline$u_pipeline/U_CCL/I_x[1],  gesture_bnn_largest_component_bbox.v(25)
+                                                                      pin: g_pipeline$u_pipeline/U_CCL/S_min_y_reg[235]_syn_2.ib
+LUT4                x025y047z5          0.487    r     5.007       1  pin: g_pipeline$u_pipeline/U_CCL/S_min_y_reg[235]_syn_2.ofa
+net (fo=2)                              0.773          5.780          net: add2_syn_32,  replay_top.v(115)
+                                                                      pin: col_reg[7]_syn_2.ie
+LUT5                x021y043z7          0.262    f     6.042       2  pin: col_reg[7]_syn_2.ofa
+net (fo=5)                              0.776          6.818          net: col_b4[7],  NOFILE(0)
+                                                                      pin: g_pipeline$u_pipeline/U_CCL/S_cleanup_active_reg_syn_1555.imf
+LUT6                x025y041z6          0.168    r     6.986       3  pin: g_pipeline$u_pipeline/U_CCL/S_cleanup_active_reg_syn_1555.ofb
+net (fo=46)                             4.078         11.064          net: g_pipeline$u_pipeline/U_CCL/S_cleanup_active_reg_syn_379,  gesture_bnn_largest_component_bbox.v(263)
+                                                                      pin: g_pipeline$u_pipeline/U_CCL/S_cleanup_active_reg_syn_1147.ic
+LUT4                x005y039z3          0.283    r    11.347       4  pin: g_pipeline$u_pipeline/U_CCL/S_cleanup_active_reg_syn_1147.ofb
+net (fo=1)                              0.302         11.649          net: g_pipeline$u_pipeline/U_CCL/S_cleanup_active_reg_syn_459,  gesture_bnn_largest_component_bbox.v(263)
+                                                                      pin: g_pipeline$u_pipeline/U_CCL/S_cleanup_active_reg_syn_1160.ie
+LUT6                x005y040z1          0.190    r    11.839       5  pin: g_pipeline$u_pipeline/U_CCL/S_cleanup_active_reg_syn_1160.ofb
+net (fo=2)                              0.948         12.787          net: g_pipeline$u_pipeline/U_CCL/S_cleanup_active_reg_syn_465,  gesture_bnn_largest_component_bbox.v(263)
+                                                                      pin: g_pipeline$u_pipeline/U_CCL/S_cleanup_active_reg_syn_1255.ic
+LUT5                x011y043z5          0.283    r    13.070       6  pin: g_pipeline$u_pipeline/U_CCL/S_cleanup_active_reg_syn_1255.ofb
+net (fo=6)                              1.180         14.250          net: g_pipeline$u_pipeline/U_CCL/S_cleanup_active_reg_syn_473,  gesture_bnn_largest_component_bbox.v(263)
+                                                                      pin: g_pipeline$u_pipeline/U_CCL/S_pending_root_up_right_reg[4]_syn_2.id
+LUT6                x010y043z5          0.231    f    14.481       7  pin: g_pipeline$u_pipeline/U_CCL/S_pending_root_up_right_reg[4]_syn_2.ofb
+net (fo=3)                              1.035         15.516          net: g_pipeline$u_pipeline/U_CCL/C_root_up_right[4],  gesture_bnn_largest_component_bbox.v(86)
+                                                                      pin: g_pipeline$u_pipeline/U_CCL/S_max_x_reg[96]_syn_2.ib
+LUT4                x011y047z1          0.408    f    15.924       8  pin: g_pipeline$u_pipeline/U_CCL/S_max_x_reg[96]_syn_2.ofb
+net (fo=1)                              0.179         16.103          net: g_pipeline$u_pipeline/U_CCL/S_cleanup_active_reg_syn_596,  gesture_bnn_largest_component_bbox.v(263)
+                                                                      pin: g_pipeline$u_pipeline/U_CCL/S_cleanup_active_reg_syn_1330.ie
+LUT6                x011y047z4          0.190    r    16.293       9  pin: g_pipeline$u_pipeline/U_CCL/S_cleanup_active_reg_syn_1330.ofb
+net (fo=11)                             0.204         16.497          net: g_pipeline$u_pipeline/U_CCL/S_cleanup_active_reg_syn_600,  gesture_bnn_largest_component_bbox.v(263)
+                                                                      pin: g_pipeline$u_pipeline/U_CCL/S_cleanup_active_reg_syn_1289.ia
+LUT3                x010y046z6          0.473    r    16.970      10  pin: g_pipeline$u_pipeline/U_CCL/S_cleanup_active_reg_syn_1289.ofa
+net (fo=10)                             0.630         17.600          net: g_pipeline$u_pipeline/U_CCL/S_cleanup_active_reg_syn_1023,  gesture_bnn_largest_component_bbox.v(263)
+                                                                      pin: g_pipeline$u_pipeline/U_CCL/S_row_label_present_reg[30]_syn_12.ib
+LUT3                x011y043z6          0.408    f    18.008      11  pin: g_pipeline$u_pipeline/U_CCL/S_row_label_present_reg[30]_syn_12.ofb
+net (fo=25)                             2.571         20.579          net: g_pipeline$u_pipeline/U_CCL/S_row_label_present_reg[30]_syn_6,  gesture_bnn_largest_component_bbox.v(263)
+                                                                      pin: g_pipeline$u_pipeline/U_CCL/S_row_root_active_reg[26]_syn_7.ia
+LUT6 (reg)          x003y042z2          0.556    f    21.135      12  net: g_pipeline$u_pipeline/U_CCL/S_row_root_active[26],  gesture_bnn_largest_component_bbox.v(47)
+--------------------------------------------------------------------  ---------------
+Arrival                                               21.135
+
+source latency                          0.000          0.000
+port                C4                  0.000          0.000          pin: I_sys_clk
+hierarchy                               0.000          0.000          pin: I_sys_clk_syn_2.ipad
+HDIO                x033y078            0.745          0.745          pin: I_sys_clk_syn_2.sg09_di
+HDIO                x033y078            0.629          1.374          pin: I_sys_clk_syn_2.di
+net (fo=1)                              0.492          1.866          net: I_sys_clk_dup_1,  replay_top.v(10)
+                                                                      pin: I_sys_clk_dup_1_created_gclkinst.clkin[0]
+GCLK                x023y039z16         0.014          1.880          pin: I_sys_clk_dup_1_created_gclkinst.clkout
+net (fo=4)                              0.331          2.211          net: I_sys_clk_syn_3,  replay_top.v(10)
+                                                                      pin: I_sys_clk_dup_1_created_gclkinst_auto_created_sclk_s_1_l_bk1.clkin
+SCLK                x023y059z0          0.068          2.279          pin: I_sys_clk_dup_1_created_gclkinst_auto_created_sclk_s_1_l_bk1.clkout
+net (fo=874)                            0.569          2.848          net: I_sys_clk_dup_1_created_gclkinst_auto_created_sclk_s_1_l_bk1_sclk_outnet,  NOFILE(0)
+                                                                      pin: g_pipeline$u_pipeline/U_CCL/S_row_root_active_reg[26]_syn_7.clk
+capture edge                           20.000    r    22.848
+--------------------------------------------------------------------  ---------------
+setup                                  -0.064         22.784
+clock uncertainty                      -0.075         22.709
+clock pessimism                         0.227         22.936
+--------------------------------------------------------------------  ---------------
+Required                                              22.936
+--------------------------------------------------------------------  ---------------
+Slack                                                  1.801
+
+Slack               : 2.051ns
+Begin Point         : col_reg[2]_syn_2.clk (rising edge triggered by clock sys_clk_50m  { rise@0.000000ns  fall@10.000000ns  period=20.000000 })
+End Point           : g_pipeline$u_pipeline/U_CCL/S_row_root_active_reg[17]_syn_8.ia (rising edge triggered by clock sys_clk_50m  { rise@0.000000ns  fall@10.000000ns  period=20.000000 })
+Check Type          : setup
+Process             : slow_m40c
+Budget              : 20.000ns { sys_clk_50m rising@20.000ns - sys_clk_50m rising@0.000ns }
+Data Path Delay     : 17.701ns (cell 3.886ns (21%), net 13.815ns (79%))
+Clock Skew          : 0.109ns
+Logic Level         : 12 ( LUT6=5  LUT4=5  LUT5=2 )
+Max Fanout          : 51
+Clock Uncertainty   : 0.075ns (sdc uncertainty: 0.000ns, default uncertainty: 0.075ns)
+
+Delay Type          Location             Incr           Path   Level  Netlist Info
+--------------------------------------------------------------------  ---------------
+source latency                          0.000          0.000
+port                C4                  0.000          0.000          pin: I_sys_clk
+hierarchy                               0.000          0.000          pin: I_sys_clk_syn_2.ipad
+HDIO                x033y078            0.810          0.810          pin: I_sys_clk_syn_2.sg09_di
+HDIO                x033y078            0.684          1.494          pin: I_sys_clk_syn_2.di
+net (fo=1)                              0.574          2.068          net: I_sys_clk_dup_1,  replay_top.v(10)
+                                                                      pin: I_sys_clk_dup_1_created_gclkinst.clkin[0]
+GCLK                x023y039z16         0.016          2.084          pin: I_sys_clk_dup_1_created_gclkinst.clkout
+net (fo=4)                              0.385          2.469          net: I_sys_clk_syn_3,  replay_top.v(10)
+                                                                      pin: I_sys_clk_dup_1_created_gclkinst_auto_created_sclk_s_1_r_bk1.clkin
+SCLK                x023y059z12         0.079          2.548          pin: I_sys_clk_dup_1_created_gclkinst_auto_created_sclk_s_1_r_bk1.clkout
+net (fo=448)                            0.636          3.184          net: I_sys_clk_dup_1_created_gclkinst_auto_created_sclk_s_1_r_bk1_sclk_outnet,  NOFILE(0)
+                                                                      pin: col_reg[2]_syn_2.clk
+launch edge                             0.000    r     3.184
+--------------------------------------------------------------------  ---------------
+clk2q               x025y044z2          0.137    r     3.321          pin: col_reg[2]_syn_2.oqb
+net (fo=51)                             1.199          4.520          net: g_pipeline$u_pipeline/U_CCL/I_x[1],  gesture_bnn_largest_component_bbox.v(25)
+                                                                      pin: g_pipeline$u_pipeline/U_CCL/S_min_y_reg[235]_syn_2.ib
+LUT4                x025y047z5          0.487    r     5.007       1  pin: g_pipeline$u_pipeline/U_CCL/S_min_y_reg[235]_syn_2.ofa
+net (fo=2)                              0.773          5.780          net: add2_syn_32,  replay_top.v(115)
+                                                                      pin: col_reg[7]_syn_2.ie
+LUT5                x021y043z7          0.262    f     6.042       2  pin: col_reg[7]_syn_2.ofa
+net (fo=5)                              0.776          6.818          net: col_b4[7],  NOFILE(0)
+                                                                      pin: g_pipeline$u_pipeline/U_CCL/S_cleanup_active_reg_syn_1555.imf
+LUT6                x025y041z6          0.168    r     6.986       3  pin: g_pipeline$u_pipeline/U_CCL/S_cleanup_active_reg_syn_1555.ofb
+net (fo=46)                             4.078         11.064          net: g_pipeline$u_pipeline/U_CCL/S_cleanup_active_reg_syn_379,  gesture_bnn_largest_component_bbox.v(263)
+                                                                      pin: g_pipeline$u_pipeline/U_CCL/S_cleanup_active_reg_syn_1147.ic
+LUT4                x005y039z3          0.283    r    11.347       4  pin: g_pipeline$u_pipeline/U_CCL/S_cleanup_active_reg_syn_1147.ofb
+net (fo=1)                              0.302         11.649          net: g_pipeline$u_pipeline/U_CCL/S_cleanup_active_reg_syn_459,  gesture_bnn_largest_component_bbox.v(263)
+                                                                      pin: g_pipeline$u_pipeline/U_CCL/S_cleanup_active_reg_syn_1160.ie
+LUT6                x005y040z1          0.190    r    11.839       5  pin: g_pipeline$u_pipeline/U_CCL/S_cleanup_active_reg_syn_1160.ofb
+net (fo=2)                              0.948         12.787          net: g_pipeline$u_pipeline/U_CCL/S_cleanup_active_reg_syn_465,  gesture_bnn_largest_component_bbox.v(263)
+                                                                      pin: g_pipeline$u_pipeline/U_CCL/S_cleanup_active_reg_syn_1255.ic
+LUT5                x011y043z5          0.283    r    13.070       6  pin: g_pipeline$u_pipeline/U_CCL/S_cleanup_active_reg_syn_1255.ofb
+net (fo=6)                              1.180         14.250          net: g_pipeline$u_pipeline/U_CCL/S_cleanup_active_reg_syn_473,  gesture_bnn_largest_component_bbox.v(263)
+                                                                      pin: g_pipeline$u_pipeline/U_CCL/S_pending_root_up_right_reg[4]_syn_2.id
+LUT6                x010y043z5          0.231    f    14.481       7  pin: g_pipeline$u_pipeline/U_CCL/S_pending_root_up_right_reg[4]_syn_2.ofb
+net (fo=3)                              1.035         15.516          net: g_pipeline$u_pipeline/U_CCL/C_root_up_right[4],  gesture_bnn_largest_component_bbox.v(86)
+                                                                      pin: g_pipeline$u_pipeline/U_CCL/S_max_x_reg[96]_syn_2.ib
+LUT4                x011y047z1          0.408    f    15.924       8  pin: g_pipeline$u_pipeline/U_CCL/S_max_x_reg[96]_syn_2.ofb
+net (fo=1)                              0.179         16.103          net: g_pipeline$u_pipeline/U_CCL/S_cleanup_active_reg_syn_596,  gesture_bnn_largest_component_bbox.v(263)
+                                                                      pin: g_pipeline$u_pipeline/U_CCL/S_cleanup_active_reg_syn_1330.ie
+LUT6                x011y047z4          0.190    r    16.293       9  pin: g_pipeline$u_pipeline/U_CCL/S_cleanup_active_reg_syn_1330.ofb
+net (fo=11)                             0.320         16.613          net: g_pipeline$u_pipeline/U_CCL/S_cleanup_active_reg_syn_600,  gesture_bnn_largest_component_bbox.v(263)
+                                                                      pin: g_pipeline$u_pipeline/U_CCL/S_row_label_present_reg[31]_syn_28.ic
+LUT4                x011y045z4          0.283    r    16.896      10  pin: g_pipeline$u_pipeline/U_CCL/S_row_label_present_reg[31]_syn_28.ofb
+net (fo=10)                             0.574         17.470          net: g_pipeline$u_pipeline/U_CCL/S_cleanup_active_reg_syn_1055,  gesture_bnn_largest_component_bbox.v(263)
+                                                                      pin: g_pipeline$u_pipeline/U_CCL/S_row_label_present_reg[16]_syn_14.ib
+LUT4                x011y046z3          0.408    f    17.878      11  pin: g_pipeline$u_pipeline/U_CCL/S_row_label_present_reg[16]_syn_14.ofb
+net (fo=12)                             2.451         20.329          net: g_pipeline$u_pipeline/U_CCL/S_row_label_present_reg[16]_syn_6,  gesture_bnn_largest_component_bbox.v(263)
+                                                                      pin: g_pipeline$u_pipeline/U_CCL/S_row_root_active_reg[17]_syn_8.ia
+LUT6 (reg)          x003y043z2          0.556    f    20.885      12  net: g_pipeline$u_pipeline/U_CCL/S_row_root_active[17],  gesture_bnn_largest_component_bbox.v(47)
+--------------------------------------------------------------------  ---------------
+Arrival                                               20.885
+
+source latency                          0.000          0.000
+port                C4                  0.000          0.000          pin: I_sys_clk
+hierarchy                               0.000          0.000          pin: I_sys_clk_syn_2.ipad
+HDIO                x033y078            0.745          0.745          pin: I_sys_clk_syn_2.sg09_di
+HDIO                x033y078            0.629          1.374          pin: I_sys_clk_syn_2.di
+net (fo=1)                              0.492          1.866          net: I_sys_clk_dup_1,  replay_top.v(10)
+                                                                      pin: I_sys_clk_dup_1_created_gclkinst.clkin[0]
+GCLK                x023y039z16         0.014          1.880          pin: I_sys_clk_dup_1_created_gclkinst.clkout
+net (fo=4)                              0.331          2.211          net: I_sys_clk_syn_3,  replay_top.v(10)
+                                                                      pin: I_sys_clk_dup_1_created_gclkinst_auto_created_sclk_s_1_l_bk1.clkin
+SCLK                x023y059z0          0.068          2.279          pin: I_sys_clk_dup_1_created_gclkinst_auto_created_sclk_s_1_l_bk1.clkout
+net (fo=874)                            0.569          2.848          net: I_sys_clk_dup_1_created_gclkinst_auto_created_sclk_s_1_l_bk1_sclk_outnet,  NOFILE(0)
+                                                                      pin: g_pipeline$u_pipeline/U_CCL/S_row_root_active_reg[17]_syn_8.clk
+capture edge                           20.000    r    22.848
+--------------------------------------------------------------------  ---------------
+setup                                  -0.064         22.784
+clock uncertainty                      -0.075         22.709
+clock pessimism                         0.227         22.936
+--------------------------------------------------------------------  ---------------
+Required                                              22.936
+--------------------------------------------------------------------  ---------------
+Slack                                                  2.051
+
+Slack               : 2.055ns
+Begin Point         : col_reg[2]_syn_2.clk (rising edge triggered by clock sys_clk_50m  { rise@0.000000ns  fall@10.000000ns  period=20.000000 })
+End Point           : g_pipeline$u_pipeline/U_CCL/S_row_root_active_reg[16]_syn_14.ia (rising edge triggered by clock sys_clk_50m  { rise@0.000000ns  fall@10.000000ns  period=20.000000 })
+Check Type          : setup
+Process             : slow_m40c
+Budget              : 20.000ns { sys_clk_50m rising@20.000ns - sys_clk_50m rising@0.000ns }
+Data Path Delay     : 17.697ns (cell 3.886ns (21%), net 13.811ns (79%))
+Clock Skew          : 0.109ns
+Logic Level         : 12 ( LUT6=5  LUT4=5  LUT5=2 )
+Max Fanout          : 51
+Clock Uncertainty   : 0.075ns (sdc uncertainty: 0.000ns, default uncertainty: 0.075ns)
+
+Delay Type          Location             Incr           Path   Level  Netlist Info
+--------------------------------------------------------------------  ---------------
+source latency                          0.000          0.000
+port                C4                  0.000          0.000          pin: I_sys_clk
+hierarchy                               0.000          0.000          pin: I_sys_clk_syn_2.ipad
+HDIO                x033y078            0.810          0.810          pin: I_sys_clk_syn_2.sg09_di
+HDIO                x033y078            0.684          1.494          pin: I_sys_clk_syn_2.di
+net (fo=1)                              0.574          2.068          net: I_sys_clk_dup_1,  replay_top.v(10)
+                                                                      pin: I_sys_clk_dup_1_created_gclkinst.clkin[0]
+GCLK                x023y039z16         0.016          2.084          pin: I_sys_clk_dup_1_created_gclkinst.clkout
+net (fo=4)                              0.385          2.469          net: I_sys_clk_syn_3,  replay_top.v(10)
+                                                                      pin: I_sys_clk_dup_1_created_gclkinst_auto_created_sclk_s_1_r_bk1.clkin
+SCLK                x023y059z12         0.079          2.548          pin: I_sys_clk_dup_1_created_gclkinst_auto_created_sclk_s_1_r_bk1.clkout
+net (fo=448)                            0.636          3.184          net: I_sys_clk_dup_1_created_gclkinst_auto_created_sclk_s_1_r_bk1_sclk_outnet,  NOFILE(0)
+                                                                      pin: col_reg[2]_syn_2.clk
+launch edge                             0.000    r     3.184
+--------------------------------------------------------------------  ---------------
+clk2q               x025y044z2          0.137    r     3.321          pin: col_reg[2]_syn_2.oqb
+net (fo=51)                             1.199          4.520          net: g_pipeline$u_pipeline/U_CCL/I_x[1],  gesture_bnn_largest_component_bbox.v(25)
+                                                                      pin: g_pipeline$u_pipeline/U_CCL/S_min_y_reg[235]_syn_2.ib
+LUT4                x025y047z5          0.487    r     5.007       1  pin: g_pipeline$u_pipeline/U_CCL/S_min_y_reg[235]_syn_2.ofa
+net (fo=2)                              0.773          5.780          net: add2_syn_32,  replay_top.v(115)
+                                                                      pin: col_reg[7]_syn_2.ie
+LUT5                x021y043z7          0.262    f     6.042       2  pin: col_reg[7]_syn_2.ofa
+net (fo=5)                              0.776          6.818          net: col_b4[7],  NOFILE(0)
+                                                                      pin: g_pipeline$u_pipeline/U_CCL/S_cleanup_active_reg_syn_1555.imf
+LUT6                x025y041z6          0.168    r     6.986       3  pin: g_pipeline$u_pipeline/U_CCL/S_cleanup_active_reg_syn_1555.ofb
+net (fo=46)                             4.078         11.064          net: g_pipeline$u_pipeline/U_CCL/S_cleanup_active_reg_syn_379,  gesture_bnn_largest_component_bbox.v(263)
+                                                                      pin: g_pipeline$u_pipeline/U_CCL/S_cleanup_active_reg_syn_1147.ic
+LUT4                x005y039z3          0.283    r    11.347       4  pin: g_pipeline$u_pipeline/U_CCL/S_cleanup_active_reg_syn_1147.ofb
+net (fo=1)                              0.302         11.649          net: g_pipeline$u_pipeline/U_CCL/S_cleanup_active_reg_syn_459,  gesture_bnn_largest_component_bbox.v(263)
+                                                                      pin: g_pipeline$u_pipeline/U_CCL/S_cleanup_active_reg_syn_1160.ie
+LUT6                x005y040z1          0.190    r    11.839       5  pin: g_pipeline$u_pipeline/U_CCL/S_cleanup_active_reg_syn_1160.ofb
+net (fo=2)                              0.948         12.787          net: g_pipeline$u_pipeline/U_CCL/S_cleanup_active_reg_syn_465,  gesture_bnn_largest_component_bbox.v(263)
+                                                                      pin: g_pipeline$u_pipeline/U_CCL/S_cleanup_active_reg_syn_1255.ic
+LUT5                x011y043z5          0.283    r    13.070       6  pin: g_pipeline$u_pipeline/U_CCL/S_cleanup_active_reg_syn_1255.ofb
+net (fo=6)                              1.180         14.250          net: g_pipeline$u_pipeline/U_CCL/S_cleanup_active_reg_syn_473,  gesture_bnn_largest_component_bbox.v(263)
+                                                                      pin: g_pipeline$u_pipeline/U_CCL/S_pending_root_up_right_reg[4]_syn_2.id
+LUT6                x010y043z5          0.231    f    14.481       7  pin: g_pipeline$u_pipeline/U_CCL/S_pending_root_up_right_reg[4]_syn_2.ofb
+net (fo=3)                              1.035         15.516          net: g_pipeline$u_pipeline/U_CCL/C_root_up_right[4],  gesture_bnn_largest_component_bbox.v(86)
+                                                                      pin: g_pipeline$u_pipeline/U_CCL/S_max_x_reg[96]_syn_2.ib
+LUT4                x011y047z1          0.408    f    15.924       8  pin: g_pipeline$u_pipeline/U_CCL/S_max_x_reg[96]_syn_2.ofb
+net (fo=1)                              0.179         16.103          net: g_pipeline$u_pipeline/U_CCL/S_cleanup_active_reg_syn_596,  gesture_bnn_largest_component_bbox.v(263)
+                                                                      pin: g_pipeline$u_pipeline/U_CCL/S_cleanup_active_reg_syn_1330.ie
+LUT6                x011y047z4          0.190    r    16.293       9  pin: g_pipeline$u_pipeline/U_CCL/S_cleanup_active_reg_syn_1330.ofb
+net (fo=11)                             0.320         16.613          net: g_pipeline$u_pipeline/U_CCL/S_cleanup_active_reg_syn_600,  gesture_bnn_largest_component_bbox.v(263)
+                                                                      pin: g_pipeline$u_pipeline/U_CCL/S_row_label_present_reg[31]_syn_28.ic
+LUT4                x011y045z4          0.283    r    16.896      10  pin: g_pipeline$u_pipeline/U_CCL/S_row_label_present_reg[31]_syn_28.ofb
+net (fo=10)                             0.574         17.470          net: g_pipeline$u_pipeline/U_CCL/S_cleanup_active_reg_syn_1055,  gesture_bnn_largest_component_bbox.v(263)
+                                                                      pin: g_pipeline$u_pipeline/U_CCL/S_row_label_present_reg[16]_syn_14.ib
+LUT4                x011y046z3          0.408    f    17.878      11  pin: g_pipeline$u_pipeline/U_CCL/S_row_label_present_reg[16]_syn_14.ofb
+net (fo=12)                             2.447         20.325          net: g_pipeline$u_pipeline/U_CCL/S_row_label_present_reg[16]_syn_6,  gesture_bnn_largest_component_bbox.v(263)
+                                                                      pin: g_pipeline$u_pipeline/U_CCL/S_row_root_active_reg[16]_syn_14.ia
+LUT6 (reg)          x002y043z6          0.556    f    20.881      12  net: g_pipeline$u_pipeline/U_CCL/S_row_root_active[16],  gesture_bnn_largest_component_bbox.v(47)
+--------------------------------------------------------------------  ---------------
+Arrival                                               20.881
+
+source latency                          0.000          0.000
+port                C4                  0.000          0.000          pin: I_sys_clk
+hierarchy                               0.000          0.000          pin: I_sys_clk_syn_2.ipad
+HDIO                x033y078            0.745          0.745          pin: I_sys_clk_syn_2.sg09_di
+HDIO                x033y078            0.629          1.374          pin: I_sys_clk_syn_2.di
+net (fo=1)                              0.492          1.866          net: I_sys_clk_dup_1,  replay_top.v(10)
+                                                                      pin: I_sys_clk_dup_1_created_gclkinst.clkin[0]
+GCLK                x023y039z16         0.014          1.880          pin: I_sys_clk_dup_1_created_gclkinst.clkout
+net (fo=4)                              0.331          2.211          net: I_sys_clk_syn_3,  replay_top.v(10)
+                                                                      pin: I_sys_clk_dup_1_created_gclkinst_auto_created_sclk_s_1_l_bk1.clkin
+SCLK                x023y059z0          0.068          2.279          pin: I_sys_clk_dup_1_created_gclkinst_auto_created_sclk_s_1_l_bk1.clkout
+net (fo=874)                            0.569          2.848          net: I_sys_clk_dup_1_created_gclkinst_auto_created_sclk_s_1_l_bk1_sclk_outnet,  NOFILE(0)
+                                                                      pin: g_pipeline$u_pipeline/U_CCL/S_row_root_active_reg[16]_syn_14.clk
+capture edge                           20.000    r    22.848
+--------------------------------------------------------------------  ---------------
+setup                                  -0.064         22.784
+clock uncertainty                      -0.075         22.709
+clock pessimism                         0.227         22.936
+--------------------------------------------------------------------  ---------------
+Required                                              22.936
+--------------------------------------------------------------------  ---------------
+Slack                                                  2.055
+
+Slack               : 2.251ns
+Begin Point         : col_reg[2]_syn_2.clk (rising edge triggered by clock sys_clk_50m  { rise@0.000000ns  fall@10.000000ns  period=20.000000 })
+End Point           : g_pipeline$u_pipeline/U_CCL/S_row_root_active_reg[24]_syn_8.ia (rising edge triggered by clock sys_clk_50m  { rise@0.000000ns  fall@10.000000ns  period=20.000000 })
+Check Type          : setup
+Process             : slow_m40c
+Budget              : 20.000ns { sys_clk_50m rising@20.000ns - sys_clk_50m rising@0.000ns }
+Data Path Delay     : 17.501ns (cell 3.886ns (22%), net 13.615ns (78%))
+Clock Skew          : 0.109ns
+Logic Level         : 12 ( LUT6=5  LUT4=5  LUT5=2 )
+Max Fanout          : 51
+Clock Uncertainty   : 0.075ns (sdc uncertainty: 0.000ns, default uncertainty: 0.075ns)
+
+Delay Type          Location             Incr           Path   Level  Netlist Info
+--------------------------------------------------------------------  ---------------
+source latency                          0.000          0.000
+port                C4                  0.000          0.000          pin: I_sys_clk
+hierarchy                               0.000          0.000          pin: I_sys_clk_syn_2.ipad
+HDIO                x033y078            0.810          0.810          pin: I_sys_clk_syn_2.sg09_di
+HDIO                x033y078            0.684          1.494          pin: I_sys_clk_syn_2.di
+net (fo=1)                              0.574          2.068          net: I_sys_clk_dup_1,  replay_top.v(10)
+                                                                      pin: I_sys_clk_dup_1_created_gclkinst.clkin[0]
+GCLK                x023y039z16         0.016          2.084          pin: I_sys_clk_dup_1_created_gclkinst.clkout
+net (fo=4)                              0.385          2.469          net: I_sys_clk_syn_3,  replay_top.v(10)
+                                                                      pin: I_sys_clk_dup_1_created_gclkinst_auto_created_sclk_s_1_r_bk1.clkin
+SCLK                x023y059z12         0.079          2.548          pin: I_sys_clk_dup_1_created_gclkinst_auto_created_sclk_s_1_r_bk1.clkout
+net (fo=448)                            0.636          3.184          net: I_sys_clk_dup_1_created_gclkinst_auto_created_sclk_s_1_r_bk1_sclk_outnet,  NOFILE(0)
+                                                                      pin: col_reg[2]_syn_2.clk
+launch edge                             0.000    r     3.184
+--------------------------------------------------------------------  ---------------
+clk2q               x025y044z2          0.137    r     3.321          pin: col_reg[2]_syn_2.oqb
+net (fo=51)                             1.199          4.520          net: g_pipeline$u_pipeline/U_CCL/I_x[1],  gesture_bnn_largest_component_bbox.v(25)
+                                                                      pin: g_pipeline$u_pipeline/U_CCL/S_min_y_reg[235]_syn_2.ib
+LUT4                x025y047z5          0.487    r     5.007       1  pin: g_pipeline$u_pipeline/U_CCL/S_min_y_reg[235]_syn_2.ofa
+net (fo=2)                              0.773          5.780          net: add2_syn_32,  replay_top.v(115)
+                                                                      pin: col_reg[7]_syn_2.ie
+LUT5                x021y043z7          0.262    f     6.042       2  pin: col_reg[7]_syn_2.ofa
+net (fo=5)                              0.776          6.818          net: col_b4[7],  NOFILE(0)
+                                                                      pin: g_pipeline$u_pipeline/U_CCL/S_cleanup_active_reg_syn_1555.imf
+LUT6                x025y041z6          0.168    r     6.986       3  pin: g_pipeline$u_pipeline/U_CCL/S_cleanup_active_reg_syn_1555.ofb
+net (fo=46)                             4.078         11.064          net: g_pipeline$u_pipeline/U_CCL/S_cleanup_active_reg_syn_379,  gesture_bnn_largest_component_bbox.v(263)
+                                                                      pin: g_pipeline$u_pipeline/U_CCL/S_cleanup_active_reg_syn_1147.ic
+LUT4                x005y039z3          0.283    r    11.347       4  pin: g_pipeline$u_pipeline/U_CCL/S_cleanup_active_reg_syn_1147.ofb
+net (fo=1)                              0.302         11.649          net: g_pipeline$u_pipeline/U_CCL/S_cleanup_active_reg_syn_459,  gesture_bnn_largest_component_bbox.v(263)
+                                                                      pin: g_pipeline$u_pipeline/U_CCL/S_cleanup_active_reg_syn_1160.ie
+LUT6                x005y040z1          0.190    r    11.839       5  pin: g_pipeline$u_pipeline/U_CCL/S_cleanup_active_reg_syn_1160.ofb
+net (fo=2)                              0.948         12.787          net: g_pipeline$u_pipeline/U_CCL/S_cleanup_active_reg_syn_465,  gesture_bnn_largest_component_bbox.v(263)
+                                                                      pin: g_pipeline$u_pipeline/U_CCL/S_cleanup_active_reg_syn_1255.ic
+LUT5                x011y043z5          0.283    r    13.070       6  pin: g_pipeline$u_pipeline/U_CCL/S_cleanup_active_reg_syn_1255.ofb
+net (fo=6)                              1.180         14.250          net: g_pipeline$u_pipeline/U_CCL/S_cleanup_active_reg_syn_473,  gesture_bnn_largest_component_bbox.v(263)
+                                                                      pin: g_pipeline$u_pipeline/U_CCL/S_pending_root_up_right_reg[4]_syn_2.id
+LUT6                x010y043z5          0.231    f    14.481       7  pin: g_pipeline$u_pipeline/U_CCL/S_pending_root_up_right_reg[4]_syn_2.ofb
+net (fo=3)                              1.035         15.516          net: g_pipeline$u_pipeline/U_CCL/C_root_up_right[4],  gesture_bnn_largest_component_bbox.v(86)
+                                                                      pin: g_pipeline$u_pipeline/U_CCL/S_max_x_reg[96]_syn_2.ib
+LUT4                x011y047z1          0.408    f    15.924       8  pin: g_pipeline$u_pipeline/U_CCL/S_max_x_reg[96]_syn_2.ofb
+net (fo=1)                              0.179         16.103          net: g_pipeline$u_pipeline/U_CCL/S_cleanup_active_reg_syn_596,  gesture_bnn_largest_component_bbox.v(263)
+                                                                      pin: g_pipeline$u_pipeline/U_CCL/S_cleanup_active_reg_syn_1330.ie
+LUT6                x011y047z4          0.190    r    16.293       9  pin: g_pipeline$u_pipeline/U_CCL/S_cleanup_active_reg_syn_1330.ofb
+net (fo=11)                             0.320         16.613          net: g_pipeline$u_pipeline/U_CCL/S_cleanup_active_reg_syn_600,  gesture_bnn_largest_component_bbox.v(263)
+                                                                      pin: g_pipeline$u_pipeline/U_CCL/S_row_label_present_reg[31]_syn_28.ic
+LUT4                x011y045z4          0.283    r    16.896      10  pin: g_pipeline$u_pipeline/U_CCL/S_row_label_present_reg[31]_syn_28.ofb
+net (fo=10)                             0.574         17.470          net: g_pipeline$u_pipeline/U_CCL/S_cleanup_active_reg_syn_1055,  gesture_bnn_largest_component_bbox.v(263)
+                                                                      pin: g_pipeline$u_pipeline/U_CCL/S_row_label_present_reg[16]_syn_14.ib
+LUT4                x011y046z3          0.408    f    17.878      11  pin: g_pipeline$u_pipeline/U_CCL/S_row_label_present_reg[16]_syn_14.ofb
+net (fo=12)                             2.251         20.129          net: g_pipeline$u_pipeline/U_CCL/S_row_label_present_reg[16]_syn_6,  gesture_bnn_largest_component_bbox.v(263)
+                                                                      pin: g_pipeline$u_pipeline/U_CCL/S_row_root_active_reg[24]_syn_8.ia
+LUT6 (reg)          x002y042z0          0.556    f    20.685      12  net: g_pipeline$u_pipeline/U_CCL/S_row_root_active[24],  gesture_bnn_largest_component_bbox.v(47)
+--------------------------------------------------------------------  ---------------
+Arrival                                               20.685
+
+source latency                          0.000          0.000
+port                C4                  0.000          0.000          pin: I_sys_clk
+hierarchy                               0.000          0.000          pin: I_sys_clk_syn_2.ipad
+HDIO                x033y078            0.745          0.745          pin: I_sys_clk_syn_2.sg09_di
+HDIO                x033y078            0.629          1.374          pin: I_sys_clk_syn_2.di
+net (fo=1)                              0.492          1.866          net: I_sys_clk_dup_1,  replay_top.v(10)
+                                                                      pin: I_sys_clk_dup_1_created_gclkinst.clkin[0]
+GCLK                x023y039z16         0.014          1.880          pin: I_sys_clk_dup_1_created_gclkinst.clkout
+net (fo=4)                              0.331          2.211          net: I_sys_clk_syn_3,  replay_top.v(10)
+                                                                      pin: I_sys_clk_dup_1_created_gclkinst_auto_created_sclk_s_1_l_bk1.clkin
+SCLK                x023y059z0          0.068          2.279          pin: I_sys_clk_dup_1_created_gclkinst_auto_created_sclk_s_1_l_bk1.clkout
+net (fo=874)                            0.569          2.848          net: I_sys_clk_dup_1_created_gclkinst_auto_created_sclk_s_1_l_bk1_sclk_outnet,  NOFILE(0)
+                                                                      pin: g_pipeline$u_pipeline/U_CCL/S_row_root_active_reg[24]_syn_8.clk
+capture edge                           20.000    r    22.848
+--------------------------------------------------------------------  ---------------
+setup                                  -0.064         22.784
+clock uncertainty                      -0.075         22.709
+clock pessimism                         0.227         22.936
+--------------------------------------------------------------------  ---------------
+Required                                              22.936
+--------------------------------------------------------------------  ---------------
+Slack                                                  2.251
+
+Slack               : 2.329ns
+Begin Point         : col_reg[2]_syn_2.clk (rising edge triggered by clock sys_clk_50m  { rise@0.000000ns  fall@10.000000ns  period=20.000000 })
+End Point           : g_pipeline$u_pipeline/U_CCL/O_bbox_y_reg[6]_syn_2.cea (rising edge triggered by clock sys_clk_50m  { rise@0.000000ns  fall@10.000000ns  period=20.000000 })
+Check Type          : setup
+Process             : slow_m40c
+Budget              : 20.000ns { sys_clk_50m rising@20.000ns - sys_clk_50m rising@0.000ns }
+Data Path Delay     : 17.404ns (cell 3.944ns (22%), net 13.460ns (78%))
+Clock Skew          : 0.128ns
+Logic Level         : 12 ( LUT6=4  LUT5=4  LUT4=4 )
+Max Fanout          : 51
+Clock Uncertainty   : 0.075ns (sdc uncertainty: 0.000ns, default uncertainty: 0.075ns)
+
+Delay Type          Location             Incr           Path   Level  Netlist Info
+--------------------------------------------------------------------  ---------------
+source latency                          0.000          0.000
+port                C4                  0.000          0.000          pin: I_sys_clk
+hierarchy                               0.000          0.000          pin: I_sys_clk_syn_2.ipad
+HDIO                x033y078            0.810          0.810          pin: I_sys_clk_syn_2.sg09_di
+HDIO                x033y078            0.684          1.494          pin: I_sys_clk_syn_2.di
+net (fo=1)                              0.574          2.068          net: I_sys_clk_dup_1,  replay_top.v(10)
+                                                                      pin: I_sys_clk_dup_1_created_gclkinst.clkin[0]
+GCLK                x023y039z16         0.016          2.084          pin: I_sys_clk_dup_1_created_gclkinst.clkout
+net (fo=4)                              0.385          2.469          net: I_sys_clk_syn_3,  replay_top.v(10)
+                                                                      pin: I_sys_clk_dup_1_created_gclkinst_auto_created_sclk_s_1_r_bk1.clkin
+SCLK                x023y059z12         0.079          2.548          pin: I_sys_clk_dup_1_created_gclkinst_auto_created_sclk_s_1_r_bk1.clkout
+net (fo=448)                            0.636          3.184          net: I_sys_clk_dup_1_created_gclkinst_auto_created_sclk_s_1_r_bk1_sclk_outnet,  NOFILE(0)
+                                                                      pin: col_reg[2]_syn_2.clk
+launch edge                             0.000    r     3.184
+--------------------------------------------------------------------  ---------------
+clk2q               x025y044z2          0.137    r     3.321          pin: col_reg[2]_syn_2.oqb
+net (fo=51)                             1.199          4.520          net: g_pipeline$u_pipeline/U_CCL/I_x[1],  gesture_bnn_largest_component_bbox.v(25)
+                                                                      pin: g_pipeline$u_pipeline/U_CCL/S_min_y_reg[235]_syn_2.ib
+LUT4                x025y047z5          0.487    r     5.007       1  pin: g_pipeline$u_pipeline/U_CCL/S_min_y_reg[235]_syn_2.ofa
+net (fo=2)                              0.773          5.780          net: add2_syn_32,  replay_top.v(115)
+                                                                      pin: col_reg[7]_syn_2.ie
+LUT5                x021y043z7          0.262    f     6.042       2  pin: col_reg[7]_syn_2.ofa
+net (fo=5)                              0.776          6.818          net: col_b4[7],  NOFILE(0)
+                                                                      pin: g_pipeline$u_pipeline/U_CCL/S_cleanup_active_reg_syn_1555.imf
+LUT6                x025y041z6          0.168    r     6.986       3  pin: g_pipeline$u_pipeline/U_CCL/S_cleanup_active_reg_syn_1555.ofb
+net (fo=46)                             4.078         11.064          net: g_pipeline$u_pipeline/U_CCL/S_cleanup_active_reg_syn_379,  gesture_bnn_largest_component_bbox.v(263)
+                                                                      pin: g_pipeline$u_pipeline/U_CCL/S_cleanup_active_reg_syn_1147.ic
+LUT4                x005y039z3          0.283    r    11.347       4  pin: g_pipeline$u_pipeline/U_CCL/S_cleanup_active_reg_syn_1147.ofb
+net (fo=1)                              0.302         11.649          net: g_pipeline$u_pipeline/U_CCL/S_cleanup_active_reg_syn_459,  gesture_bnn_largest_component_bbox.v(263)
+                                                                      pin: g_pipeline$u_pipeline/U_CCL/S_cleanup_active_reg_syn_1160.ie
+LUT6                x005y040z1          0.190    r    11.839       5  pin: g_pipeline$u_pipeline/U_CCL/S_cleanup_active_reg_syn_1160.ofb
+net (fo=2)                              0.948         12.787          net: g_pipeline$u_pipeline/U_CCL/S_cleanup_active_reg_syn_465,  gesture_bnn_largest_component_bbox.v(263)
+                                                                      pin: g_pipeline$u_pipeline/U_CCL/S_cleanup_active_reg_syn_1255.ic
+LUT5                x011y043z5          0.283    r    13.070       6  pin: g_pipeline$u_pipeline/U_CCL/S_cleanup_active_reg_syn_1255.ofb
+net (fo=6)                              1.180         14.250          net: g_pipeline$u_pipeline/U_CCL/S_cleanup_active_reg_syn_473,  gesture_bnn_largest_component_bbox.v(263)
+                                                                      pin: g_pipeline$u_pipeline/U_CCL/S_pending_root_up_right_reg[4]_syn_2.id
+LUT6                x010y043z5          0.231    f    14.481       7  pin: g_pipeline$u_pipeline/U_CCL/S_pending_root_up_right_reg[4]_syn_2.ofb
+net (fo=3)                              1.035         15.516          net: g_pipeline$u_pipeline/U_CCL/C_root_up_right[4],  gesture_bnn_largest_component_bbox.v(86)
+                                                                      pin: g_pipeline$u_pipeline/U_CCL/S_max_x_reg[96]_syn_2.ib
+LUT4                x011y047z1          0.408    f    15.924       8  pin: g_pipeline$u_pipeline/U_CCL/S_max_x_reg[96]_syn_2.ofb
+net (fo=1)                              0.179         16.103          net: g_pipeline$u_pipeline/U_CCL/S_cleanup_active_reg_syn_596,  gesture_bnn_largest_component_bbox.v(263)
+                                                                      pin: g_pipeline$u_pipeline/U_CCL/S_cleanup_active_reg_syn_1330.ie
+LUT6                x011y047z4          0.190    r    16.293       9  pin: g_pipeline$u_pipeline/U_CCL/S_cleanup_active_reg_syn_1330.ofb
+net (fo=11)                             0.220         16.513          net: g_pipeline$u_pipeline/U_CCL/S_cleanup_active_reg_syn_600,  gesture_bnn_largest_component_bbox.v(263)
+                                                                      pin: g_pipeline$u_pipeline/U_CCL/S_cleanup_active_reg_syn_1324.ib
+LUT4                x011y046z4          0.487    r    17.000      10  pin: g_pipeline$u_pipeline/U_CCL/S_cleanup_active_reg_syn_1324.ofa
+net (fo=10)                             0.647         17.647          net: g_pipeline$u_pipeline/U_CCL/S_cleanup_active_reg_syn_1021,  gesture_bnn_largest_component_bbox.v(263)
+                                                                      pin: g_pipeline$u_pipeline/U_CCL/S_pending_base_reg[0]_syn_20.ib
+LUT5                x012y046z4          0.408    f    18.055      11  pin: g_pipeline$u_pipeline/U_CCL/S_pending_base_reg[0]_syn_20.ofb
+net (fo=37)                             0.643         18.698          net: g_pipeline$u_pipeline/U_CCL/S_cleanup_active_reg_syn_1065,  gesture_bnn_largest_component_bbox.v(263)
+                                                                      pin: g_pipeline$u_pipeline/U_CCL/S_min_y_reg[74]_syn_2.ic
+LUT5                x017y050z5          0.410    f    19.108      12  pin: g_pipeline$u_pipeline/U_CCL/S_min_y_reg[74]_syn_2.ofa
+net (fo=34)                             1.480         20.588          net: g_pipeline$u_pipeline/U_CCL/mux368_syn_2[4],  gesture_bnn_largest_component_bbox.v(356)
+                                                                      pin: g_pipeline$u_pipeline/U_CCL/O_bbox_y_reg[6]_syn_2.cea
+reg                 x020y054z7          0.000    f    20.588
+--------------------------------------------------------------------  ---------------
+Arrival                                               20.588
+
+source latency                          0.000          0.000
+port                C4                  0.000          0.000          pin: I_sys_clk
+hierarchy                               0.000          0.000          pin: I_sys_clk_syn_2.ipad
+HDIO                x033y078            0.745          0.745          pin: I_sys_clk_syn_2.sg09_di
+HDIO                x033y078            0.629          1.374          pin: I_sys_clk_syn_2.di
+net (fo=1)                              0.492          1.866          net: I_sys_clk_dup_1,  replay_top.v(10)
+                                                                      pin: I_sys_clk_dup_1_created_gclkinst.clkin[0]
+GCLK                x023y039z16         0.014          1.880          pin: I_sys_clk_dup_1_created_gclkinst.clkout
+net (fo=4)                              0.331          2.211          net: I_sys_clk_syn_3,  replay_top.v(10)
+                                                                      pin: I_sys_clk_dup_1_created_gclkinst_auto_created_sclk_s_1_l_bk1.clkin
+SCLK                x023y059z0          0.068          2.279          pin: I_sys_clk_dup_1_created_gclkinst_auto_created_sclk_s_1_l_bk1.clkout
+net (fo=874)                            0.550          2.829          net: I_sys_clk_dup_1_created_gclkinst_auto_created_sclk_s_1_l_bk1_sclk_outnet,  NOFILE(0)
+                                                                      pin: g_pipeline$u_pipeline/U_CCL/O_bbox_y_reg[6]_syn_2.clk
+capture edge                           20.000    r    22.829
+--------------------------------------------------------------------  ---------------
+setup                                  -0.064         22.765
+clock uncertainty                      -0.075         22.690
+clock pessimism                         0.227         22.917
+--------------------------------------------------------------------  ---------------
+Required                                              22.917
+--------------------------------------------------------------------  ---------------
+Slack                                                  2.329
+
+Slack               : 2.422ns
+Begin Point         : col_reg[2]_syn_2.clk (rising edge triggered by clock sys_clk_50m  { rise@0.000000ns  fall@10.000000ns  period=20.000000 })
+End Point           : g_pipeline$u_pipeline/U_CCL/S_row_label_present_reg[17]_syn_8.ib (rising edge triggered by clock sys_clk_50m  { rise@0.000000ns  fall@10.000000ns  period=20.000000 })
+Check Type          : setup
+Process             : slow_m40c
+Budget              : 20.000ns { sys_clk_50m rising@20.000ns - sys_clk_50m rising@0.000ns }
+Data Path Delay     : 17.330ns (cell 3.712ns (21%), net 13.618ns (79%))
+Clock Skew          : 0.109ns
+Logic Level         : 12 ( LUT4=6  LUT6=4  LUT5=2 )
+Max Fanout          : 51
+Clock Uncertainty   : 0.075ns (sdc uncertainty: 0.000ns, default uncertainty: 0.075ns)
+
+Delay Type          Location             Incr           Path   Level  Netlist Info
+--------------------------------------------------------------------  ---------------
+source latency                          0.000          0.000
+port                C4                  0.000          0.000          pin: I_sys_clk
+hierarchy                               0.000          0.000          pin: I_sys_clk_syn_2.ipad
+HDIO                x033y078            0.810          0.810          pin: I_sys_clk_syn_2.sg09_di
+HDIO                x033y078            0.684          1.494          pin: I_sys_clk_syn_2.di
+net (fo=1)                              0.574          2.068          net: I_sys_clk_dup_1,  replay_top.v(10)
+                                                                      pin: I_sys_clk_dup_1_created_gclkinst.clkin[0]
+GCLK                x023y039z16         0.016          2.084          pin: I_sys_clk_dup_1_created_gclkinst.clkout
+net (fo=4)                              0.385          2.469          net: I_sys_clk_syn_3,  replay_top.v(10)
+                                                                      pin: I_sys_clk_dup_1_created_gclkinst_auto_created_sclk_s_1_r_bk1.clkin
+SCLK                x023y059z12         0.079          2.548          pin: I_sys_clk_dup_1_created_gclkinst_auto_created_sclk_s_1_r_bk1.clkout
+net (fo=448)                            0.636          3.184          net: I_sys_clk_dup_1_created_gclkinst_auto_created_sclk_s_1_r_bk1_sclk_outnet,  NOFILE(0)
+                                                                      pin: col_reg[2]_syn_2.clk
+launch edge                             0.000    r     3.184
+--------------------------------------------------------------------  ---------------
+clk2q               x025y044z2          0.137    r     3.321          pin: col_reg[2]_syn_2.oqb
+net (fo=51)                             1.199          4.520          net: g_pipeline$u_pipeline/U_CCL/I_x[1],  gesture_bnn_largest_component_bbox.v(25)
+                                                                      pin: g_pipeline$u_pipeline/U_CCL/S_min_y_reg[235]_syn_2.ib
+LUT4                x025y047z5          0.487    r     5.007       1  pin: g_pipeline$u_pipeline/U_CCL/S_min_y_reg[235]_syn_2.ofa
+net (fo=2)                              0.773          5.780          net: add2_syn_32,  replay_top.v(115)
+                                                                      pin: col_reg[7]_syn_2.ie
+LUT5                x021y043z7          0.262    f     6.042       2  pin: col_reg[7]_syn_2.ofa
+net (fo=5)                              0.776          6.818          net: col_b4[7],  NOFILE(0)
+                                                                      pin: g_pipeline$u_pipeline/U_CCL/S_cleanup_active_reg_syn_1555.imf
+LUT6                x025y041z6          0.168    r     6.986       3  pin: g_pipeline$u_pipeline/U_CCL/S_cleanup_active_reg_syn_1555.ofb
+net (fo=46)                             4.078         11.064          net: g_pipeline$u_pipeline/U_CCL/S_cleanup_active_reg_syn_379,  gesture_bnn_largest_component_bbox.v(263)
+                                                                      pin: g_pipeline$u_pipeline/U_CCL/S_cleanup_active_reg_syn_1147.ic
+LUT4                x005y039z3          0.283    r    11.347       4  pin: g_pipeline$u_pipeline/U_CCL/S_cleanup_active_reg_syn_1147.ofb
+net (fo=1)                              0.302         11.649          net: g_pipeline$u_pipeline/U_CCL/S_cleanup_active_reg_syn_459,  gesture_bnn_largest_component_bbox.v(263)
+                                                                      pin: g_pipeline$u_pipeline/U_CCL/S_cleanup_active_reg_syn_1160.ie
+LUT6                x005y040z1          0.190    r    11.839       5  pin: g_pipeline$u_pipeline/U_CCL/S_cleanup_active_reg_syn_1160.ofb
+net (fo=2)                              0.948         12.787          net: g_pipeline$u_pipeline/U_CCL/S_cleanup_active_reg_syn_465,  gesture_bnn_largest_component_bbox.v(263)
+                                                                      pin: g_pipeline$u_pipeline/U_CCL/S_cleanup_active_reg_syn_1255.ic
+LUT5                x011y043z5          0.283    r    13.070       6  pin: g_pipeline$u_pipeline/U_CCL/S_cleanup_active_reg_syn_1255.ofb
+net (fo=6)                              1.180         14.250          net: g_pipeline$u_pipeline/U_CCL/S_cleanup_active_reg_syn_473,  gesture_bnn_largest_component_bbox.v(263)
+                                                                      pin: g_pipeline$u_pipeline/U_CCL/S_pending_root_up_right_reg[4]_syn_2.id
+LUT6                x010y043z5          0.231    f    14.481       7  pin: g_pipeline$u_pipeline/U_CCL/S_pending_root_up_right_reg[4]_syn_2.ofb
+net (fo=3)                              1.035         15.516          net: g_pipeline$u_pipeline/U_CCL/C_root_up_right[4],  gesture_bnn_largest_component_bbox.v(86)
+                                                                      pin: g_pipeline$u_pipeline/U_CCL/S_max_x_reg[96]_syn_2.ib
+LUT4                x011y047z1          0.408    f    15.924       8  pin: g_pipeline$u_pipeline/U_CCL/S_max_x_reg[96]_syn_2.ofb
+net (fo=1)                              0.179         16.103          net: g_pipeline$u_pipeline/U_CCL/S_cleanup_active_reg_syn_596,  gesture_bnn_largest_component_bbox.v(263)
+                                                                      pin: g_pipeline$u_pipeline/U_CCL/S_cleanup_active_reg_syn_1330.ie
+LUT6                x011y047z4          0.190    r    16.293       9  pin: g_pipeline$u_pipeline/U_CCL/S_cleanup_active_reg_syn_1330.ofb
+net (fo=11)                             0.320         16.613          net: g_pipeline$u_pipeline/U_CCL/S_cleanup_active_reg_syn_600,  gesture_bnn_largest_component_bbox.v(263)
+                                                                      pin: g_pipeline$u_pipeline/U_CCL/S_row_label_present_reg[31]_syn_28.ic
+LUT4                x011y045z4          0.283    r    16.896      10  pin: g_pipeline$u_pipeline/U_CCL/S_row_label_present_reg[31]_syn_28.ofb
+net (fo=10)                             0.574         17.470          net: g_pipeline$u_pipeline/U_CCL/S_cleanup_active_reg_syn_1055,  gesture_bnn_largest_component_bbox.v(263)
+                                                                      pin: g_pipeline$u_pipeline/U_CCL/S_row_label_present_reg[16]_syn_14.ib
+LUT4                x011y046z3          0.408    f    17.878      11  pin: g_pipeline$u_pipeline/U_CCL/S_row_label_present_reg[16]_syn_14.ofb
+net (fo=12)                             2.254         20.132          net: g_pipeline$u_pipeline/U_CCL/S_row_label_present_reg[16]_syn_6,  gesture_bnn_largest_component_bbox.v(263)
+                                                                      pin: g_pipeline$u_pipeline/U_CCL/S_row_label_present_reg[17]_syn_8.ib
+LUT4 (reg)          x002y040z2          0.382    f    20.514      12  net: g_pipeline$u_pipeline/U_CCL/S_row_label_present[17],  gesture_bnn_largest_component_bbox.v(48)
+--------------------------------------------------------------------  ---------------
+Arrival                                               20.514
+
+source latency                          0.000          0.000
+port                C4                  0.000          0.000          pin: I_sys_clk
+hierarchy                               0.000          0.000          pin: I_sys_clk_syn_2.ipad
+HDIO                x033y078            0.745          0.745          pin: I_sys_clk_syn_2.sg09_di
+HDIO                x033y078            0.629          1.374          pin: I_sys_clk_syn_2.di
+net (fo=1)                              0.492          1.866          net: I_sys_clk_dup_1,  replay_top.v(10)
+                                                                      pin: I_sys_clk_dup_1_created_gclkinst.clkin[0]
+GCLK                x023y039z16         0.014          1.880          pin: I_sys_clk_dup_1_created_gclkinst.clkout
+net (fo=4)                              0.331          2.211          net: I_sys_clk_syn_3,  replay_top.v(10)
+                                                                      pin: I_sys_clk_dup_1_created_gclkinst_auto_created_sclk_s_1_l_bk1.clkin
+SCLK                x023y059z0          0.068          2.279          pin: I_sys_clk_dup_1_created_gclkinst_auto_created_sclk_s_1_l_bk1.clkout
+net (fo=874)                            0.569          2.848          net: I_sys_clk_dup_1_created_gclkinst_auto_created_sclk_s_1_l_bk1_sclk_outnet,  NOFILE(0)
+                                                                      pin: g_pipeline$u_pipeline/U_CCL/S_row_label_present_reg[17]_syn_8.clk
+capture edge                           20.000    r    22.848
+--------------------------------------------------------------------  ---------------
+setup                                  -0.064         22.784
+clock uncertainty                      -0.075         22.709
+clock pessimism                         0.227         22.936
+--------------------------------------------------------------------  ---------------
+Required                                              22.936
+--------------------------------------------------------------------  ---------------
+Slack                                                  2.422
+
+Slack               : 2.431ns
+Begin Point         : col_reg[2]_syn_2.clk (rising edge triggered by clock sys_clk_50m  { rise@0.000000ns  fall@10.000000ns  period=20.000000 })
+End Point           : g_pipeline$u_pipeline/U_CCL/S_row_label_present_reg[22]_syn_8.ib (rising edge triggered by clock sys_clk_50m  { rise@0.000000ns  fall@10.000000ns  period=20.000000 })
+Check Type          : setup
+Process             : slow_m40c
+Budget              : 20.000ns { sys_clk_50m rising@20.000ns - sys_clk_50m rising@0.000ns }
+Data Path Delay     : 17.321ns (cell 3.969ns (22%), net 13.352ns (78%))
+Clock Skew          : 0.109ns
+Logic Level         : 12 ( LUT6=4  LUT4=4  LUT5=2  LUT3=2 )
+Max Fanout          : 51
+Clock Uncertainty   : 0.075ns (sdc uncertainty: 0.000ns, default uncertainty: 0.075ns)
+
+Delay Type          Location             Incr           Path   Level  Netlist Info
+--------------------------------------------------------------------  ---------------
+source latency                          0.000          0.000
+port                C4                  0.000          0.000          pin: I_sys_clk
+hierarchy                               0.000          0.000          pin: I_sys_clk_syn_2.ipad
+HDIO                x033y078            0.810          0.810          pin: I_sys_clk_syn_2.sg09_di
+HDIO                x033y078            0.684          1.494          pin: I_sys_clk_syn_2.di
+net (fo=1)                              0.574          2.068          net: I_sys_clk_dup_1,  replay_top.v(10)
+                                                                      pin: I_sys_clk_dup_1_created_gclkinst.clkin[0]
+GCLK                x023y039z16         0.016          2.084          pin: I_sys_clk_dup_1_created_gclkinst.clkout
+net (fo=4)                              0.385          2.469          net: I_sys_clk_syn_3,  replay_top.v(10)
+                                                                      pin: I_sys_clk_dup_1_created_gclkinst_auto_created_sclk_s_1_r_bk1.clkin
+SCLK                x023y059z12         0.079          2.548          pin: I_sys_clk_dup_1_created_gclkinst_auto_created_sclk_s_1_r_bk1.clkout
+net (fo=448)                            0.636          3.184          net: I_sys_clk_dup_1_created_gclkinst_auto_created_sclk_s_1_r_bk1_sclk_outnet,  NOFILE(0)
+                                                                      pin: col_reg[2]_syn_2.clk
+launch edge                             0.000    r     3.184
+--------------------------------------------------------------------  ---------------
+clk2q               x025y044z2          0.137    r     3.321          pin: col_reg[2]_syn_2.oqb
+net (fo=51)                             1.199          4.520          net: g_pipeline$u_pipeline/U_CCL/I_x[1],  gesture_bnn_largest_component_bbox.v(25)
+                                                                      pin: g_pipeline$u_pipeline/U_CCL/S_min_y_reg[235]_syn_2.ib
+LUT4                x025y047z5          0.487    r     5.007       1  pin: g_pipeline$u_pipeline/U_CCL/S_min_y_reg[235]_syn_2.ofa
+net (fo=2)                              0.773          5.780          net: add2_syn_32,  replay_top.v(115)
+                                                                      pin: col_reg[7]_syn_2.ie
+LUT5                x021y043z7          0.262    f     6.042       2  pin: col_reg[7]_syn_2.ofa
+net (fo=5)                              0.776          6.818          net: col_b4[7],  NOFILE(0)
+                                                                      pin: g_pipeline$u_pipeline/U_CCL/S_cleanup_active_reg_syn_1555.imf
+LUT6                x025y041z6          0.168    r     6.986       3  pin: g_pipeline$u_pipeline/U_CCL/S_cleanup_active_reg_syn_1555.ofb
+net (fo=46)                             4.078         11.064          net: g_pipeline$u_pipeline/U_CCL/S_cleanup_active_reg_syn_379,  gesture_bnn_largest_component_bbox.v(263)
+                                                                      pin: g_pipeline$u_pipeline/U_CCL/S_cleanup_active_reg_syn_1147.ic
+LUT4                x005y039z3          0.283    r    11.347       4  pin: g_pipeline$u_pipeline/U_CCL/S_cleanup_active_reg_syn_1147.ofb
+net (fo=1)                              0.302         11.649          net: g_pipeline$u_pipeline/U_CCL/S_cleanup_active_reg_syn_459,  gesture_bnn_largest_component_bbox.v(263)
+                                                                      pin: g_pipeline$u_pipeline/U_CCL/S_cleanup_active_reg_syn_1160.ie
+LUT6                x005y040z1          0.190    r    11.839       5  pin: g_pipeline$u_pipeline/U_CCL/S_cleanup_active_reg_syn_1160.ofb
+net (fo=2)                              0.948         12.787          net: g_pipeline$u_pipeline/U_CCL/S_cleanup_active_reg_syn_465,  gesture_bnn_largest_component_bbox.v(263)
+                                                                      pin: g_pipeline$u_pipeline/U_CCL/S_cleanup_active_reg_syn_1255.ic
+LUT5                x011y043z5          0.283    r    13.070       6  pin: g_pipeline$u_pipeline/U_CCL/S_cleanup_active_reg_syn_1255.ofb
+net (fo=6)                              1.180         14.250          net: g_pipeline$u_pipeline/U_CCL/S_cleanup_active_reg_syn_473,  gesture_bnn_largest_component_bbox.v(263)
+                                                                      pin: g_pipeline$u_pipeline/U_CCL/S_pending_root_up_right_reg[4]_syn_2.id
+LUT6                x010y043z5          0.231    f    14.481       7  pin: g_pipeline$u_pipeline/U_CCL/S_pending_root_up_right_reg[4]_syn_2.ofb
+net (fo=3)                              1.035         15.516          net: g_pipeline$u_pipeline/U_CCL/C_root_up_right[4],  gesture_bnn_largest_component_bbox.v(86)
+                                                                      pin: g_pipeline$u_pipeline/U_CCL/S_max_x_reg[96]_syn_2.ib
+LUT4                x011y047z1          0.408    f    15.924       8  pin: g_pipeline$u_pipeline/U_CCL/S_max_x_reg[96]_syn_2.ofb
+net (fo=1)                              0.179         16.103          net: g_pipeline$u_pipeline/U_CCL/S_cleanup_active_reg_syn_596,  gesture_bnn_largest_component_bbox.v(263)
+                                                                      pin: g_pipeline$u_pipeline/U_CCL/S_cleanup_active_reg_syn_1330.ie
+LUT6                x011y047z4          0.190    r    16.293       9  pin: g_pipeline$u_pipeline/U_CCL/S_cleanup_active_reg_syn_1330.ofb
+net (fo=11)                             0.204         16.497          net: g_pipeline$u_pipeline/U_CCL/S_cleanup_active_reg_syn_600,  gesture_bnn_largest_component_bbox.v(263)
+                                                                      pin: g_pipeline$u_pipeline/U_CCL/S_cleanup_active_reg_syn_1289.ia
+LUT3                x010y046z6          0.473    r    16.970      10  pin: g_pipeline$u_pipeline/U_CCL/S_cleanup_active_reg_syn_1289.ofa
+net (fo=10)                             0.630         17.600          net: g_pipeline$u_pipeline/U_CCL/S_cleanup_active_reg_syn_1023,  gesture_bnn_largest_component_bbox.v(263)
+                                                                      pin: g_pipeline$u_pipeline/U_CCL/S_row_label_present_reg[30]_syn_12.ib
+LUT3                x011y043z6          0.408    f    18.008      11  pin: g_pipeline$u_pipeline/U_CCL/S_row_label_present_reg[30]_syn_12.ofb
+net (fo=25)                             2.048         20.056          net: g_pipeline$u_pipeline/U_CCL/S_row_label_present_reg[30]_syn_6,  gesture_bnn_largest_component_bbox.v(263)
+                                                                      pin: g_pipeline$u_pipeline/U_CCL/S_row_label_present_reg[22]_syn_8.ib
+LUT4 (reg)          x003y041z2          0.449    r    20.505      12  net: g_pipeline$u_pipeline/U_CCL/S_row_label_present[22],  gesture_bnn_largest_component_bbox.v(48)
+--------------------------------------------------------------------  ---------------
+Arrival                                               20.505
+
+source latency                          0.000          0.000
+port                C4                  0.000          0.000          pin: I_sys_clk
+hierarchy                               0.000          0.000          pin: I_sys_clk_syn_2.ipad
+HDIO                x033y078            0.745          0.745          pin: I_sys_clk_syn_2.sg09_di
+HDIO                x033y078            0.629          1.374          pin: I_sys_clk_syn_2.di
+net (fo=1)                              0.492          1.866          net: I_sys_clk_dup_1,  replay_top.v(10)
+                                                                      pin: I_sys_clk_dup_1_created_gclkinst.clkin[0]
+GCLK                x023y039z16         0.014          1.880          pin: I_sys_clk_dup_1_created_gclkinst.clkout
+net (fo=4)                              0.331          2.211          net: I_sys_clk_syn_3,  replay_top.v(10)
+                                                                      pin: I_sys_clk_dup_1_created_gclkinst_auto_created_sclk_s_1_l_bk1.clkin
+SCLK                x023y059z0          0.068          2.279          pin: I_sys_clk_dup_1_created_gclkinst_auto_created_sclk_s_1_l_bk1.clkout
+net (fo=874)                            0.569          2.848          net: I_sys_clk_dup_1_created_gclkinst_auto_created_sclk_s_1_l_bk1_sclk_outnet,  NOFILE(0)
+                                                                      pin: g_pipeline$u_pipeline/U_CCL/S_row_label_present_reg[22]_syn_8.clk
+capture edge                           20.000    r    22.848
+--------------------------------------------------------------------  ---------------
+setup                                  -0.064         22.784
+clock uncertainty                      -0.075         22.709
+clock pessimism                         0.227         22.936
+--------------------------------------------------------------------  ---------------
+Required                                              22.936
+--------------------------------------------------------------------  ---------------
+Slack                                                  2.431
+
+Slack               : 2.449ns
+Begin Point         : col_reg[2]_syn_2.clk (rising edge triggered by clock sys_clk_50m  { rise@0.000000ns  fall@10.000000ns  period=20.000000 })
+End Point           : g_pipeline$u_pipeline/U_CCL/O_bbox_height_reg[2]_syn_2.ia (rising edge triggered by clock sys_clk_50m  { rise@0.000000ns  fall@10.000000ns  period=20.000000 })
+Check Type          : setup
+Process             : slow_m40c
+Budget              : 20.000ns { sys_clk_50m rising@20.000ns - sys_clk_50m rising@0.000ns }
+Data Path Delay     : 17.284ns (cell 3.969ns (22%), net 13.315ns (78%))
+Clock Skew          : 0.128ns
+Logic Level         : 12 ( LUT6=4  LUT5=4  LUT4=4 )
+Max Fanout          : 51
+Clock Uncertainty   : 0.075ns (sdc uncertainty: 0.000ns, default uncertainty: 0.075ns)
+
+Delay Type          Location             Incr           Path   Level  Netlist Info
+--------------------------------------------------------------------  ---------------
+source latency                          0.000          0.000
+port                C4                  0.000          0.000          pin: I_sys_clk
+hierarchy                               0.000          0.000          pin: I_sys_clk_syn_2.ipad
+HDIO                x033y078            0.810          0.810          pin: I_sys_clk_syn_2.sg09_di
+HDIO                x033y078            0.684          1.494          pin: I_sys_clk_syn_2.di
+net (fo=1)                              0.574          2.068          net: I_sys_clk_dup_1,  replay_top.v(10)
+                                                                      pin: I_sys_clk_dup_1_created_gclkinst.clkin[0]
+GCLK                x023y039z16         0.016          2.084          pin: I_sys_clk_dup_1_created_gclkinst.clkout
+net (fo=4)                              0.385          2.469          net: I_sys_clk_syn_3,  replay_top.v(10)
+                                                                      pin: I_sys_clk_dup_1_created_gclkinst_auto_created_sclk_s_1_r_bk1.clkin
+SCLK                x023y059z12         0.079          2.548          pin: I_sys_clk_dup_1_created_gclkinst_auto_created_sclk_s_1_r_bk1.clkout
+net (fo=448)                            0.636          3.184          net: I_sys_clk_dup_1_created_gclkinst_auto_created_sclk_s_1_r_bk1_sclk_outnet,  NOFILE(0)
+                                                                      pin: col_reg[2]_syn_2.clk
+launch edge                             0.000    r     3.184
+--------------------------------------------------------------------  ---------------
+clk2q               x025y044z2          0.137    r     3.321          pin: col_reg[2]_syn_2.oqb
+net (fo=51)                             1.199          4.520          net: g_pipeline$u_pipeline/U_CCL/I_x[1],  gesture_bnn_largest_component_bbox.v(25)
+                                                                      pin: g_pipeline$u_pipeline/U_CCL/S_min_y_reg[235]_syn_2.ib
+LUT4                x025y047z5          0.487    r     5.007       1  pin: g_pipeline$u_pipeline/U_CCL/S_min_y_reg[235]_syn_2.ofa
+net (fo=2)                              0.773          5.780          net: add2_syn_32,  replay_top.v(115)
+                                                                      pin: col_reg[7]_syn_2.ie
+LUT5                x021y043z7          0.262    f     6.042       2  pin: col_reg[7]_syn_2.ofa
+net (fo=5)                              0.776          6.818          net: col_b4[7],  NOFILE(0)
+                                                                      pin: g_pipeline$u_pipeline/U_CCL/S_cleanup_active_reg_syn_1555.imf
+LUT6                x025y041z6          0.168    r     6.986       3  pin: g_pipeline$u_pipeline/U_CCL/S_cleanup_active_reg_syn_1555.ofb
+net (fo=46)                             4.078         11.064          net: g_pipeline$u_pipeline/U_CCL/S_cleanup_active_reg_syn_379,  gesture_bnn_largest_component_bbox.v(263)
+                                                                      pin: g_pipeline$u_pipeline/U_CCL/S_cleanup_active_reg_syn_1147.ic
+LUT4                x005y039z3          0.283    r    11.347       4  pin: g_pipeline$u_pipeline/U_CCL/S_cleanup_active_reg_syn_1147.ofb
+net (fo=1)                              0.302         11.649          net: g_pipeline$u_pipeline/U_CCL/S_cleanup_active_reg_syn_459,  gesture_bnn_largest_component_bbox.v(263)
+                                                                      pin: g_pipeline$u_pipeline/U_CCL/S_cleanup_active_reg_syn_1160.ie
+LUT6                x005y040z1          0.190    r    11.839       5  pin: g_pipeline$u_pipeline/U_CCL/S_cleanup_active_reg_syn_1160.ofb
+net (fo=2)                              0.948         12.787          net: g_pipeline$u_pipeline/U_CCL/S_cleanup_active_reg_syn_465,  gesture_bnn_largest_component_bbox.v(263)
+                                                                      pin: g_pipeline$u_pipeline/U_CCL/S_cleanup_active_reg_syn_1255.ic
+LUT5                x011y043z5          0.283    r    13.070       6  pin: g_pipeline$u_pipeline/U_CCL/S_cleanup_active_reg_syn_1255.ofb
+net (fo=6)                              1.180         14.250          net: g_pipeline$u_pipeline/U_CCL/S_cleanup_active_reg_syn_473,  gesture_bnn_largest_component_bbox.v(263)
+                                                                      pin: g_pipeline$u_pipeline/U_CCL/S_pending_root_up_right_reg[4]_syn_2.id
+LUT6                x010y043z5          0.231    f    14.481       7  pin: g_pipeline$u_pipeline/U_CCL/S_pending_root_up_right_reg[4]_syn_2.ofb
+net (fo=3)                              1.035         15.516          net: g_pipeline$u_pipeline/U_CCL/C_root_up_right[4],  gesture_bnn_largest_component_bbox.v(86)
+                                                                      pin: g_pipeline$u_pipeline/U_CCL/S_max_x_reg[96]_syn_2.ib
+LUT4                x011y047z1          0.408    f    15.924       8  pin: g_pipeline$u_pipeline/U_CCL/S_max_x_reg[96]_syn_2.ofb
+net (fo=1)                              0.179         16.103          net: g_pipeline$u_pipeline/U_CCL/S_cleanup_active_reg_syn_596,  gesture_bnn_largest_component_bbox.v(263)
+                                                                      pin: g_pipeline$u_pipeline/U_CCL/S_cleanup_active_reg_syn_1330.ie
+LUT6                x011y047z4          0.190    r    16.293       9  pin: g_pipeline$u_pipeline/U_CCL/S_cleanup_active_reg_syn_1330.ofb
+net (fo=11)                             0.220         16.513          net: g_pipeline$u_pipeline/U_CCL/S_cleanup_active_reg_syn_600,  gesture_bnn_largest_component_bbox.v(263)
+                                                                      pin: g_pipeline$u_pipeline/U_CCL/S_cleanup_active_reg_syn_1324.ib
+LUT4                x011y046z4          0.487    r    17.000      10  pin: g_pipeline$u_pipeline/U_CCL/S_cleanup_active_reg_syn_1324.ofa
+net (fo=10)                             0.647         17.647          net: g_pipeline$u_pipeline/U_CCL/S_cleanup_active_reg_syn_1021,  gesture_bnn_largest_component_bbox.v(263)
+                                                                      pin: g_pipeline$u_pipeline/U_CCL/S_pending_base_reg[0]_syn_20.ib
+LUT5                x012y046z4          0.408    f    18.055      11  pin: g_pipeline$u_pipeline/U_CCL/S_pending_base_reg[0]_syn_20.ofb
+net (fo=37)                             1.978         20.033          net: g_pipeline$u_pipeline/U_CCL/S_cleanup_active_reg_syn_1065,  gesture_bnn_largest_component_bbox.v(263)
+                                                                      pin: g_pipeline$u_pipeline/U_CCL/O_bbox_height_reg[2]_syn_2.ia
+LUT5 (reg)          x020y056z2          0.435    r    20.468      12  net: g_pipeline$u_pipeline/U_NORMALIZER/I_bbox_height[2],  gesture_bnn_roi_normalizer.v(21)
+--------------------------------------------------------------------  ---------------
+Arrival                                               20.468
+
+source latency                          0.000          0.000
+port                C4                  0.000          0.000          pin: I_sys_clk
+hierarchy                               0.000          0.000          pin: I_sys_clk_syn_2.ipad
+HDIO                x033y078            0.745          0.745          pin: I_sys_clk_syn_2.sg09_di
+HDIO                x033y078            0.629          1.374          pin: I_sys_clk_syn_2.di
+net (fo=1)                              0.492          1.866          net: I_sys_clk_dup_1,  replay_top.v(10)
+                                                                      pin: I_sys_clk_dup_1_created_gclkinst.clkin[0]
+GCLK                x023y039z16         0.014          1.880          pin: I_sys_clk_dup_1_created_gclkinst.clkout
+net (fo=4)                              0.331          2.211          net: I_sys_clk_syn_3,  replay_top.v(10)
+                                                                      pin: I_sys_clk_dup_1_created_gclkinst_auto_created_sclk_s_1_l_bk1.clkin
+SCLK                x023y059z0          0.068          2.279          pin: I_sys_clk_dup_1_created_gclkinst_auto_created_sclk_s_1_l_bk1.clkout
+net (fo=874)                            0.550          2.829          net: I_sys_clk_dup_1_created_gclkinst_auto_created_sclk_s_1_l_bk1_sclk_outnet,  NOFILE(0)
+                                                                      pin: g_pipeline$u_pipeline/U_CCL/O_bbox_height_reg[2]_syn_2.clk
+capture edge                           20.000    r    22.829
+--------------------------------------------------------------------  ---------------
+setup                                  -0.064         22.765
+clock uncertainty                      -0.075         22.690
+clock pessimism                         0.227         22.917
+--------------------------------------------------------------------  ---------------
+Required                                              22.917
+--------------------------------------------------------------------  ---------------
+Slack                                                  2.449
+
+Slack               : 2.449ns
+Begin Point         : col_reg[2]_syn_2.clk (rising edge triggered by clock sys_clk_50m  { rise@0.000000ns  fall@10.000000ns  period=20.000000 })
+End Point           : g_pipeline$u_pipeline/U_CCL/O_bbox_height_reg[4]_syn_2.ia (rising edge triggered by clock sys_clk_50m  { rise@0.000000ns  fall@10.000000ns  period=20.000000 })
+Check Type          : setup
+Process             : slow_m40c
+Budget              : 20.000ns { sys_clk_50m rising@20.000ns - sys_clk_50m rising@0.000ns }
+Data Path Delay     : 17.284ns (cell 3.969ns (22%), net 13.315ns (78%))
+Clock Skew          : 0.128ns
+Logic Level         : 12 ( LUT6=4  LUT5=4  LUT4=4 )
+Max Fanout          : 51
+Clock Uncertainty   : 0.075ns (sdc uncertainty: 0.000ns, default uncertainty: 0.075ns)
+
+Delay Type          Location             Incr           Path   Level  Netlist Info
+--------------------------------------------------------------------  ---------------
+source latency                          0.000          0.000
+port                C4                  0.000          0.000          pin: I_sys_clk
+hierarchy                               0.000          0.000          pin: I_sys_clk_syn_2.ipad
+HDIO                x033y078            0.810          0.810          pin: I_sys_clk_syn_2.sg09_di
+HDIO                x033y078            0.684          1.494          pin: I_sys_clk_syn_2.di
+net (fo=1)                              0.574          2.068          net: I_sys_clk_dup_1,  replay_top.v(10)
+                                                                      pin: I_sys_clk_dup_1_created_gclkinst.clkin[0]
+GCLK                x023y039z16         0.016          2.084          pin: I_sys_clk_dup_1_created_gclkinst.clkout
+net (fo=4)                              0.385          2.469          net: I_sys_clk_syn_3,  replay_top.v(10)
+                                                                      pin: I_sys_clk_dup_1_created_gclkinst_auto_created_sclk_s_1_r_bk1.clkin
+SCLK                x023y059z12         0.079          2.548          pin: I_sys_clk_dup_1_created_gclkinst_auto_created_sclk_s_1_r_bk1.clkout
+net (fo=448)                            0.636          3.184          net: I_sys_clk_dup_1_created_gclkinst_auto_created_sclk_s_1_r_bk1_sclk_outnet,  NOFILE(0)
+                                                                      pin: col_reg[2]_syn_2.clk
+launch edge                             0.000    r     3.184
+--------------------------------------------------------------------  ---------------
+clk2q               x025y044z2          0.137    r     3.321          pin: col_reg[2]_syn_2.oqb
+net (fo=51)                             1.199          4.520          net: g_pipeline$u_pipeline/U_CCL/I_x[1],  gesture_bnn_largest_component_bbox.v(25)
+                                                                      pin: g_pipeline$u_pipeline/U_CCL/S_min_y_reg[235]_syn_2.ib
+LUT4                x025y047z5          0.487    r     5.007       1  pin: g_pipeline$u_pipeline/U_CCL/S_min_y_reg[235]_syn_2.ofa
+net (fo=2)                              0.773          5.780          net: add2_syn_32,  replay_top.v(115)
+                                                                      pin: col_reg[7]_syn_2.ie
+LUT5                x021y043z7          0.262    f     6.042       2  pin: col_reg[7]_syn_2.ofa
+net (fo=5)                              0.776          6.818          net: col_b4[7],  NOFILE(0)
+                                                                      pin: g_pipeline$u_pipeline/U_CCL/S_cleanup_active_reg_syn_1555.imf
+LUT6                x025y041z6          0.168    r     6.986       3  pin: g_pipeline$u_pipeline/U_CCL/S_cleanup_active_reg_syn_1555.ofb
+net (fo=46)                             4.078         11.064          net: g_pipeline$u_pipeline/U_CCL/S_cleanup_active_reg_syn_379,  gesture_bnn_largest_component_bbox.v(263)
+                                                                      pin: g_pipeline$u_pipeline/U_CCL/S_cleanup_active_reg_syn_1147.ic
+LUT4                x005y039z3          0.283    r    11.347       4  pin: g_pipeline$u_pipeline/U_CCL/S_cleanup_active_reg_syn_1147.ofb
+net (fo=1)                              0.302         11.649          net: g_pipeline$u_pipeline/U_CCL/S_cleanup_active_reg_syn_459,  gesture_bnn_largest_component_bbox.v(263)
+                                                                      pin: g_pipeline$u_pipeline/U_CCL/S_cleanup_active_reg_syn_1160.ie
+LUT6                x005y040z1          0.190    r    11.839       5  pin: g_pipeline$u_pipeline/U_CCL/S_cleanup_active_reg_syn_1160.ofb
+net (fo=2)                              0.948         12.787          net: g_pipeline$u_pipeline/U_CCL/S_cleanup_active_reg_syn_465,  gesture_bnn_largest_component_bbox.v(263)
+                                                                      pin: g_pipeline$u_pipeline/U_CCL/S_cleanup_active_reg_syn_1255.ic
+LUT5                x011y043z5          0.283    r    13.070       6  pin: g_pipeline$u_pipeline/U_CCL/S_cleanup_active_reg_syn_1255.ofb
+net (fo=6)                              1.180         14.250          net: g_pipeline$u_pipeline/U_CCL/S_cleanup_active_reg_syn_473,  gesture_bnn_largest_component_bbox.v(263)
+                                                                      pin: g_pipeline$u_pipeline/U_CCL/S_pending_root_up_right_reg[4]_syn_2.id
+LUT6                x010y043z5          0.231    f    14.481       7  pin: g_pipeline$u_pipeline/U_CCL/S_pending_root_up_right_reg[4]_syn_2.ofb
+net (fo=3)                              1.035         15.516          net: g_pipeline$u_pipeline/U_CCL/C_root_up_right[4],  gesture_bnn_largest_component_bbox.v(86)
+                                                                      pin: g_pipeline$u_pipeline/U_CCL/S_max_x_reg[96]_syn_2.ib
+LUT4                x011y047z1          0.408    f    15.924       8  pin: g_pipeline$u_pipeline/U_CCL/S_max_x_reg[96]_syn_2.ofb
+net (fo=1)                              0.179         16.103          net: g_pipeline$u_pipeline/U_CCL/S_cleanup_active_reg_syn_596,  gesture_bnn_largest_component_bbox.v(263)
+                                                                      pin: g_pipeline$u_pipeline/U_CCL/S_cleanup_active_reg_syn_1330.ie
+LUT6                x011y047z4          0.190    r    16.293       9  pin: g_pipeline$u_pipeline/U_CCL/S_cleanup_active_reg_syn_1330.ofb
+net (fo=11)                             0.220         16.513          net: g_pipeline$u_pipeline/U_CCL/S_cleanup_active_reg_syn_600,  gesture_bnn_largest_component_bbox.v(263)
+                                                                      pin: g_pipeline$u_pipeline/U_CCL/S_cleanup_active_reg_syn_1324.ib
+LUT4                x011y046z4          0.487    r    17.000      10  pin: g_pipeline$u_pipeline/U_CCL/S_cleanup_active_reg_syn_1324.ofa
+net (fo=10)                             0.647         17.647          net: g_pipeline$u_pipeline/U_CCL/S_cleanup_active_reg_syn_1021,  gesture_bnn_largest_component_bbox.v(263)
+                                                                      pin: g_pipeline$u_pipeline/U_CCL/S_pending_base_reg[0]_syn_20.ib
+LUT5                x012y046z4          0.408    f    18.055      11  pin: g_pipeline$u_pipeline/U_CCL/S_pending_base_reg[0]_syn_20.ofb
+net (fo=37)                             1.978         20.033          net: g_pipeline$u_pipeline/U_CCL/S_cleanup_active_reg_syn_1065,  gesture_bnn_largest_component_bbox.v(263)
+                                                                      pin: g_pipeline$u_pipeline/U_CCL/O_bbox_height_reg[4]_syn_2.ia
+LUT5 (reg)          x020y056z3          0.435    r    20.468      12  net: g_pipeline$u_pipeline/U_NORMALIZER/I_bbox_height[4],  gesture_bnn_roi_normalizer.v(21)
+--------------------------------------------------------------------  ---------------
+Arrival                                               20.468
+
+source latency                          0.000          0.000
+port                C4                  0.000          0.000          pin: I_sys_clk
+hierarchy                               0.000          0.000          pin: I_sys_clk_syn_2.ipad
+HDIO                x033y078            0.745          0.745          pin: I_sys_clk_syn_2.sg09_di
+HDIO                x033y078            0.629          1.374          pin: I_sys_clk_syn_2.di
+net (fo=1)                              0.492          1.866          net: I_sys_clk_dup_1,  replay_top.v(10)
+                                                                      pin: I_sys_clk_dup_1_created_gclkinst.clkin[0]
+GCLK                x023y039z16         0.014          1.880          pin: I_sys_clk_dup_1_created_gclkinst.clkout
+net (fo=4)                              0.331          2.211          net: I_sys_clk_syn_3,  replay_top.v(10)
+                                                                      pin: I_sys_clk_dup_1_created_gclkinst_auto_created_sclk_s_1_l_bk1.clkin
+SCLK                x023y059z0          0.068          2.279          pin: I_sys_clk_dup_1_created_gclkinst_auto_created_sclk_s_1_l_bk1.clkout
+net (fo=874)                            0.550          2.829          net: I_sys_clk_dup_1_created_gclkinst_auto_created_sclk_s_1_l_bk1_sclk_outnet,  NOFILE(0)
+                                                                      pin: g_pipeline$u_pipeline/U_CCL/O_bbox_height_reg[4]_syn_2.clk
+capture edge                           20.000    r    22.829
+--------------------------------------------------------------------  ---------------
+setup                                  -0.064         22.765
+clock uncertainty                      -0.075         22.690
+clock pessimism                         0.227         22.917
+--------------------------------------------------------------------  ---------------
+Required                                              22.917
+--------------------------------------------------------------------  ---------------
+Slack                                                  2.449
+
+
+Period Check
+----------------------------------------------------------------------------------------------------
+    Type       Setting(ns)      Required(ns)         Slack(ns)   Point
+--------------------------------------------------------------------------------
+    DRAM            20.000             2.800            17.200   g_pipeline$u_pipeline/U_CCL/ramread0_syn_304.wclk
+    DRAM            20.000             2.800            17.200   g_pipeline$u_pipeline/U_CCL/ramread0_syn_384.wclk
+    DRAM            20.000             2.800            17.200   g_pipeline$u_pipeline/U_CCL/ramread0_syn_364.wclk
+    DRAM            20.000             2.800            17.200   g_pipeline$u_pipeline/U_CCL/ramread0_syn_344.wclk
+    DRAM            20.000             2.800            17.200   g_pipeline$u_pipeline/U_CCL/ramread0_syn_324.wclk
+    DRAM            20.000             2.800            17.200   g_pipeline$u_pipeline/U_CCL/ramread0_syn_284.wclk
+    DRAM            20.000             2.800            17.200   g_pipeline$u_pipeline/U_CCL/ramread0_syn_264.wclk
+    DRAM            20.000             2.800            17.200   g_pipeline$u_pipeline/U_CCL/ramread0_syn_244.wclk
+
+Min Paths
+----------------------------------------------------------------------------------------------------
+Slack               : 0.022ns
+Begin Point         : col_reg[4]_syn_2.clk (rising edge triggered by clock sys_clk_50m  { rise@0.000000ns  fall@10.000000ns  period=20.000000 })
+End Point           : g_pipeline$u_pipeline/U_NORMALIZER/U_MASK_FRAME_RAM/ramread0_syn_15.addra[3] (rising edge triggered by clock sys_clk_50m  { rise@0.000000ns  fall@10.000000ns  period=20.000000 })
+Check Type          : hold
+Process             : fast_m40c
+Budget              : 0.000ns { sys_clk_50m rising@0.000ns - sys_clk_50m rising@0.000ns }
+Data Path Delay     : 0.256ns (cell 0.065ns (25%), net 0.191ns (75%))
+Clock Skew          : 0.059ns
+Logic Level         : 1 ( ERAM=1 )
+Max Fanout          : 47
+Clock Uncertainty   : 0.100ns (sdc uncertainty: 0.000ns, default uncertainty: 0.100ns)
+
+Delay Type          Location             Incr           Path   Level  Netlist Info
+--------------------------------------------------------------------  ---------------
+source latency                          0.000          0.000
+port                C4                  0.000          0.000          pin: I_sys_clk
+hierarchy                               0.000          0.000          pin: I_sys_clk_syn_2.ipad
+HDIO                x033y078            0.810          0.810          pin: I_sys_clk_syn_2.sg09_di
+HDIO                x033y078            0.257          1.067          pin: I_sys_clk_syn_2.di
+net (fo=1)                              0.220          1.287          net: I_sys_clk_dup_1,  replay_top.v(10)
+                                                                      pin: I_sys_clk_dup_1_created_gclkinst.clkin[0]
+GCLK                x023y039z16         0.006          1.293          pin: I_sys_clk_dup_1_created_gclkinst.clkout
+net (fo=4)                              0.140          1.433          net: I_sys_clk_syn_3,  replay_top.v(10)
+                                                                      pin: I_sys_clk_dup_1_created_gclkinst_auto_created_sclk_s_1_r_bk1.clkin
+SCLK                x023y059z12         0.025          1.458          pin: I_sys_clk_dup_1_created_gclkinst_auto_created_sclk_s_1_r_bk1.clkout
+net (fo=448)                            0.221          1.679          net: I_sys_clk_dup_1_created_gclkinst_auto_created_sclk_s_1_r_bk1_sclk_outnet,  NOFILE(0)
+                                                                      pin: col_reg[4]_syn_2.clk
+launch edge                             0.000    r     1.679
+--------------------------------------------------------------------  ---------------
+clk2q               x025y044z0          0.065    r     1.744          pin: col_reg[4]_syn_2.oqb
+net (fo=47)                             0.191          1.935          net: g_pipeline$u_pipeline/U_CCL/I_x[3],  gesture_bnn_largest_component_bbox.v(25)
+                                                                      pin: g_pipeline$u_pipeline/U_NORMALIZER/U_MASK_FRAME_RAM/ramread0_syn_15.addra[3]
+ERAM (reg)          x023y044            0.000    f     1.935       1
+--------------------------------------------------------------------  ---------------
+Arrival                                                1.935
+
+source latency                          0.000          0.000
+port                C4                  0.000          0.000          pin: I_sys_clk
+hierarchy                               0.000          0.000          pin: I_sys_clk_syn_2.ipad
+HDIO                x033y078            0.915          0.915          pin: I_sys_clk_syn_2.sg09_di
+HDIO                x033y078            0.290          1.205          pin: I_sys_clk_syn_2.di
+net (fo=1)                              0.238          1.443          net: I_sys_clk_dup_1,  replay_top.v(10)
+                                                                      pin: I_sys_clk_dup_1_created_gclkinst.clkin[0]
+GCLK                x023y039z16         0.007          1.450          pin: I_sys_clk_dup_1_created_gclkinst.clkout
+net (fo=4)                              0.155          1.605          net: I_sys_clk_syn_3,  replay_top.v(10)
+                                                                      pin: I_sys_clk_dup_1_created_gclkinst_auto_created_sclk_s_1_l_bk1.clkin
+SCLK                x023y059z0          0.030          1.635          pin: I_sys_clk_dup_1_created_gclkinst_auto_created_sclk_s_1_l_bk1.clkout
+net (fo=874)                            0.265          1.900          net: I_sys_clk_dup_1_created_gclkinst_auto_created_sclk_s_1_l_bk1_sclk_outnet,  NOFILE(0)
+                                                                      pin: g_pipeline$u_pipeline/U_NORMALIZER/U_MASK_FRAME_RAM/ramread0_syn_15.clka
+capture edge                            0.000    r     1.900
+--------------------------------------------------------------------  ---------------
+hold                                    0.075          1.975
+clock uncertainty                       0.100          2.075
+clock pessimism                        -0.162          1.913
+--------------------------------------------------------------------  ---------------
+Required                                               1.913
+--------------------------------------------------------------------  ---------------
+Slack                                                  0.022
+
+Slack               : 0.030ns
+Begin Point         : col_reg[2]_syn_2.clk (rising edge triggered by clock sys_clk_50m  { rise@0.000000ns  fall@10.000000ns  period=20.000000 })
+End Point           : g_pipeline$u_pipeline/U_NORMALIZER/U_MASK_FRAME_RAM/ramread0_syn_15.addra[2] (rising edge triggered by clock sys_clk_50m  { rise@0.000000ns  fall@10.000000ns  period=20.000000 })
+Check Type          : hold
+Process             : fast_m40c
+Budget              : 0.000ns { sys_clk_50m rising@0.000ns - sys_clk_50m rising@0.000ns }
+Data Path Delay     : 0.261ns (cell 0.062ns (23%), net 0.199ns (77%))
+Clock Skew          : 0.059ns
+Logic Level         : 1 ( ERAM=1 )
+Max Fanout          : 50
+Clock Uncertainty   : 0.100ns (sdc uncertainty: 0.000ns, default uncertainty: 0.100ns)
+
+Delay Type          Location             Incr           Path   Level  Netlist Info
+--------------------------------------------------------------------  ---------------
+source latency                          0.000          0.000
+port                C4                  0.000          0.000          pin: I_sys_clk
+hierarchy                               0.000          0.000          pin: I_sys_clk_syn_2.ipad
+HDIO                x033y078            0.810          0.810          pin: I_sys_clk_syn_2.sg09_di
+HDIO                x033y078            0.257          1.067          pin: I_sys_clk_syn_2.di
+net (fo=1)                              0.220          1.287          net: I_sys_clk_dup_1,  replay_top.v(10)
+                                                                      pin: I_sys_clk_dup_1_created_gclkinst.clkin[0]
+GCLK                x023y039z16         0.006          1.293          pin: I_sys_clk_dup_1_created_gclkinst.clkout
+net (fo=4)                              0.140          1.433          net: I_sys_clk_syn_3,  replay_top.v(10)
+                                                                      pin: I_sys_clk_dup_1_created_gclkinst_auto_created_sclk_s_1_r_bk1.clkin
+SCLK                x023y059z12         0.025          1.458          pin: I_sys_clk_dup_1_created_gclkinst_auto_created_sclk_s_1_r_bk1.clkout
+net (fo=448)                            0.221          1.679          net: I_sys_clk_dup_1_created_gclkinst_auto_created_sclk_s_1_r_bk1_sclk_outnet,  NOFILE(0)
+                                                                      pin: col_reg[2]_syn_2.clk
+launch edge                             0.000    r     1.679
+--------------------------------------------------------------------  ---------------
+clk2q               x025y044z2          0.062    f     1.741          pin: col_reg[2]_syn_2.oqa
+net (fo=50)                             0.199          1.940          net: g_pipeline$u_pipeline/U_CCL/I_x[2],  gesture_bnn_largest_component_bbox.v(25)
+                                                                      pin: g_pipeline$u_pipeline/U_NORMALIZER/U_MASK_FRAME_RAM/ramread0_syn_15.addra[2]
+ERAM (reg)          x023y044            0.000    f     1.940       1
+--------------------------------------------------------------------  ---------------
+Arrival                                                1.940
+
+source latency                          0.000          0.000
+port                C4                  0.000          0.000          pin: I_sys_clk
+hierarchy                               0.000          0.000          pin: I_sys_clk_syn_2.ipad
+HDIO                x033y078            0.915          0.915          pin: I_sys_clk_syn_2.sg09_di
+HDIO                x033y078            0.290          1.205          pin: I_sys_clk_syn_2.di
+net (fo=1)                              0.238          1.443          net: I_sys_clk_dup_1,  replay_top.v(10)
+                                                                      pin: I_sys_clk_dup_1_created_gclkinst.clkin[0]
+GCLK                x023y039z16         0.007          1.450          pin: I_sys_clk_dup_1_created_gclkinst.clkout
+net (fo=4)                              0.155          1.605          net: I_sys_clk_syn_3,  replay_top.v(10)
+                                                                      pin: I_sys_clk_dup_1_created_gclkinst_auto_created_sclk_s_1_l_bk1.clkin
+SCLK                x023y059z0          0.030          1.635          pin: I_sys_clk_dup_1_created_gclkinst_auto_created_sclk_s_1_l_bk1.clkout
+net (fo=874)                            0.265          1.900          net: I_sys_clk_dup_1_created_gclkinst_auto_created_sclk_s_1_l_bk1_sclk_outnet,  NOFILE(0)
+                                                                      pin: g_pipeline$u_pipeline/U_NORMALIZER/U_MASK_FRAME_RAM/ramread0_syn_15.clka
+capture edge                            0.000    r     1.900
+--------------------------------------------------------------------  ---------------
+hold                                    0.072          1.972
+clock uncertainty                       0.100          2.072
+clock pessimism                        -0.162          1.910
+--------------------------------------------------------------------  ---------------
+Required                                               1.910
+--------------------------------------------------------------------  ---------------
+Slack                                                  0.030
+
+Slack               : 0.035ns
+Begin Point         : col_reg[2]_syn_2.clk (rising edge triggered by clock sys_clk_50m  { rise@0.000000ns  fall@10.000000ns  period=20.000000 })
+End Point           : g_pipeline$u_pipeline/U_NORMALIZER/U_MASK_FRAME_RAM/ramread0_syn_15.addra[1] (rising edge triggered by clock sys_clk_50m  { rise@0.000000ns  fall@10.000000ns  period=20.000000 })
+Check Type          : hold
+Process             : fast_m40c
+Budget              : 0.000ns { sys_clk_50m rising@0.000ns - sys_clk_50m rising@0.000ns }
+Data Path Delay     : 0.267ns (cell 0.065ns (24%), net 0.202ns (76%))
+Clock Skew          : 0.059ns
+Logic Level         : 1 ( ERAM=1 )
+Max Fanout          : 51
+Clock Uncertainty   : 0.100ns (sdc uncertainty: 0.000ns, default uncertainty: 0.100ns)
+
+Delay Type          Location             Incr           Path   Level  Netlist Info
+--------------------------------------------------------------------  ---------------
+source latency                          0.000          0.000
+port                C4                  0.000          0.000          pin: I_sys_clk
+hierarchy                               0.000          0.000          pin: I_sys_clk_syn_2.ipad
+HDIO                x033y078            0.810          0.810          pin: I_sys_clk_syn_2.sg09_di
+HDIO                x033y078            0.257          1.067          pin: I_sys_clk_syn_2.di
+net (fo=1)                              0.220          1.287          net: I_sys_clk_dup_1,  replay_top.v(10)
+                                                                      pin: I_sys_clk_dup_1_created_gclkinst.clkin[0]
+GCLK                x023y039z16         0.006          1.293          pin: I_sys_clk_dup_1_created_gclkinst.clkout
+net (fo=4)                              0.140          1.433          net: I_sys_clk_syn_3,  replay_top.v(10)
+                                                                      pin: I_sys_clk_dup_1_created_gclkinst_auto_created_sclk_s_1_r_bk1.clkin
+SCLK                x023y059z12         0.025          1.458          pin: I_sys_clk_dup_1_created_gclkinst_auto_created_sclk_s_1_r_bk1.clkout
+net (fo=448)                            0.221          1.679          net: I_sys_clk_dup_1_created_gclkinst_auto_created_sclk_s_1_r_bk1_sclk_outnet,  NOFILE(0)
+                                                                      pin: col_reg[2]_syn_2.clk
+launch edge                             0.000    r     1.679
+--------------------------------------------------------------------  ---------------
+clk2q               x025y044z2          0.065    r     1.744          pin: col_reg[2]_syn_2.oqb
+net (fo=51)                             0.202          1.946          net: g_pipeline$u_pipeline/U_CCL/I_x[1],  gesture_bnn_largest_component_bbox.v(25)
+                                                                      pin: g_pipeline$u_pipeline/U_NORMALIZER/U_MASK_FRAME_RAM/ramread0_syn_15.addra[1]
+ERAM (reg)          x023y044            0.000    f     1.946       1
+--------------------------------------------------------------------  ---------------
+Arrival                                                1.946
+
+source latency                          0.000          0.000
+port                C4                  0.000          0.000          pin: I_sys_clk
+hierarchy                               0.000          0.000          pin: I_sys_clk_syn_2.ipad
+HDIO                x033y078            0.915          0.915          pin: I_sys_clk_syn_2.sg09_di
+HDIO                x033y078            0.290          1.205          pin: I_sys_clk_syn_2.di
+net (fo=1)                              0.238          1.443          net: I_sys_clk_dup_1,  replay_top.v(10)
+                                                                      pin: I_sys_clk_dup_1_created_gclkinst.clkin[0]
+GCLK                x023y039z16         0.007          1.450          pin: I_sys_clk_dup_1_created_gclkinst.clkout
+net (fo=4)                              0.155          1.605          net: I_sys_clk_syn_3,  replay_top.v(10)
+                                                                      pin: I_sys_clk_dup_1_created_gclkinst_auto_created_sclk_s_1_l_bk1.clkin
+SCLK                x023y059z0          0.030          1.635          pin: I_sys_clk_dup_1_created_gclkinst_auto_created_sclk_s_1_l_bk1.clkout
+net (fo=874)                            0.265          1.900          net: I_sys_clk_dup_1_created_gclkinst_auto_created_sclk_s_1_l_bk1_sclk_outnet,  NOFILE(0)
+                                                                      pin: g_pipeline$u_pipeline/U_NORMALIZER/U_MASK_FRAME_RAM/ramread0_syn_15.clka
+capture edge                            0.000    r     1.900
+--------------------------------------------------------------------  ---------------
+hold                                    0.073          1.973
+clock uncertainty                       0.100          2.073
+clock pessimism                        -0.162          1.911
+--------------------------------------------------------------------  ---------------
+Required                                               1.911
+--------------------------------------------------------------------  ---------------
+Slack                                                  0.035
+
+Slack               : 0.059ns
+Begin Point         : col_reg[6]_syn_2.clk (rising edge triggered by clock sys_clk_50m  { rise@0.000000ns  fall@10.000000ns  period=20.000000 })
+End Point           : g_pipeline$u_pipeline/U_NORMALIZER/U_MASK_FRAME_RAM/ramread0_syn_11.addra[6] (rising edge triggered by clock sys_clk_50m  { rise@0.000000ns  fall@10.000000ns  period=20.000000 })
+Check Type          : hold
+Process             : fast_m40c
+Budget              : 0.000ns { sys_clk_50m rising@0.000ns - sys_clk_50m rising@0.000ns }
+Data Path Delay     : 0.284ns (cell 0.062ns (21%), net 0.222ns (79%))
+Clock Skew          : 0.059ns
+Logic Level         : 1 ( ERAM=1 )
+Max Fanout          : 13
+Clock Uncertainty   : 0.100ns (sdc uncertainty: 0.000ns, default uncertainty: 0.100ns)
+
+Delay Type          Location             Incr           Path   Level  Netlist Info
+--------------------------------------------------------------------  ---------------
+source latency                          0.000          0.000
+port                C4                  0.000          0.000          pin: I_sys_clk
+hierarchy                               0.000          0.000          pin: I_sys_clk_syn_2.ipad
+HDIO                x033y078            0.810          0.810          pin: I_sys_clk_syn_2.sg09_di
+HDIO                x033y078            0.257          1.067          pin: I_sys_clk_syn_2.di
+net (fo=1)                              0.220          1.287          net: I_sys_clk_dup_1,  replay_top.v(10)
+                                                                      pin: I_sys_clk_dup_1_created_gclkinst.clkin[0]
+GCLK                x023y039z16         0.006          1.293          pin: I_sys_clk_dup_1_created_gclkinst.clkout
+net (fo=4)                              0.140          1.433          net: I_sys_clk_syn_3,  replay_top.v(10)
+                                                                      pin: I_sys_clk_dup_1_created_gclkinst_auto_created_sclk_s_1_r_bk1.clkin
+SCLK                x023y059z12         0.025          1.458          pin: I_sys_clk_dup_1_created_gclkinst_auto_created_sclk_s_1_r_bk1.clkout
+net (fo=448)                            0.221          1.679          net: I_sys_clk_dup_1_created_gclkinst_auto_created_sclk_s_1_r_bk1_sclk_outnet,  NOFILE(0)
+                                                                      pin: col_reg[6]_syn_2.clk
+launch edge                             0.000    r     1.679
+--------------------------------------------------------------------  ---------------
+clk2q               x025y044z3          0.062    f     1.741          pin: col_reg[6]_syn_2.oqa
+net (fo=13)                             0.222          1.963          net: g_pipeline$u_pipeline/U_CCL/I_x[6],  gesture_bnn_largest_component_bbox.v(25)
+                                                                      pin: g_pipeline$u_pipeline/U_NORMALIZER/U_MASK_FRAME_RAM/ramread0_syn_11.addra[6]
+ERAM (reg)          x023y048            0.000    f     1.963       1
+--------------------------------------------------------------------  ---------------
+Arrival                                                1.963
+
+source latency                          0.000          0.000
+port                C4                  0.000          0.000          pin: I_sys_clk
+hierarchy                               0.000          0.000          pin: I_sys_clk_syn_2.ipad
+HDIO                x033y078            0.915          0.915          pin: I_sys_clk_syn_2.sg09_di
+HDIO                x033y078            0.290          1.205          pin: I_sys_clk_syn_2.di
+net (fo=1)                              0.238          1.443          net: I_sys_clk_dup_1,  replay_top.v(10)
+                                                                      pin: I_sys_clk_dup_1_created_gclkinst.clkin[0]
+GCLK                x023y039z16         0.007          1.450          pin: I_sys_clk_dup_1_created_gclkinst.clkout
+net (fo=4)                              0.155          1.605          net: I_sys_clk_syn_3,  replay_top.v(10)
+                                                                      pin: I_sys_clk_dup_1_created_gclkinst_auto_created_sclk_s_1_l_bk1.clkin
+SCLK                x023y059z0          0.030          1.635          pin: I_sys_clk_dup_1_created_gclkinst_auto_created_sclk_s_1_l_bk1.clkout
+net (fo=874)                            0.265          1.900          net: I_sys_clk_dup_1_created_gclkinst_auto_created_sclk_s_1_l_bk1_sclk_outnet,  NOFILE(0)
+                                                                      pin: g_pipeline$u_pipeline/U_NORMALIZER/U_MASK_FRAME_RAM/ramread0_syn_11.clka
+capture edge                            0.000    r     1.900
+--------------------------------------------------------------------  ---------------
+hold                                    0.066          1.966
+clock uncertainty                       0.100          2.066
+clock pessimism                        -0.162          1.904
+--------------------------------------------------------------------  ---------------
+Required                                               1.904
+--------------------------------------------------------------------  ---------------
+Slack                                                  0.059
+
+Slack               : 0.066ns
+Begin Point         : col_reg[4]_syn_2.clk (rising edge triggered by clock sys_clk_50m  { rise@0.000000ns  fall@10.000000ns  period=20.000000 })
+End Point           : g_pipeline$u_pipeline/U_NORMALIZER/U_MASK_FRAME_RAM/ramread0_syn_11.addra[3] (rising edge triggered by clock sys_clk_50m  { rise@0.000000ns  fall@10.000000ns  period=20.000000 })
+Check Type          : hold
+Process             : fast_m40c
+Budget              : 0.000ns { sys_clk_50m rising@0.000ns - sys_clk_50m rising@0.000ns }
+Data Path Delay     : 0.300ns (cell 0.065ns (21%), net 0.235ns (79%))
+Clock Skew          : 0.059ns
+Logic Level         : 1 ( ERAM=1 )
+Max Fanout          : 47
+Clock Uncertainty   : 0.100ns (sdc uncertainty: 0.000ns, default uncertainty: 0.100ns)
+
+Delay Type          Location             Incr           Path   Level  Netlist Info
+--------------------------------------------------------------------  ---------------
+source latency                          0.000          0.000
+port                C4                  0.000          0.000          pin: I_sys_clk
+hierarchy                               0.000          0.000          pin: I_sys_clk_syn_2.ipad
+HDIO                x033y078            0.810          0.810          pin: I_sys_clk_syn_2.sg09_di
+HDIO                x033y078            0.257          1.067          pin: I_sys_clk_syn_2.di
+net (fo=1)                              0.220          1.287          net: I_sys_clk_dup_1,  replay_top.v(10)
+                                                                      pin: I_sys_clk_dup_1_created_gclkinst.clkin[0]
+GCLK                x023y039z16         0.006          1.293          pin: I_sys_clk_dup_1_created_gclkinst.clkout
+net (fo=4)                              0.140          1.433          net: I_sys_clk_syn_3,  replay_top.v(10)
+                                                                      pin: I_sys_clk_dup_1_created_gclkinst_auto_created_sclk_s_1_r_bk1.clkin
+SCLK                x023y059z12         0.025          1.458          pin: I_sys_clk_dup_1_created_gclkinst_auto_created_sclk_s_1_r_bk1.clkout
+net (fo=448)                            0.221          1.679          net: I_sys_clk_dup_1_created_gclkinst_auto_created_sclk_s_1_r_bk1_sclk_outnet,  NOFILE(0)
+                                                                      pin: col_reg[4]_syn_2.clk
+launch edge                             0.000    r     1.679
+--------------------------------------------------------------------  ---------------
+clk2q               x025y044z0          0.065    r     1.744          pin: col_reg[4]_syn_2.oqb
+net (fo=47)                             0.235          1.979          net: g_pipeline$u_pipeline/U_CCL/I_x[3],  gesture_bnn_largest_component_bbox.v(25)
+                                                                      pin: g_pipeline$u_pipeline/U_NORMALIZER/U_MASK_FRAME_RAM/ramread0_syn_11.addra[3]
+ERAM (reg)          x023y048            0.000    f     1.979       1
+--------------------------------------------------------------------  ---------------
+Arrival                                                1.979
+
+source latency                          0.000          0.000
+port                C4                  0.000          0.000          pin: I_sys_clk
+hierarchy                               0.000          0.000          pin: I_sys_clk_syn_2.ipad
+HDIO                x033y078            0.915          0.915          pin: I_sys_clk_syn_2.sg09_di
+HDIO                x033y078            0.290          1.205          pin: I_sys_clk_syn_2.di
+net (fo=1)                              0.238          1.443          net: I_sys_clk_dup_1,  replay_top.v(10)
+                                                                      pin: I_sys_clk_dup_1_created_gclkinst.clkin[0]
+GCLK                x023y039z16         0.007          1.450          pin: I_sys_clk_dup_1_created_gclkinst.clkout
+net (fo=4)                              0.155          1.605          net: I_sys_clk_syn_3,  replay_top.v(10)
+                                                                      pin: I_sys_clk_dup_1_created_gclkinst_auto_created_sclk_s_1_l_bk1.clkin
+SCLK                x023y059z0          0.030          1.635          pin: I_sys_clk_dup_1_created_gclkinst_auto_created_sclk_s_1_l_bk1.clkout
+net (fo=874)                            0.265          1.900          net: I_sys_clk_dup_1_created_gclkinst_auto_created_sclk_s_1_l_bk1_sclk_outnet,  NOFILE(0)
+                                                                      pin: g_pipeline$u_pipeline/U_NORMALIZER/U_MASK_FRAME_RAM/ramread0_syn_11.clka
+capture edge                            0.000    r     1.900
+--------------------------------------------------------------------  ---------------
+hold                                    0.075          1.975
+clock uncertainty                       0.100          2.075
+clock pessimism                        -0.162          1.913
+--------------------------------------------------------------------  ---------------
+Required                                               1.913
+--------------------------------------------------------------------  ---------------
+Slack                                                  0.066
+
+Slack               : 0.067ns
+Begin Point         : col_reg[0]_syn_2.clk (rising edge triggered by clock sys_clk_50m  { rise@0.000000ns  fall@10.000000ns  period=20.000000 })
+End Point           : g_pipeline$u_pipeline/U_CCL/ramread0_syn_304.byteaddr (rising edge triggered by clock sys_clk_50m  { rise@0.000000ns  fall@10.000000ns  period=20.000000 })
+Check Type          : hold
+Process             : fast_m40c
+Budget              : 0.000ns { sys_clk_50m rising@0.000ns - sys_clk_50m rising@0.000ns }
+Data Path Delay     : 0.155ns (cell 0.062ns (39%), net 0.093ns (61%))
+Clock Skew          : 0.009ns
+Logic Level         : 1 ( DRAM=1 )
+Max Fanout          : 52
+Clock Uncertainty   : 0.050ns (sdc uncertainty: 0.000ns, default uncertainty: 0.050ns)
+
+Delay Type          Location             Incr           Path   Level  Netlist Info
+--------------------------------------------------------------------  ---------------
+source latency                          0.000          0.000
+port                C4                  0.000          0.000          pin: I_sys_clk
+hierarchy                               0.000          0.000          pin: I_sys_clk_syn_2.ipad
+HDIO                x033y078            0.810          0.810          pin: I_sys_clk_syn_2.sg09_di
+HDIO                x033y078            0.257          1.067          pin: I_sys_clk_syn_2.di
+net (fo=1)                              0.220          1.287          net: I_sys_clk_dup_1,  replay_top.v(10)
+                                                                      pin: I_sys_clk_dup_1_created_gclkinst.clkin[0]
+GCLK                x023y039z16         0.006          1.293          pin: I_sys_clk_dup_1_created_gclkinst.clkout
+net (fo=4)                              0.140          1.433          net: I_sys_clk_syn_3,  replay_top.v(10)
+                                                                      pin: I_sys_clk_dup_1_created_gclkinst_auto_created_sclk_s_1_r_bk1.clkin
+SCLK                x023y059z12         0.025          1.458          pin: I_sys_clk_dup_1_created_gclkinst_auto_created_sclk_s_1_r_bk1.clkout
+net (fo=448)                            0.221          1.679          net: I_sys_clk_dup_1_created_gclkinst_auto_created_sclk_s_1_r_bk1_sclk_outnet,  NOFILE(0)
+                                                                      pin: col_reg[0]_syn_2.clk
+launch edge                             0.000    r     1.679
+--------------------------------------------------------------------  ---------------
+clk2q               x026y041z7          0.062    f     1.741          pin: col_reg[0]_syn_2.oqa
+net (fo=52)                             0.093          1.834          net: g_pipeline$u_pipeline/U_CCL/I_x[0],  gesture_bnn_largest_component_bbox.v(25)
+                                                                      pin: g_pipeline$u_pipeline/U_CCL/ramread0_syn_304.byteaddr
+DRAM (reg)          x026y042            0.000    f     1.834       1
+--------------------------------------------------------------------  ---------------
+Arrival                                                1.834
+
+source latency                          0.000          0.000
+port                C4                  0.000          0.000          pin: I_sys_clk
+hierarchy                               0.000          0.000          pin: I_sys_clk_syn_2.ipad
+HDIO                x033y078            0.915          0.915          pin: I_sys_clk_syn_2.sg09_di
+HDIO                x033y078            0.290          1.205          pin: I_sys_clk_syn_2.di
+net (fo=1)                              0.238          1.443          net: I_sys_clk_dup_1,  replay_top.v(10)
+                                                                      pin: I_sys_clk_dup_1_created_gclkinst.clkin[0]
+GCLK                x023y039z16         0.007          1.450          pin: I_sys_clk_dup_1_created_gclkinst.clkout
+net (fo=4)                              0.152          1.602          net: I_sys_clk_syn_3,  replay_top.v(10)
+                                                                      pin: I_sys_clk_dup_1_created_gclkinst_auto_created_sclk_s_1_r_bk1.clkin
+SCLK                x023y059z12         0.030          1.632          pin: I_sys_clk_dup_1_created_gclkinst_auto_created_sclk_s_1_r_bk1.clkout
+net (fo=448)                            0.244          1.876          net: I_sys_clk_dup_1_created_gclkinst_auto_created_sclk_s_1_r_bk1_sclk_outnet,  NOFILE(0)
+                                                                      pin: g_pipeline$u_pipeline/U_CCL/ramread0_syn_304.wclk
+capture edge                            0.000    r     1.876
+--------------------------------------------------------------------  ---------------
+hold                                    0.029          1.905
+clock uncertainty                       0.050          1.955
+clock pessimism                        -0.188          1.767
+--------------------------------------------------------------------  ---------------
+Required                                               1.767
+--------------------------------------------------------------------  ---------------
+Slack                                                  0.067
+
+Slack               : 0.070ns
+Begin Point         : col_reg[2]_syn_2.clk (rising edge triggered by clock sys_clk_50m  { rise@0.000000ns  fall@10.000000ns  period=20.000000 })
+End Point           : g_pipeline$u_pipeline/U_NORMALIZER/U_MASK_FRAME_RAM/ramread0_syn_11.addra[1] (rising edge triggered by clock sys_clk_50m  { rise@0.000000ns  fall@10.000000ns  period=20.000000 })
+Check Type          : hold
+Process             : fast_m40c
+Budget              : 0.000ns { sys_clk_50m rising@0.000ns - sys_clk_50m rising@0.000ns }
+Data Path Delay     : 0.302ns (cell 0.065ns (21%), net 0.237ns (79%))
+Clock Skew          : 0.059ns
+Logic Level         : 1 ( ERAM=1 )
+Max Fanout          : 51
+Clock Uncertainty   : 0.100ns (sdc uncertainty: 0.000ns, default uncertainty: 0.100ns)
+
+Delay Type          Location             Incr           Path   Level  Netlist Info
+--------------------------------------------------------------------  ---------------
+source latency                          0.000          0.000
+port                C4                  0.000          0.000          pin: I_sys_clk
+hierarchy                               0.000          0.000          pin: I_sys_clk_syn_2.ipad
+HDIO                x033y078            0.810          0.810          pin: I_sys_clk_syn_2.sg09_di
+HDIO                x033y078            0.257          1.067          pin: I_sys_clk_syn_2.di
+net (fo=1)                              0.220          1.287          net: I_sys_clk_dup_1,  replay_top.v(10)
+                                                                      pin: I_sys_clk_dup_1_created_gclkinst.clkin[0]
+GCLK                x023y039z16         0.006          1.293          pin: I_sys_clk_dup_1_created_gclkinst.clkout
+net (fo=4)                              0.140          1.433          net: I_sys_clk_syn_3,  replay_top.v(10)
+                                                                      pin: I_sys_clk_dup_1_created_gclkinst_auto_created_sclk_s_1_r_bk1.clkin
+SCLK                x023y059z12         0.025          1.458          pin: I_sys_clk_dup_1_created_gclkinst_auto_created_sclk_s_1_r_bk1.clkout
+net (fo=448)                            0.221          1.679          net: I_sys_clk_dup_1_created_gclkinst_auto_created_sclk_s_1_r_bk1_sclk_outnet,  NOFILE(0)
+                                                                      pin: col_reg[2]_syn_2.clk
+launch edge                             0.000    r     1.679
+--------------------------------------------------------------------  ---------------
+clk2q               x025y044z2          0.065    r     1.744          pin: col_reg[2]_syn_2.oqb
+net (fo=51)                             0.237          1.981          net: g_pipeline$u_pipeline/U_CCL/I_x[1],  gesture_bnn_largest_component_bbox.v(25)
+                                                                      pin: g_pipeline$u_pipeline/U_NORMALIZER/U_MASK_FRAME_RAM/ramread0_syn_11.addra[1]
+ERAM (reg)          x023y048            0.000    f     1.981       1
+--------------------------------------------------------------------  ---------------
+Arrival                                                1.981
+
+source latency                          0.000          0.000
+port                C4                  0.000          0.000          pin: I_sys_clk
+hierarchy                               0.000          0.000          pin: I_sys_clk_syn_2.ipad
+HDIO                x033y078            0.915          0.915          pin: I_sys_clk_syn_2.sg09_di
+HDIO                x033y078            0.290          1.205          pin: I_sys_clk_syn_2.di
+net (fo=1)                              0.238          1.443          net: I_sys_clk_dup_1,  replay_top.v(10)
+                                                                      pin: I_sys_clk_dup_1_created_gclkinst.clkin[0]
+GCLK                x023y039z16         0.007          1.450          pin: I_sys_clk_dup_1_created_gclkinst.clkout
+net (fo=4)                              0.155          1.605          net: I_sys_clk_syn_3,  replay_top.v(10)
+                                                                      pin: I_sys_clk_dup_1_created_gclkinst_auto_created_sclk_s_1_l_bk1.clkin
+SCLK                x023y059z0          0.030          1.635          pin: I_sys_clk_dup_1_created_gclkinst_auto_created_sclk_s_1_l_bk1.clkout
+net (fo=874)                            0.265          1.900          net: I_sys_clk_dup_1_created_gclkinst_auto_created_sclk_s_1_l_bk1_sclk_outnet,  NOFILE(0)
+                                                                      pin: g_pipeline$u_pipeline/U_NORMALIZER/U_MASK_FRAME_RAM/ramread0_syn_11.clka
+capture edge                            0.000    r     1.900
+--------------------------------------------------------------------  ---------------
+hold                                    0.073          1.973
+clock uncertainty                       0.100          2.073
+clock pessimism                        -0.162          1.911
+--------------------------------------------------------------------  ---------------
+Required                                               1.911
+--------------------------------------------------------------------  ---------------
+Slack                                                  0.070
+
+Slack               : 0.072ns
+Begin Point         : packet_reg[33]_syn_2.clk (rising edge triggered by clock sys_clk_50m  { rise@0.000000ns  fall@10.000000ns  period=20.000000 })
+End Point           : packet_reg[16]_syn_2.ie (rising edge triggered by clock sys_clk_50m  { rise@0.000000ns  fall@10.000000ns  period=20.000000 })
+Check Type          : hold
+Process             : fast_m40c
+Budget              : 0.000ns { sys_clk_50m rising@0.000ns - sys_clk_50m rising@0.000ns }
+Data Path Delay     : 0.134ns (cell 0.106ns (79%), net 0.028ns (21%))
+Clock Skew          : 0.000ns
+Logic Level         : 1 ( LUT3=1 )
+Max Fanout          : 1
+Clock Uncertainty   : 0.050ns (sdc uncertainty: 0.000ns, default uncertainty: 0.050ns)
+
+Delay Type          Location             Incr           Path   Level  Netlist Info
+--------------------------------------------------------------------  ---------------
+source latency                          0.000          0.000
+port                C4                  0.000          0.000          pin: I_sys_clk
+hierarchy                               0.000          0.000          pin: I_sys_clk_syn_2.ipad
+HDIO                x033y078            0.810          0.810          pin: I_sys_clk_syn_2.sg09_di
+HDIO                x033y078            0.257          1.067          pin: I_sys_clk_syn_2.di
+net (fo=1)                              0.220          1.287          net: I_sys_clk_dup_1,  replay_top.v(10)
+                                                                      pin: I_sys_clk_dup_1_created_gclkinst.clkin[0]
+GCLK                x023y039z16         0.006          1.293          pin: I_sys_clk_dup_1_created_gclkinst.clkout
+net (fo=4)                              0.136          1.429          net: I_sys_clk_syn_3,  replay_top.v(10)
+                                                                      pin: I_sys_clk_dup_1_created_gclkinst_auto_created_sclk_s_0_l_bk1.clkin
+SCLK                x023y019z0          0.025          1.454          pin: I_sys_clk_dup_1_created_gclkinst_auto_created_sclk_s_0_l_bk1.clkout
+net (fo=850)                            0.227          1.681          net: I_sys_clk_dup_1_created_gclkinst_auto_created_sclk_s_0_l_bk1_sclk_outnet,  NOFILE(0)
+                                                                      pin: packet_reg[33]_syn_2.clk
+launch edge                             0.000    r     1.681
+--------------------------------------------------------------------  ---------------
+clk2q               x009y018z4          0.062    f     1.743          pin: packet_reg[33]_syn_2.oqa
+net (fo=1)                              0.028          1.771          net: packet[33],  replay_top.v(70)
+                                                                      pin: packet_reg[16]_syn_2.ie
+LUT3 (reg)          x009y018z6          0.044    f     1.815       1  net: packet[25],  replay_top.v(70)
+--------------------------------------------------------------------  ---------------
+Arrival                                                1.815
+
+source latency                          0.000          0.000
+port                C4                  0.000          0.000          pin: I_sys_clk
+hierarchy                               0.000          0.000          pin: I_sys_clk_syn_2.ipad
+HDIO                x033y078            0.915          0.915          pin: I_sys_clk_syn_2.sg09_di
+HDIO                x033y078            0.290          1.205          pin: I_sys_clk_syn_2.di
+net (fo=1)                              0.238          1.443          net: I_sys_clk_dup_1,  replay_top.v(10)
+                                                                      pin: I_sys_clk_dup_1_created_gclkinst.clkin[0]
+GCLK                x023y039z16         0.007          1.450          pin: I_sys_clk_dup_1_created_gclkinst.clkout
+net (fo=4)                              0.148          1.598          net: I_sys_clk_syn_3,  replay_top.v(10)
+                                                                      pin: I_sys_clk_dup_1_created_gclkinst_auto_created_sclk_s_0_l_bk1.clkin
+SCLK                x023y019z0          0.030          1.628          pin: I_sys_clk_dup_1_created_gclkinst_auto_created_sclk_s_0_l_bk1.clkout
+net (fo=850)                            0.250          1.878          net: I_sys_clk_dup_1_created_gclkinst_auto_created_sclk_s_0_l_bk1_sclk_outnet,  NOFILE(0)
+                                                                      pin: packet_reg[16]_syn_2.clk
+capture edge                            0.000    r     1.878
+--------------------------------------------------------------------  ---------------
+hold                                    0.012          1.890
+clock uncertainty                       0.050          1.940
+clock pessimism                        -0.197          1.743
+--------------------------------------------------------------------  ---------------
+Required                                               1.743
+--------------------------------------------------------------------  ---------------
+Slack                                                  0.072
+
+Slack               : 0.072ns
+Begin Point         : packet_reg[108]_syn_2.clk (rising edge triggered by clock sys_clk_50m  { rise@0.000000ns  fall@10.000000ns  period=20.000000 })
+End Point           : packet_reg[93]_syn_2.ie (rising edge triggered by clock sys_clk_50m  { rise@0.000000ns  fall@10.000000ns  period=20.000000 })
+Check Type          : hold
+Process             : fast_m40c
+Budget              : 0.000ns { sys_clk_50m rising@0.000ns - sys_clk_50m rising@0.000ns }
+Data Path Delay     : 0.134ns (cell 0.106ns (79%), net 0.028ns (21%))
+Clock Skew          : 0.000ns
+Logic Level         : 1 ( LUT4=1 )
+Max Fanout          : 1
+Clock Uncertainty   : 0.050ns (sdc uncertainty: 0.000ns, default uncertainty: 0.050ns)
+
+Delay Type          Location             Incr           Path   Level  Netlist Info
+--------------------------------------------------------------------  ---------------
+source latency                          0.000          0.000
+port                C4                  0.000          0.000          pin: I_sys_clk
+hierarchy                               0.000          0.000          pin: I_sys_clk_syn_2.ipad
+HDIO                x033y078            0.810          0.810          pin: I_sys_clk_syn_2.sg09_di
+HDIO                x033y078            0.257          1.067          pin: I_sys_clk_syn_2.di
+net (fo=1)                              0.220          1.287          net: I_sys_clk_dup_1,  replay_top.v(10)
+                                                                      pin: I_sys_clk_dup_1_created_gclkinst.clkin[0]
+GCLK                x023y039z16         0.006          1.293          pin: I_sys_clk_dup_1_created_gclkinst.clkout
+net (fo=4)                              0.136          1.429          net: I_sys_clk_syn_3,  replay_top.v(10)
+                                                                      pin: I_sys_clk_dup_1_created_gclkinst_auto_created_sclk_s_0_l_bk1.clkin
+SCLK                x023y019z0          0.025          1.454          pin: I_sys_clk_dup_1_created_gclkinst_auto_created_sclk_s_0_l_bk1.clkout
+net (fo=850)                            0.227          1.681          net: I_sys_clk_dup_1_created_gclkinst_auto_created_sclk_s_0_l_bk1_sclk_outnet,  NOFILE(0)
+                                                                      pin: packet_reg[108]_syn_2.clk
+launch edge                             0.000    r     1.681
+--------------------------------------------------------------------  ---------------
+clk2q               x009y017z0          0.062    f     1.743          pin: packet_reg[108]_syn_2.oqa
+net (fo=1)                              0.028          1.771          net: packet[108],  replay_top.v(70)
+                                                                      pin: packet_reg[93]_syn_2.ie
+LUT4 (reg)          x009y017z2          0.044    f     1.815       1  net: packet[100],  replay_top.v(70)
+--------------------------------------------------------------------  ---------------
+Arrival                                                1.815
+
+source latency                          0.000          0.000
+port                C4                  0.000          0.000          pin: I_sys_clk
+hierarchy                               0.000          0.000          pin: I_sys_clk_syn_2.ipad
+HDIO                x033y078            0.915          0.915          pin: I_sys_clk_syn_2.sg09_di
+HDIO                x033y078            0.290          1.205          pin: I_sys_clk_syn_2.di
+net (fo=1)                              0.238          1.443          net: I_sys_clk_dup_1,  replay_top.v(10)
+                                                                      pin: I_sys_clk_dup_1_created_gclkinst.clkin[0]
+GCLK                x023y039z16         0.007          1.450          pin: I_sys_clk_dup_1_created_gclkinst.clkout
+net (fo=4)                              0.148          1.598          net: I_sys_clk_syn_3,  replay_top.v(10)
+                                                                      pin: I_sys_clk_dup_1_created_gclkinst_auto_created_sclk_s_0_l_bk1.clkin
+SCLK                x023y019z0          0.030          1.628          pin: I_sys_clk_dup_1_created_gclkinst_auto_created_sclk_s_0_l_bk1.clkout
+net (fo=850)                            0.250          1.878          net: I_sys_clk_dup_1_created_gclkinst_auto_created_sclk_s_0_l_bk1_sclk_outnet,  NOFILE(0)
+                                                                      pin: packet_reg[93]_syn_2.clk
+capture edge                            0.000    r     1.878
+--------------------------------------------------------------------  ---------------
+hold                                    0.012          1.890
+clock uncertainty                       0.050          1.940
+clock pessimism                        -0.197          1.743
+--------------------------------------------------------------------  ---------------
+Required                                               1.743
+--------------------------------------------------------------------  ---------------
+Slack                                                  0.072
+
+Slack               : 0.072ns
+Begin Point         : packet_reg[102]_syn_2.clk (rising edge triggered by clock sys_clk_50m  { rise@0.000000ns  fall@10.000000ns  period=20.000000 })
+End Point           : packet_reg[103]_syn_2.ie (rising edge triggered by clock sys_clk_50m  { rise@0.000000ns  fall@10.000000ns  period=20.000000 })
+Check Type          : hold
+Process             : fast_m40c
+Budget              : 0.000ns { sys_clk_50m rising@0.000ns - sys_clk_50m rising@0.000ns }
+Data Path Delay     : 0.134ns (cell 0.106ns (79%), net 0.028ns (21%))
+Clock Skew          : 0.000ns
+Logic Level         : 1 ( LUT4=1 )
+Max Fanout          : 1
+Clock Uncertainty   : 0.050ns (sdc uncertainty: 0.000ns, default uncertainty: 0.050ns)
+
+Delay Type          Location             Incr           Path   Level  Netlist Info
+--------------------------------------------------------------------  ---------------
+source latency                          0.000          0.000
+port                C4                  0.000          0.000          pin: I_sys_clk
+hierarchy                               0.000          0.000          pin: I_sys_clk_syn_2.ipad
+HDIO                x033y078            0.810          0.810          pin: I_sys_clk_syn_2.sg09_di
+HDIO                x033y078            0.257          1.067          pin: I_sys_clk_syn_2.di
+net (fo=1)                              0.220          1.287          net: I_sys_clk_dup_1,  replay_top.v(10)
+                                                                      pin: I_sys_clk_dup_1_created_gclkinst.clkin[0]
+GCLK                x023y039z16         0.006          1.293          pin: I_sys_clk_dup_1_created_gclkinst.clkout
+net (fo=4)                              0.136          1.429          net: I_sys_clk_syn_3,  replay_top.v(10)
+                                                                      pin: I_sys_clk_dup_1_created_gclkinst_auto_created_sclk_s_0_l_bk1.clkin
+SCLK                x023y019z0          0.025          1.454          pin: I_sys_clk_dup_1_created_gclkinst_auto_created_sclk_s_0_l_bk1.clkout
+net (fo=850)                            0.229          1.683          net: I_sys_clk_dup_1_created_gclkinst_auto_created_sclk_s_0_l_bk1_sclk_outnet,  NOFILE(0)
+                                                                      pin: packet_reg[102]_syn_2.clk
+launch edge                             0.000    r     1.683
+--------------------------------------------------------------------  ---------------
+clk2q               x010y017z0          0.062    f     1.745          pin: packet_reg[102]_syn_2.oqa
+net (fo=1)                              0.028          1.773          net: packet[102],  replay_top.v(70)
+                                                                      pin: packet_reg[103]_syn_2.ie
+LUT4 (reg)          x010y017z2          0.044    f     1.817       1  net: packet[94],  replay_top.v(70)
+--------------------------------------------------------------------  ---------------
+Arrival                                                1.817
+
+source latency                          0.000          0.000
+port                C4                  0.000          0.000          pin: I_sys_clk
+hierarchy                               0.000          0.000          pin: I_sys_clk_syn_2.ipad
+HDIO                x033y078            0.915          0.915          pin: I_sys_clk_syn_2.sg09_di
+HDIO                x033y078            0.290          1.205          pin: I_sys_clk_syn_2.di
+net (fo=1)                              0.238          1.443          net: I_sys_clk_dup_1,  replay_top.v(10)
+                                                                      pin: I_sys_clk_dup_1_created_gclkinst.clkin[0]
+GCLK                x023y039z16         0.007          1.450          pin: I_sys_clk_dup_1_created_gclkinst.clkout
+net (fo=4)                              0.148          1.598          net: I_sys_clk_syn_3,  replay_top.v(10)
+                                                                      pin: I_sys_clk_dup_1_created_gclkinst_auto_created_sclk_s_0_l_bk1.clkin
+SCLK                x023y019z0          0.030          1.628          pin: I_sys_clk_dup_1_created_gclkinst_auto_created_sclk_s_0_l_bk1.clkout
+net (fo=850)                            0.252          1.880          net: I_sys_clk_dup_1_created_gclkinst_auto_created_sclk_s_0_l_bk1_sclk_outnet,  NOFILE(0)
+                                                                      pin: packet_reg[103]_syn_2.clk
+capture edge                            0.000    r     1.880
+--------------------------------------------------------------------  ---------------
+hold                                    0.012          1.892
+clock uncertainty                       0.050          1.942
+clock pessimism                        -0.197          1.745
+--------------------------------------------------------------------  ---------------
+Required                                               1.745
+--------------------------------------------------------------------  ---------------
+Slack                                                  0.072
+
+
+Inter clock domain timing
+--------------------------------------------------
+
+IP timing
+--------------------------------------------------

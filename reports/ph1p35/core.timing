@@ -1,0 +1,1786 @@
+Created by          : Tang Dynasty v6.2.168116
+                    : Copyright (c) 2012-2025 Anlogic Inc.
+Generated           : Thu Nov 12 10:08:36 2026
+
+Top Model           : replay_top
+Device              : PH1P35MDG324
+Speed               : 3
+STA coverage        : 100.00%
+Constraint File     : timing.sdc
+Confidence          : Routed
+Check Corner        : Both (Slow and Fast)
+CRPR Enabled        : Yes
+Report Scheme       : 10 end point(s) per path group, 1 path(s) per end point
+
+
+Check Status
+-------------
+
+Corner   | Max      Min
+------------------------------------
+Slow     | yes      yes
+Fast     | yes      yes
+
+
+Timing Status
+--------------------
+	SWNS: 8.392ns, STNS: 0.000ns
+	HWNS: 0.059ns, HTNS: 0.000ns
+	Period Check WNS: 0.000ns
+
+
+Clock Summary
+--------------------
+
+       Clock-Id:       C-Freq       Fanout   Clock-Name
+--------------------------------------------------------------------------------
+           clk0:       50.000         1140   sys_clk_50m
+--------------------------------------------------------------------------------
+
+       Name            Type         Rise(ns)   Fall(ns)          C-Period(ns)     C-Freq(MHz)          R-Period(ns)     R-Freq(MHz)         SWNS(ns)   STNS(ns)         HWNS(ns)   HTNS(ns)         Skew(ns)           Fanout        Max-Level        CC-From    CC-To
+       clk0   Inferred GCLK            0.000     10.000                20.000          50.000                11.608          86.147            8.392      0.000            0.059      0.000            0.204             1140               12             no       no
+
+Notes
+----------
+C-Period  :  constraint period
+C-Freq    :  constraint freq
+R-Period  :  report min period
+R-Freq    :  report fmax
+CC-From   :  has path(s) from cross-domain clock
+CC-To     :  has path(s) to cross-domain clock
+
+
+*   Clock R-Period data only takes intra-clock timing. SWNS/STNS/HWNS/HTNS take both intra-clock and inter-clock timing.
+*   If there is mismatch between R-Period and SWNS, check inter-clock timing of this clock as capture clock.
+*   SWNS/STNS/HWNS/HTNS of timing exception (SMCP/SMD) only counted in global Timing Status, not counted in Clock Summary.
+
+Intra clock domain timing
+--------------------------------------------------
+
+----------------------------------------------------------------------------------------------------
+Path Group     :     sys_clk_50m -> sys_clk_50m
+Type           :     Self
+From Clock     :     sys_clk_50m
+To Clock       :     sys_clk_50m
+Min Period     :     11.608ns
+Fmax           :     86.147MHz
+
+Statistics:
+Max            : SWNS      8.392ns, STNS      0.000ns,         0 Viol Endpoints,      4052 Total Endpoints,    913264 Paths Analyzed
+Min            : HWNS      0.059ns, HTNS      0.000ns,         0 Viol Endpoints,      4052 Total Endpoints,    913264 Paths Analyzed
+----------------------------------------------------------------------------------------------------
+
+Max Paths
+----------------------------------------------------------------------------------------------------
+Slack               : 8.392ns
+Begin Point         : g_core$u_core/S_l1_feature_reg[3]_syn_5.clk (rising edge triggered by clock sys_clk_50m  { rise@0.000000ns  fall@10.000000ns  period=20.000000 })
+End Point           : g_core$u_core/S_h1_activation_reg[2]_syn_5.ia (rising edge triggered by clock sys_clk_50m  { rise@0.000000ns  fall@10.000000ns  period=20.000000 })
+Check Type          : setup
+Process             : slow_m40c
+Budget              : 20.000ns { sys_clk_50m rising@20.000ns - sys_clk_50m rising@0.000ns }
+Data Path Delay     : 11.334ns (cell 3.895ns (34%), net 7.439ns (66%))
+Clock Skew          : 0.135ns
+Logic Level         : 8 ( LUT6=4  LUT5=2  ADDER=2 )
+Max Fanout          : 32
+Clock Uncertainty   : 0.075ns (sdc uncertainty: 0.000ns, default uncertainty: 0.075ns)
+
+Delay Type          Location             Incr           Path   Level  Netlist Info
+--------------------------------------------------------------------  ---------------
+source latency                          0.000          0.000
+port                C4                  0.000          0.000          pin: I_sys_clk
+hierarchy                               0.000          0.000          pin: I_sys_clk_syn_2.ipad
+HDIO                x033y078            0.810          0.810          pin: I_sys_clk_syn_2.sg09_di
+HDIO                x033y078            0.684          1.494          pin: I_sys_clk_syn_2.di
+net (fo=1)                              0.574          2.068          net: I_sys_clk_dup_1,  replay_top.v(10)
+                                                                      pin: I_sys_clk_dup_1_created_gclkinst.clkin[0]
+GCLK                x023y039z16         0.016          2.084          pin: I_sys_clk_dup_1_created_gclkinst.clkout
+net (fo=4)                              0.375          2.459          net: I_sys_clk_syn_3,  replay_top.v(10)
+                                                                      pin: I_sys_clk_dup_1_created_gclkinst_auto_created_sclk_s_0_l_bk1.clkin
+SCLK                x023y019z0          0.079          2.538          pin: I_sys_clk_dup_1_created_gclkinst_auto_created_sclk_s_0_l_bk1.clkout
+net (fo=609)                            0.632          3.170          net: I_sys_clk_dup_1_created_gclkinst_auto_created_sclk_s_0_l_bk1_sclk_outnet,  NOFILE(0)
+                                                                      pin: g_core$u_core/S_l1_feature_reg[3]_syn_5.clk
+launch edge                             0.000    r     3.170
+--------------------------------------------------------------------  ---------------
+clk2q               x019y038z0          0.126    f     3.296          pin: g_core$u_core/S_l1_feature_reg[3]_syn_5.oqa
+net (fo=18)                             2.629          5.925          net: g_core$u_core/S_l1_feature[3],  gesture_bnn_core.v(70)
+                                                                      pin: g_core$u_core/mux0_syn_610.f8sel
+F78MUX              x030y031            0.134    r     6.059          pin: g_core$u_core/mux0_syn_610.f8muxo
+net (fo=1)                              0.000          6.059          net: g_core$u_core/mux0_syn_1373,  gesture_bnn_core.v(84)
+                                                                      pin: g_core$u_core/mux0_syn_1366.f78i
+                    x030y031z2          0.078    f     6.137          pin: g_core$u_core/mux0_syn_1366.ofa
+net (fo=1)                              1.326          7.463          net: g_core$u_core/mux0_syn_1[22],  gesture_bnn_core.v(84)
+                                                                      pin: g_core$u_core/mux0_syn_1616.ib
+LUT6                x016y032z6          0.405    f     7.868       1  pin: g_core$u_core/mux0_syn_1616.relut6
+net (fo=1)                              0.000          7.868          net: g_core$u_core/mux0_syn_1619[2],  gesture_bnn_core.v(84)
+                                                                      pin: g_core$u_core/mux0_syn_939.muxi[2]
+F78MUX              x016y032            0.141    r     8.009          pin: g_core$u_core/mux0_syn_939.f8muxo
+net (fo=1)                              0.000          8.009          net: g_core$u_core/mux0_syn_1623,  gesture_bnn_core.v(84)
+                                                                      pin: g_core$u_core/mux0_syn_1616.f78i
+                    x016y032z6          0.078    f     8.087          pin: g_core$u_core/mux0_syn_1616.ofa
+net (fo=1)                              0.185          8.272          net: g_core$u_core/mux0_syn_897[1],  gesture_bnn_core.v(84)
+                                                                      pin: g_core$u_core/mux0_syn_1634.ic
+LUT6                x016y032z0          0.287    r     8.559       2  pin: g_core$u_core/mux0_syn_1634.ofb
+net (fo=1)                              0.388          8.947          net: g_core$u_core/C_l1_match_n2,  NOFILE(0)
+                                                                      pin: g_core$u_core/add1_syn_71.ie
+ADDER               x017y033z0          0.446    r     9.393       3  pin: g_core$u_core/add1_syn_71.fco
+net (fo=1)                              0.000          9.393          net: g_core$u_core/add1_syn_59,  gesture_bnn_core.v(85)
+                                                                      pin: g_core$u_core/add1_syn_72.fci
+ADDER               x017y033z1          0.059    r     9.452          pin: g_core$u_core/add1_syn_72.fco
+net (fo=1)                              0.000          9.452          net: g_core$u_core/add1_syn_60,  gesture_bnn_core.v(85)
+                                                                      pin: g_core$u_core/add1_syn_73.fci
+ADDER               x017y033z2          0.059    r     9.511          pin: g_core$u_core/add1_syn_73.fco
+net (fo=1)                              0.000          9.511          net: g_core$u_core/add1_syn_61,  gesture_bnn_core.v(85)
+                                                                      pin: g_core$u_core/add1_syn_74.fci
+ADDER               x017y033z3          0.059    r     9.570          pin: g_core$u_core/add1_syn_74.fco
+net (fo=1)                              0.000          9.570          net: g_core$u_core/add1_syn_62,  gesture_bnn_core.v(85)
+                                                                      pin: g_core$u_core/add1_syn_75.fci
+ADDER               x017y033z4          0.059    r     9.629          pin: g_core$u_core/add1_syn_75.fco
+net (fo=1)                              0.000          9.629          net: g_core$u_core/add1_syn_63,  gesture_bnn_core.v(85)
+                                                                      pin: g_core$u_core/add1_syn_76.fci
+ADDER               x017y033z5          0.059    r     9.688          pin: g_core$u_core/add1_syn_76.fco
+net (fo=1)                              0.000          9.688          net: g_core$u_core/add1_syn_64,  gesture_bnn_core.v(85)
+                                                                      pin: g_core$u_core/add1_syn_77.fci
+ADDER               x017y033z6          0.059    r     9.747          pin: g_core$u_core/add1_syn_77.fco
+net (fo=1)                              0.000          9.747          net: g_core$u_core/add1_syn_65,  gesture_bnn_core.v(85)
+                                                                      pin: g_core$u_core/add1_syn_78.fci
+ADDER               x017y033z7          0.295    f    10.042       4  pin: g_core$u_core/add1_syn_78.ofb
+net (fo=3)                              0.341         10.383          net: g_core$u_core/C_l1_candidate[7],  gesture_bnn_core.v(85)
+                                                                      pin: g_core$u_core/S_h1_activation_reg[92]_syn_25.ib
+LUT6                x017y034z4          0.427    f    10.810       5  pin: g_core$u_core/S_h1_activation_reg[92]_syn_25.ofb
+net (fo=1)                              0.269         11.079          net: g_core$u_core/S_h1_activation_reg[92]_syn_10,  gesture_bnn_core.v(202)
+                                                                      pin: g_core$u_core/S_h1_activation_reg[92]_syn_29.ib
+LUT6                x017y034z7          0.427    f    11.506       6  pin: g_core$u_core/S_h1_activation_reg[92]_syn_29.ofb
+net (fo=4)                              0.757         12.263          net: g_core$u_core/S_h1_activation_reg[92]_syn_14,  gesture_bnn_core.v(202)
+                                                                      pin: g_core$u_core/S_h1_activation_reg[92]_syn_34.ie
+LUT5                x021y042z1          0.262    f    12.525       7  pin: g_core$u_core/S_h1_activation_reg[92]_syn_34.ofa
+net (fo=32)                             1.544         14.069          net: g_core$u_core/mux94_syn_dup_1556,  gesture_bnn_core.v(229)
+                                                                      pin: g_core$u_core/S_h1_activation_reg[2]_syn_5.ia
+LUT5 (reg)          x025y047z4          0.435    r    14.504       8  net: g_core$u_core/S_h1_activation[2],  gesture_bnn_core.v(66)
+--------------------------------------------------------------------  ---------------
+Arrival                                               14.504
+
+source latency                          0.000          0.000
+port                C4                  0.000          0.000          pin: I_sys_clk
+hierarchy                               0.000          0.000          pin: I_sys_clk_syn_2.ipad
+HDIO                x033y078            0.745          0.745          pin: I_sys_clk_syn_2.sg09_di
+HDIO                x033y078            0.629          1.374          pin: I_sys_clk_syn_2.di
+net (fo=1)                              0.492          1.866          net: I_sys_clk_dup_1,  replay_top.v(10)
+                                                                      pin: I_sys_clk_dup_1_created_gclkinst.clkin[0]
+GCLK                x023y039z16         0.014          1.880          pin: I_sys_clk_dup_1_created_gclkinst.clkout
+net (fo=4)                              0.330          2.210          net: I_sys_clk_syn_3,  replay_top.v(10)
+                                                                      pin: I_sys_clk_dup_1_created_gclkinst_auto_created_sclk_s_1_r_bk1.clkin
+SCLK                x023y059z12         0.068          2.278          pin: I_sys_clk_dup_1_created_gclkinst_auto_created_sclk_s_1_r_bk1.clkout
+net (fo=66)                             0.553          2.831          net: I_sys_clk_dup_1_created_gclkinst_auto_created_sclk_s_1_r_bk1_sclk_outnet,  NOFILE(0)
+                                                                      pin: g_core$u_core/S_h1_activation_reg[2]_syn_5.clk
+capture edge                           20.000    r    22.831
+--------------------------------------------------------------------  ---------------
+setup                                  -0.064         22.767
+clock uncertainty                      -0.075         22.692
+clock pessimism                         0.204         22.896
+--------------------------------------------------------------------  ---------------
+Required                                              22.896
+--------------------------------------------------------------------  ---------------
+Slack                                                  8.392
+
+Slack               : 8.392ns
+Begin Point         : g_core$u_core/S_l1_feature_reg[3]_syn_5.clk (rising edge triggered by clock sys_clk_50m  { rise@0.000000ns  fall@10.000000ns  period=20.000000 })
+End Point           : g_core$u_core/S_h1_activation_reg[3]_syn_5.ia (rising edge triggered by clock sys_clk_50m  { rise@0.000000ns  fall@10.000000ns  period=20.000000 })
+Check Type          : setup
+Process             : slow_m40c
+Budget              : 20.000ns { sys_clk_50m rising@20.000ns - sys_clk_50m rising@0.000ns }
+Data Path Delay     : 11.334ns (cell 3.895ns (34%), net 7.439ns (66%))
+Clock Skew          : 0.135ns
+Logic Level         : 8 ( LUT6=4  LUT5=2  ADDER=2 )
+Max Fanout          : 32
+Clock Uncertainty   : 0.075ns (sdc uncertainty: 0.000ns, default uncertainty: 0.075ns)
+
+Delay Type          Location             Incr           Path   Level  Netlist Info
+--------------------------------------------------------------------  ---------------
+source latency                          0.000          0.000
+port                C4                  0.000          0.000          pin: I_sys_clk
+hierarchy                               0.000          0.000          pin: I_sys_clk_syn_2.ipad
+HDIO                x033y078            0.810          0.810          pin: I_sys_clk_syn_2.sg09_di
+HDIO                x033y078            0.684          1.494          pin: I_sys_clk_syn_2.di
+net (fo=1)                              0.574          2.068          net: I_sys_clk_dup_1,  replay_top.v(10)
+                                                                      pin: I_sys_clk_dup_1_created_gclkinst.clkin[0]
+GCLK                x023y039z16         0.016          2.084          pin: I_sys_clk_dup_1_created_gclkinst.clkout
+net (fo=4)                              0.375          2.459          net: I_sys_clk_syn_3,  replay_top.v(10)
+                                                                      pin: I_sys_clk_dup_1_created_gclkinst_auto_created_sclk_s_0_l_bk1.clkin
+SCLK                x023y019z0          0.079          2.538          pin: I_sys_clk_dup_1_created_gclkinst_auto_created_sclk_s_0_l_bk1.clkout
+net (fo=609)                            0.632          3.170          net: I_sys_clk_dup_1_created_gclkinst_auto_created_sclk_s_0_l_bk1_sclk_outnet,  NOFILE(0)
+                                                                      pin: g_core$u_core/S_l1_feature_reg[3]_syn_5.clk
+launch edge                             0.000    r     3.170
+--------------------------------------------------------------------  ---------------
+clk2q               x019y038z0          0.126    f     3.296          pin: g_core$u_core/S_l1_feature_reg[3]_syn_5.oqa
+net (fo=18)                             2.629          5.925          net: g_core$u_core/S_l1_feature[3],  gesture_bnn_core.v(70)
+                                                                      pin: g_core$u_core/mux0_syn_610.f8sel
+F78MUX              x030y031            0.134    r     6.059          pin: g_core$u_core/mux0_syn_610.f8muxo
+net (fo=1)                              0.000          6.059          net: g_core$u_core/mux0_syn_1373,  gesture_bnn_core.v(84)
+                                                                      pin: g_core$u_core/mux0_syn_1366.f78i
+                    x030y031z2          0.078    f     6.137          pin: g_core$u_core/mux0_syn_1366.ofa
+net (fo=1)                              1.326          7.463          net: g_core$u_core/mux0_syn_1[22],  gesture_bnn_core.v(84)
+                                                                      pin: g_core$u_core/mux0_syn_1616.ib
+LUT6                x016y032z6          0.405    f     7.868       1  pin: g_core$u_core/mux0_syn_1616.relut6
+net (fo=1)                              0.000          7.868          net: g_core$u_core/mux0_syn_1619[2],  gesture_bnn_core.v(84)
+                                                                      pin: g_core$u_core/mux0_syn_939.muxi[2]
+F78MUX              x016y032            0.141    r     8.009          pin: g_core$u_core/mux0_syn_939.f8muxo
+net (fo=1)                              0.000          8.009          net: g_core$u_core/mux0_syn_1623,  gesture_bnn_core.v(84)
+                                                                      pin: g_core$u_core/mux0_syn_1616.f78i
+                    x016y032z6          0.078    f     8.087          pin: g_core$u_core/mux0_syn_1616.ofa
+net (fo=1)                              0.185          8.272          net: g_core$u_core/mux0_syn_897[1],  gesture_bnn_core.v(84)
+                                                                      pin: g_core$u_core/mux0_syn_1634.ic
+LUT6                x016y032z0          0.287    r     8.559       2  pin: g_core$u_core/mux0_syn_1634.ofb
+net (fo=1)                              0.388          8.947          net: g_core$u_core/C_l1_match_n2,  NOFILE(0)
+                                                                      pin: g_core$u_core/add1_syn_71.ie
+ADDER               x017y033z0          0.446    r     9.393       3  pin: g_core$u_core/add1_syn_71.fco
+net (fo=1)                              0.000          9.393          net: g_core$u_core/add1_syn_59,  gesture_bnn_core.v(85)
+                                                                      pin: g_core$u_core/add1_syn_72.fci
+ADDER               x017y033z1          0.059    r     9.452          pin: g_core$u_core/add1_syn_72.fco
+net (fo=1)                              0.000          9.452          net: g_core$u_core/add1_syn_60,  gesture_bnn_core.v(85)
+                                                                      pin: g_core$u_core/add1_syn_73.fci
+ADDER               x017y033z2          0.059    r     9.511          pin: g_core$u_core/add1_syn_73.fco
+net (fo=1)                              0.000          9.511          net: g_core$u_core/add1_syn_61,  gesture_bnn_core.v(85)
+                                                                      pin: g_core$u_core/add1_syn_74.fci
+ADDER               x017y033z3          0.059    r     9.570          pin: g_core$u_core/add1_syn_74.fco
+net (fo=1)                              0.000          9.570          net: g_core$u_core/add1_syn_62,  gesture_bnn_core.v(85)
+                                                                      pin: g_core$u_core/add1_syn_75.fci
+ADDER               x017y033z4          0.059    r     9.629          pin: g_core$u_core/add1_syn_75.fco
+net (fo=1)                              0.000          9.629          net: g_core$u_core/add1_syn_63,  gesture_bnn_core.v(85)
+                                                                      pin: g_core$u_core/add1_syn_76.fci
+ADDER               x017y033z5          0.059    r     9.688          pin: g_core$u_core/add1_syn_76.fco
+net (fo=1)                              0.000          9.688          net: g_core$u_core/add1_syn_64,  gesture_bnn_core.v(85)
+                                                                      pin: g_core$u_core/add1_syn_77.fci
+ADDER               x017y033z6          0.059    r     9.747          pin: g_core$u_core/add1_syn_77.fco
+net (fo=1)                              0.000          9.747          net: g_core$u_core/add1_syn_65,  gesture_bnn_core.v(85)
+                                                                      pin: g_core$u_core/add1_syn_78.fci
+ADDER               x017y033z7          0.295    f    10.042       4  pin: g_core$u_core/add1_syn_78.ofb
+net (fo=3)                              0.341         10.383          net: g_core$u_core/C_l1_candidate[7],  gesture_bnn_core.v(85)
+                                                                      pin: g_core$u_core/S_h1_activation_reg[92]_syn_25.ib
+LUT6                x017y034z4          0.427    f    10.810       5  pin: g_core$u_core/S_h1_activation_reg[92]_syn_25.ofb
+net (fo=1)                              0.269         11.079          net: g_core$u_core/S_h1_activation_reg[92]_syn_10,  gesture_bnn_core.v(202)
+                                                                      pin: g_core$u_core/S_h1_activation_reg[92]_syn_29.ib
+LUT6                x017y034z7          0.427    f    11.506       6  pin: g_core$u_core/S_h1_activation_reg[92]_syn_29.ofb
+net (fo=4)                              0.757         12.263          net: g_core$u_core/S_h1_activation_reg[92]_syn_14,  gesture_bnn_core.v(202)
+                                                                      pin: g_core$u_core/S_h1_activation_reg[92]_syn_34.ie
+LUT5                x021y042z1          0.262    f    12.525       7  pin: g_core$u_core/S_h1_activation_reg[92]_syn_34.ofa
+net (fo=32)                             1.544         14.069          net: g_core$u_core/mux94_syn_dup_1556,  gesture_bnn_core.v(229)
+                                                                      pin: g_core$u_core/S_h1_activation_reg[3]_syn_5.ia
+LUT5 (reg)          x025y047z5          0.435    r    14.504       8  net: g_core$u_core/S_h1_activation[3],  gesture_bnn_core.v(66)
+--------------------------------------------------------------------  ---------------
+Arrival                                               14.504
+
+source latency                          0.000          0.000
+port                C4                  0.000          0.000          pin: I_sys_clk
+hierarchy                               0.000          0.000          pin: I_sys_clk_syn_2.ipad
+HDIO                x033y078            0.745          0.745          pin: I_sys_clk_syn_2.sg09_di
+HDIO                x033y078            0.629          1.374          pin: I_sys_clk_syn_2.di
+net (fo=1)                              0.492          1.866          net: I_sys_clk_dup_1,  replay_top.v(10)
+                                                                      pin: I_sys_clk_dup_1_created_gclkinst.clkin[0]
+GCLK                x023y039z16         0.014          1.880          pin: I_sys_clk_dup_1_created_gclkinst.clkout
+net (fo=4)                              0.330          2.210          net: I_sys_clk_syn_3,  replay_top.v(10)
+                                                                      pin: I_sys_clk_dup_1_created_gclkinst_auto_created_sclk_s_1_r_bk1.clkin
+SCLK                x023y059z12         0.068          2.278          pin: I_sys_clk_dup_1_created_gclkinst_auto_created_sclk_s_1_r_bk1.clkout
+net (fo=66)                             0.553          2.831          net: I_sys_clk_dup_1_created_gclkinst_auto_created_sclk_s_1_r_bk1_sclk_outnet,  NOFILE(0)
+                                                                      pin: g_core$u_core/S_h1_activation_reg[3]_syn_5.clk
+capture edge                           20.000    r    22.831
+--------------------------------------------------------------------  ---------------
+setup                                  -0.064         22.767
+clock uncertainty                      -0.075         22.692
+clock pessimism                         0.204         22.896
+--------------------------------------------------------------------  ---------------
+Required                                              22.896
+--------------------------------------------------------------------  ---------------
+Slack                                                  8.392
+
+Slack               : 8.552ns
+Begin Point         : g_core$u_core/S_l1_feature_reg[3]_syn_5.clk (rising edge triggered by clock sys_clk_50m  { rise@0.000000ns  fall@10.000000ns  period=20.000000 })
+End Point           : g_core$u_core/S_h1_activation_reg[17]_syn_5.ia (rising edge triggered by clock sys_clk_50m  { rise@0.000000ns  fall@10.000000ns  period=20.000000 })
+Check Type          : setup
+Process             : slow_m40c
+Budget              : 20.000ns { sys_clk_50m rising@20.000ns - sys_clk_50m rising@0.000ns }
+Data Path Delay     : 11.174ns (cell 3.895ns (34%), net 7.279ns (66%))
+Clock Skew          : 0.135ns
+Logic Level         : 8 ( LUT6=4  LUT5=2  ADDER=2 )
+Max Fanout          : 32
+Clock Uncertainty   : 0.075ns (sdc uncertainty: 0.000ns, default uncertainty: 0.075ns)
+
+Delay Type          Location             Incr           Path   Level  Netlist Info
+--------------------------------------------------------------------  ---------------
+source latency                          0.000          0.000
+port                C4                  0.000          0.000          pin: I_sys_clk
+hierarchy                               0.000          0.000          pin: I_sys_clk_syn_2.ipad
+HDIO                x033y078            0.810          0.810          pin: I_sys_clk_syn_2.sg09_di
+HDIO                x033y078            0.684          1.494          pin: I_sys_clk_syn_2.di
+net (fo=1)                              0.574          2.068          net: I_sys_clk_dup_1,  replay_top.v(10)
+                                                                      pin: I_sys_clk_dup_1_created_gclkinst.clkin[0]
+GCLK                x023y039z16         0.016          2.084          pin: I_sys_clk_dup_1_created_gclkinst.clkout
+net (fo=4)                              0.375          2.459          net: I_sys_clk_syn_3,  replay_top.v(10)
+                                                                      pin: I_sys_clk_dup_1_created_gclkinst_auto_created_sclk_s_0_l_bk1.clkin
+SCLK                x023y019z0          0.079          2.538          pin: I_sys_clk_dup_1_created_gclkinst_auto_created_sclk_s_0_l_bk1.clkout
+net (fo=609)                            0.632          3.170          net: I_sys_clk_dup_1_created_gclkinst_auto_created_sclk_s_0_l_bk1_sclk_outnet,  NOFILE(0)
+                                                                      pin: g_core$u_core/S_l1_feature_reg[3]_syn_5.clk
+launch edge                             0.000    r     3.170
+--------------------------------------------------------------------  ---------------
+clk2q               x019y038z0          0.126    f     3.296          pin: g_core$u_core/S_l1_feature_reg[3]_syn_5.oqa
+net (fo=18)                             2.629          5.925          net: g_core$u_core/S_l1_feature[3],  gesture_bnn_core.v(70)
+                                                                      pin: g_core$u_core/mux0_syn_610.f8sel
+F78MUX              x030y031            0.134    r     6.059          pin: g_core$u_core/mux0_syn_610.f8muxo
+net (fo=1)                              0.000          6.059          net: g_core$u_core/mux0_syn_1373,  gesture_bnn_core.v(84)
+                                                                      pin: g_core$u_core/mux0_syn_1366.f78i
+                    x030y031z2          0.078    f     6.137          pin: g_core$u_core/mux0_syn_1366.ofa
+net (fo=1)                              1.326          7.463          net: g_core$u_core/mux0_syn_1[22],  gesture_bnn_core.v(84)
+                                                                      pin: g_core$u_core/mux0_syn_1616.ib
+LUT6                x016y032z6          0.405    f     7.868       1  pin: g_core$u_core/mux0_syn_1616.relut6
+net (fo=1)                              0.000          7.868          net: g_core$u_core/mux0_syn_1619[2],  gesture_bnn_core.v(84)
+                                                                      pin: g_core$u_core/mux0_syn_939.muxi[2]
+F78MUX              x016y032            0.141    r     8.009          pin: g_core$u_core/mux0_syn_939.f8muxo
+net (fo=1)                              0.000          8.009          net: g_core$u_core/mux0_syn_1623,  gesture_bnn_core.v(84)
+                                                                      pin: g_core$u_core/mux0_syn_1616.f78i
+                    x016y032z6          0.078    f     8.087          pin: g_core$u_core/mux0_syn_1616.ofa
+net (fo=1)                              0.185          8.272          net: g_core$u_core/mux0_syn_897[1],  gesture_bnn_core.v(84)
+                                                                      pin: g_core$u_core/mux0_syn_1634.ic
+LUT6                x016y032z0          0.287    r     8.559       2  pin: g_core$u_core/mux0_syn_1634.ofb
+net (fo=1)                              0.388          8.947          net: g_core$u_core/C_l1_match_n2,  NOFILE(0)
+                                                                      pin: g_core$u_core/add1_syn_71.ie
+ADDER               x017y033z0          0.446    r     9.393       3  pin: g_core$u_core/add1_syn_71.fco
+net (fo=1)                              0.000          9.393          net: g_core$u_core/add1_syn_59,  gesture_bnn_core.v(85)
+                                                                      pin: g_core$u_core/add1_syn_72.fci
+ADDER               x017y033z1          0.059    r     9.452          pin: g_core$u_core/add1_syn_72.fco
+net (fo=1)                              0.000          9.452          net: g_core$u_core/add1_syn_60,  gesture_bnn_core.v(85)
+                                                                      pin: g_core$u_core/add1_syn_73.fci
+ADDER               x017y033z2          0.059    r     9.511          pin: g_core$u_core/add1_syn_73.fco
+net (fo=1)                              0.000          9.511          net: g_core$u_core/add1_syn_61,  gesture_bnn_core.v(85)
+                                                                      pin: g_core$u_core/add1_syn_74.fci
+ADDER               x017y033z3          0.059    r     9.570          pin: g_core$u_core/add1_syn_74.fco
+net (fo=1)                              0.000          9.570          net: g_core$u_core/add1_syn_62,  gesture_bnn_core.v(85)
+                                                                      pin: g_core$u_core/add1_syn_75.fci
+ADDER               x017y033z4          0.059    r     9.629          pin: g_core$u_core/add1_syn_75.fco
+net (fo=1)                              0.000          9.629          net: g_core$u_core/add1_syn_63,  gesture_bnn_core.v(85)
+                                                                      pin: g_core$u_core/add1_syn_76.fci
+ADDER               x017y033z5          0.059    r     9.688          pin: g_core$u_core/add1_syn_76.fco
+net (fo=1)                              0.000          9.688          net: g_core$u_core/add1_syn_64,  gesture_bnn_core.v(85)
+                                                                      pin: g_core$u_core/add1_syn_77.fci
+ADDER               x017y033z6          0.059    r     9.747          pin: g_core$u_core/add1_syn_77.fco
+net (fo=1)                              0.000          9.747          net: g_core$u_core/add1_syn_65,  gesture_bnn_core.v(85)
+                                                                      pin: g_core$u_core/add1_syn_78.fci
+ADDER               x017y033z7          0.295    f    10.042       4  pin: g_core$u_core/add1_syn_78.ofb
+net (fo=3)                              0.341         10.383          net: g_core$u_core/C_l1_candidate[7],  gesture_bnn_core.v(85)
+                                                                      pin: g_core$u_core/S_h1_activation_reg[92]_syn_25.ib
+LUT6                x017y034z4          0.427    f    10.810       5  pin: g_core$u_core/S_h1_activation_reg[92]_syn_25.ofb
+net (fo=1)                              0.269         11.079          net: g_core$u_core/S_h1_activation_reg[92]_syn_10,  gesture_bnn_core.v(202)
+                                                                      pin: g_core$u_core/S_h1_activation_reg[92]_syn_29.ib
+LUT6                x017y034z7          0.427    f    11.506       6  pin: g_core$u_core/S_h1_activation_reg[92]_syn_29.ofb
+net (fo=4)                              0.757         12.263          net: g_core$u_core/S_h1_activation_reg[92]_syn_14,  gesture_bnn_core.v(202)
+                                                                      pin: g_core$u_core/S_h1_activation_reg[92]_syn_34.ie
+LUT5                x021y042z1          0.262    f    12.525       7  pin: g_core$u_core/S_h1_activation_reg[92]_syn_34.ofa
+net (fo=32)                             1.384         13.909          net: g_core$u_core/mux94_syn_dup_1556,  gesture_bnn_core.v(229)
+                                                                      pin: g_core$u_core/S_h1_activation_reg[17]_syn_5.ia
+LUT5 (reg)          x025y048z3          0.435    r    14.344       8  net: g_core$u_core/S_h1_activation[17],  gesture_bnn_core.v(66)
+--------------------------------------------------------------------  ---------------
+Arrival                                               14.344
+
+source latency                          0.000          0.000
+port                C4                  0.000          0.000          pin: I_sys_clk
+hierarchy                               0.000          0.000          pin: I_sys_clk_syn_2.ipad
+HDIO                x033y078            0.745          0.745          pin: I_sys_clk_syn_2.sg09_di
+HDIO                x033y078            0.629          1.374          pin: I_sys_clk_syn_2.di
+net (fo=1)                              0.492          1.866          net: I_sys_clk_dup_1,  replay_top.v(10)
+                                                                      pin: I_sys_clk_dup_1_created_gclkinst.clkin[0]
+GCLK                x023y039z16         0.014          1.880          pin: I_sys_clk_dup_1_created_gclkinst.clkout
+net (fo=4)                              0.330          2.210          net: I_sys_clk_syn_3,  replay_top.v(10)
+                                                                      pin: I_sys_clk_dup_1_created_gclkinst_auto_created_sclk_s_1_r_bk1.clkin
+SCLK                x023y059z12         0.068          2.278          pin: I_sys_clk_dup_1_created_gclkinst_auto_created_sclk_s_1_r_bk1.clkout
+net (fo=66)                             0.553          2.831          net: I_sys_clk_dup_1_created_gclkinst_auto_created_sclk_s_1_r_bk1_sclk_outnet,  NOFILE(0)
+                                                                      pin: g_core$u_core/S_h1_activation_reg[17]_syn_5.clk
+capture edge                           20.000    r    22.831
+--------------------------------------------------------------------  ---------------
+setup                                  -0.064         22.767
+clock uncertainty                      -0.075         22.692
+clock pessimism                         0.204         22.896
+--------------------------------------------------------------------  ---------------
+Required                                              22.896
+--------------------------------------------------------------------  ---------------
+Slack                                                  8.552
+
+Slack               : 8.552ns
+Begin Point         : g_core$u_core/S_l1_feature_reg[3]_syn_5.clk (rising edge triggered by clock sys_clk_50m  { rise@0.000000ns  fall@10.000000ns  period=20.000000 })
+End Point           : g_core$u_core/S_h1_activation_reg[18]_syn_5.ia (rising edge triggered by clock sys_clk_50m  { rise@0.000000ns  fall@10.000000ns  period=20.000000 })
+Check Type          : setup
+Process             : slow_m40c
+Budget              : 20.000ns { sys_clk_50m rising@20.000ns - sys_clk_50m rising@0.000ns }
+Data Path Delay     : 11.174ns (cell 3.895ns (34%), net 7.279ns (66%))
+Clock Skew          : 0.135ns
+Logic Level         : 8 ( LUT6=4  LUT5=2  ADDER=2 )
+Max Fanout          : 32
+Clock Uncertainty   : 0.075ns (sdc uncertainty: 0.000ns, default uncertainty: 0.075ns)
+
+Delay Type          Location             Incr           Path   Level  Netlist Info
+--------------------------------------------------------------------  ---------------
+source latency                          0.000          0.000
+port                C4                  0.000          0.000          pin: I_sys_clk
+hierarchy                               0.000          0.000          pin: I_sys_clk_syn_2.ipad
+HDIO                x033y078            0.810          0.810          pin: I_sys_clk_syn_2.sg09_di
+HDIO                x033y078            0.684          1.494          pin: I_sys_clk_syn_2.di
+net (fo=1)                              0.574          2.068          net: I_sys_clk_dup_1,  replay_top.v(10)
+                                                                      pin: I_sys_clk_dup_1_created_gclkinst.clkin[0]
+GCLK                x023y039z16         0.016          2.084          pin: I_sys_clk_dup_1_created_gclkinst.clkout
+net (fo=4)                              0.375          2.459          net: I_sys_clk_syn_3,  replay_top.v(10)
+                                                                      pin: I_sys_clk_dup_1_created_gclkinst_auto_created_sclk_s_0_l_bk1.clkin
+SCLK                x023y019z0          0.079          2.538          pin: I_sys_clk_dup_1_created_gclkinst_auto_created_sclk_s_0_l_bk1.clkout
+net (fo=609)                            0.632          3.170          net: I_sys_clk_dup_1_created_gclkinst_auto_created_sclk_s_0_l_bk1_sclk_outnet,  NOFILE(0)
+                                                                      pin: g_core$u_core/S_l1_feature_reg[3]_syn_5.clk
+launch edge                             0.000    r     3.170
+--------------------------------------------------------------------  ---------------
+clk2q               x019y038z0          0.126    f     3.296          pin: g_core$u_core/S_l1_feature_reg[3]_syn_5.oqa
+net (fo=18)                             2.629          5.925          net: g_core$u_core/S_l1_feature[3],  gesture_bnn_core.v(70)
+                                                                      pin: g_core$u_core/mux0_syn_610.f8sel
+F78MUX              x030y031            0.134    r     6.059          pin: g_core$u_core/mux0_syn_610.f8muxo
+net (fo=1)                              0.000          6.059          net: g_core$u_core/mux0_syn_1373,  gesture_bnn_core.v(84)
+                                                                      pin: g_core$u_core/mux0_syn_1366.f78i
+                    x030y031z2          0.078    f     6.137          pin: g_core$u_core/mux0_syn_1366.ofa
+net (fo=1)                              1.326          7.463          net: g_core$u_core/mux0_syn_1[22],  gesture_bnn_core.v(84)
+                                                                      pin: g_core$u_core/mux0_syn_1616.ib
+LUT6                x016y032z6          0.405    f     7.868       1  pin: g_core$u_core/mux0_syn_1616.relut6
+net (fo=1)                              0.000          7.868          net: g_core$u_core/mux0_syn_1619[2],  gesture_bnn_core.v(84)
+                                                                      pin: g_core$u_core/mux0_syn_939.muxi[2]
+F78MUX              x016y032            0.141    r     8.009          pin: g_core$u_core/mux0_syn_939.f8muxo
+net (fo=1)                              0.000          8.009          net: g_core$u_core/mux0_syn_1623,  gesture_bnn_core.v(84)
+                                                                      pin: g_core$u_core/mux0_syn_1616.f78i
+                    x016y032z6          0.078    f     8.087          pin: g_core$u_core/mux0_syn_1616.ofa
+net (fo=1)                              0.185          8.272          net: g_core$u_core/mux0_syn_897[1],  gesture_bnn_core.v(84)
+                                                                      pin: g_core$u_core/mux0_syn_1634.ic
+LUT6                x016y032z0          0.287    r     8.559       2  pin: g_core$u_core/mux0_syn_1634.ofb
+net (fo=1)                              0.388          8.947          net: g_core$u_core/C_l1_match_n2,  NOFILE(0)
+                                                                      pin: g_core$u_core/add1_syn_71.ie
+ADDER               x017y033z0          0.446    r     9.393       3  pin: g_core$u_core/add1_syn_71.fco
+net (fo=1)                              0.000          9.393          net: g_core$u_core/add1_syn_59,  gesture_bnn_core.v(85)
+                                                                      pin: g_core$u_core/add1_syn_72.fci
+ADDER               x017y033z1          0.059    r     9.452          pin: g_core$u_core/add1_syn_72.fco
+net (fo=1)                              0.000          9.452          net: g_core$u_core/add1_syn_60,  gesture_bnn_core.v(85)
+                                                                      pin: g_core$u_core/add1_syn_73.fci
+ADDER               x017y033z2          0.059    r     9.511          pin: g_core$u_core/add1_syn_73.fco
+net (fo=1)                              0.000          9.511          net: g_core$u_core/add1_syn_61,  gesture_bnn_core.v(85)
+                                                                      pin: g_core$u_core/add1_syn_74.fci
+ADDER               x017y033z3          0.059    r     9.570          pin: g_core$u_core/add1_syn_74.fco
+net (fo=1)                              0.000          9.570          net: g_core$u_core/add1_syn_62,  gesture_bnn_core.v(85)
+                                                                      pin: g_core$u_core/add1_syn_75.fci
+ADDER               x017y033z4          0.059    r     9.629          pin: g_core$u_core/add1_syn_75.fco
+net (fo=1)                              0.000          9.629          net: g_core$u_core/add1_syn_63,  gesture_bnn_core.v(85)
+                                                                      pin: g_core$u_core/add1_syn_76.fci
+ADDER               x017y033z5          0.059    r     9.688          pin: g_core$u_core/add1_syn_76.fco
+net (fo=1)                              0.000          9.688          net: g_core$u_core/add1_syn_64,  gesture_bnn_core.v(85)
+                                                                      pin: g_core$u_core/add1_syn_77.fci
+ADDER               x017y033z6          0.059    r     9.747          pin: g_core$u_core/add1_syn_77.fco
+net (fo=1)                              0.000          9.747          net: g_core$u_core/add1_syn_65,  gesture_bnn_core.v(85)
+                                                                      pin: g_core$u_core/add1_syn_78.fci
+ADDER               x017y033z7          0.295    f    10.042       4  pin: g_core$u_core/add1_syn_78.ofb
+net (fo=3)                              0.341         10.383          net: g_core$u_core/C_l1_candidate[7],  gesture_bnn_core.v(85)
+                                                                      pin: g_core$u_core/S_h1_activation_reg[92]_syn_25.ib
+LUT6                x017y034z4          0.427    f    10.810       5  pin: g_core$u_core/S_h1_activation_reg[92]_syn_25.ofb
+net (fo=1)                              0.269         11.079          net: g_core$u_core/S_h1_activation_reg[92]_syn_10,  gesture_bnn_core.v(202)
+                                                                      pin: g_core$u_core/S_h1_activation_reg[92]_syn_29.ib
+LUT6                x017y034z7          0.427    f    11.506       6  pin: g_core$u_core/S_h1_activation_reg[92]_syn_29.ofb
+net (fo=4)                              0.757         12.263          net: g_core$u_core/S_h1_activation_reg[92]_syn_14,  gesture_bnn_core.v(202)
+                                                                      pin: g_core$u_core/S_h1_activation_reg[92]_syn_34.ie
+LUT5                x021y042z1          0.262    f    12.525       7  pin: g_core$u_core/S_h1_activation_reg[92]_syn_34.ofa
+net (fo=32)                             1.384         13.909          net: g_core$u_core/mux94_syn_dup_1556,  gesture_bnn_core.v(229)
+                                                                      pin: g_core$u_core/S_h1_activation_reg[18]_syn_5.ia
+LUT5 (reg)          x025y048z2          0.435    r    14.344       8  net: g_core$u_core/S_h1_activation[18],  gesture_bnn_core.v(66)
+--------------------------------------------------------------------  ---------------
+Arrival                                               14.344
+
+source latency                          0.000          0.000
+port                C4                  0.000          0.000          pin: I_sys_clk
+hierarchy                               0.000          0.000          pin: I_sys_clk_syn_2.ipad
+HDIO                x033y078            0.745          0.745          pin: I_sys_clk_syn_2.sg09_di
+HDIO                x033y078            0.629          1.374          pin: I_sys_clk_syn_2.di
+net (fo=1)                              0.492          1.866          net: I_sys_clk_dup_1,  replay_top.v(10)
+                                                                      pin: I_sys_clk_dup_1_created_gclkinst.clkin[0]
+GCLK                x023y039z16         0.014          1.880          pin: I_sys_clk_dup_1_created_gclkinst.clkout
+net (fo=4)                              0.330          2.210          net: I_sys_clk_syn_3,  replay_top.v(10)
+                                                                      pin: I_sys_clk_dup_1_created_gclkinst_auto_created_sclk_s_1_r_bk1.clkin
+SCLK                x023y059z12         0.068          2.278          pin: I_sys_clk_dup_1_created_gclkinst_auto_created_sclk_s_1_r_bk1.clkout
+net (fo=66)                             0.553          2.831          net: I_sys_clk_dup_1_created_gclkinst_auto_created_sclk_s_1_r_bk1_sclk_outnet,  NOFILE(0)
+                                                                      pin: g_core$u_core/S_h1_activation_reg[18]_syn_5.clk
+capture edge                           20.000    r    22.831
+--------------------------------------------------------------------  ---------------
+setup                                  -0.064         22.767
+clock uncertainty                      -0.075         22.692
+clock pessimism                         0.204         22.896
+--------------------------------------------------------------------  ---------------
+Required                                              22.896
+--------------------------------------------------------------------  ---------------
+Slack                                                  8.552
+
+Slack               : 8.552ns
+Begin Point         : g_core$u_core/S_l1_feature_reg[3]_syn_5.clk (rising edge triggered by clock sys_clk_50m  { rise@0.000000ns  fall@10.000000ns  period=20.000000 })
+End Point           : g_core$u_core/S_h1_activation_reg[19]_syn_5.ia (rising edge triggered by clock sys_clk_50m  { rise@0.000000ns  fall@10.000000ns  period=20.000000 })
+Check Type          : setup
+Process             : slow_m40c
+Budget              : 20.000ns { sys_clk_50m rising@20.000ns - sys_clk_50m rising@0.000ns }
+Data Path Delay     : 11.174ns (cell 3.895ns (34%), net 7.279ns (66%))
+Clock Skew          : 0.135ns
+Logic Level         : 8 ( LUT6=4  LUT5=2  ADDER=2 )
+Max Fanout          : 32
+Clock Uncertainty   : 0.075ns (sdc uncertainty: 0.000ns, default uncertainty: 0.075ns)
+
+Delay Type          Location             Incr           Path   Level  Netlist Info
+--------------------------------------------------------------------  ---------------
+source latency                          0.000          0.000
+port                C4                  0.000          0.000          pin: I_sys_clk
+hierarchy                               0.000          0.000          pin: I_sys_clk_syn_2.ipad
+HDIO                x033y078            0.810          0.810          pin: I_sys_clk_syn_2.sg09_di
+HDIO                x033y078            0.684          1.494          pin: I_sys_clk_syn_2.di
+net (fo=1)                              0.574          2.068          net: I_sys_clk_dup_1,  replay_top.v(10)
+                                                                      pin: I_sys_clk_dup_1_created_gclkinst.clkin[0]
+GCLK                x023y039z16         0.016          2.084          pin: I_sys_clk_dup_1_created_gclkinst.clkout
+net (fo=4)                              0.375          2.459          net: I_sys_clk_syn_3,  replay_top.v(10)
+                                                                      pin: I_sys_clk_dup_1_created_gclkinst_auto_created_sclk_s_0_l_bk1.clkin
+SCLK                x023y019z0          0.079          2.538          pin: I_sys_clk_dup_1_created_gclkinst_auto_created_sclk_s_0_l_bk1.clkout
+net (fo=609)                            0.632          3.170          net: I_sys_clk_dup_1_created_gclkinst_auto_created_sclk_s_0_l_bk1_sclk_outnet,  NOFILE(0)
+                                                                      pin: g_core$u_core/S_l1_feature_reg[3]_syn_5.clk
+launch edge                             0.000    r     3.170
+--------------------------------------------------------------------  ---------------
+clk2q               x019y038z0          0.126    f     3.296          pin: g_core$u_core/S_l1_feature_reg[3]_syn_5.oqa
+net (fo=18)                             2.629          5.925          net: g_core$u_core/S_l1_feature[3],  gesture_bnn_core.v(70)
+                                                                      pin: g_core$u_core/mux0_syn_610.f8sel
+F78MUX              x030y031            0.134    r     6.059          pin: g_core$u_core/mux0_syn_610.f8muxo
+net (fo=1)                              0.000          6.059          net: g_core$u_core/mux0_syn_1373,  gesture_bnn_core.v(84)
+                                                                      pin: g_core$u_core/mux0_syn_1366.f78i
+                    x030y031z2          0.078    f     6.137          pin: g_core$u_core/mux0_syn_1366.ofa
+net (fo=1)                              1.326          7.463          net: g_core$u_core/mux0_syn_1[22],  gesture_bnn_core.v(84)
+                                                                      pin: g_core$u_core/mux0_syn_1616.ib
+LUT6                x016y032z6          0.405    f     7.868       1  pin: g_core$u_core/mux0_syn_1616.relut6
+net (fo=1)                              0.000          7.868          net: g_core$u_core/mux0_syn_1619[2],  gesture_bnn_core.v(84)
+                                                                      pin: g_core$u_core/mux0_syn_939.muxi[2]
+F78MUX              x016y032            0.141    r     8.009          pin: g_core$u_core/mux0_syn_939.f8muxo
+net (fo=1)                              0.000          8.009          net: g_core$u_core/mux0_syn_1623,  gesture_bnn_core.v(84)
+                                                                      pin: g_core$u_core/mux0_syn_1616.f78i
+                    x016y032z6          0.078    f     8.087          pin: g_core$u_core/mux0_syn_1616.ofa
+net (fo=1)                              0.185          8.272          net: g_core$u_core/mux0_syn_897[1],  gesture_bnn_core.v(84)
+                                                                      pin: g_core$u_core/mux0_syn_1634.ic
+LUT6                x016y032z0          0.287    r     8.559       2  pin: g_core$u_core/mux0_syn_1634.ofb
+net (fo=1)                              0.388          8.947          net: g_core$u_core/C_l1_match_n2,  NOFILE(0)
+                                                                      pin: g_core$u_core/add1_syn_71.ie
+ADDER               x017y033z0          0.446    r     9.393       3  pin: g_core$u_core/add1_syn_71.fco
+net (fo=1)                              0.000          9.393          net: g_core$u_core/add1_syn_59,  gesture_bnn_core.v(85)
+                                                                      pin: g_core$u_core/add1_syn_72.fci
+ADDER               x017y033z1          0.059    r     9.452          pin: g_core$u_core/add1_syn_72.fco
+net (fo=1)                              0.000          9.452          net: g_core$u_core/add1_syn_60,  gesture_bnn_core.v(85)
+                                                                      pin: g_core$u_core/add1_syn_73.fci
+ADDER               x017y033z2          0.059    r     9.511          pin: g_core$u_core/add1_syn_73.fco
+net (fo=1)                              0.000          9.511          net: g_core$u_core/add1_syn_61,  gesture_bnn_core.v(85)
+                                                                      pin: g_core$u_core/add1_syn_74.fci
+ADDER               x017y033z3          0.059    r     9.570          pin: g_core$u_core/add1_syn_74.fco
+net (fo=1)                              0.000          9.570          net: g_core$u_core/add1_syn_62,  gesture_bnn_core.v(85)
+                                                                      pin: g_core$u_core/add1_syn_75.fci
+ADDER               x017y033z4          0.059    r     9.629          pin: g_core$u_core/add1_syn_75.fco
+net (fo=1)                              0.000          9.629          net: g_core$u_core/add1_syn_63,  gesture_bnn_core.v(85)
+                                                                      pin: g_core$u_core/add1_syn_76.fci
+ADDER               x017y033z5          0.059    r     9.688          pin: g_core$u_core/add1_syn_76.fco
+net (fo=1)                              0.000          9.688          net: g_core$u_core/add1_syn_64,  gesture_bnn_core.v(85)
+                                                                      pin: g_core$u_core/add1_syn_77.fci
+ADDER               x017y033z6          0.059    r     9.747          pin: g_core$u_core/add1_syn_77.fco
+net (fo=1)                              0.000          9.747          net: g_core$u_core/add1_syn_65,  gesture_bnn_core.v(85)
+                                                                      pin: g_core$u_core/add1_syn_78.fci
+ADDER               x017y033z7          0.295    f    10.042       4  pin: g_core$u_core/add1_syn_78.ofb
+net (fo=3)                              0.341         10.383          net: g_core$u_core/C_l1_candidate[7],  gesture_bnn_core.v(85)
+                                                                      pin: g_core$u_core/S_h1_activation_reg[92]_syn_25.ib
+LUT6                x017y034z4          0.427    f    10.810       5  pin: g_core$u_core/S_h1_activation_reg[92]_syn_25.ofb
+net (fo=1)                              0.269         11.079          net: g_core$u_core/S_h1_activation_reg[92]_syn_10,  gesture_bnn_core.v(202)
+                                                                      pin: g_core$u_core/S_h1_activation_reg[92]_syn_29.ib
+LUT6                x017y034z7          0.427    f    11.506       6  pin: g_core$u_core/S_h1_activation_reg[92]_syn_29.ofb
+net (fo=4)                              0.757         12.263          net: g_core$u_core/S_h1_activation_reg[92]_syn_14,  gesture_bnn_core.v(202)
+                                                                      pin: g_core$u_core/S_h1_activation_reg[92]_syn_34.ie
+LUT5                x021y042z1          0.262    f    12.525       7  pin: g_core$u_core/S_h1_activation_reg[92]_syn_34.ofa
+net (fo=32)                             1.384         13.909          net: g_core$u_core/mux94_syn_dup_1556,  gesture_bnn_core.v(229)
+                                                                      pin: g_core$u_core/S_h1_activation_reg[19]_syn_5.ia
+LUT5 (reg)          x025y048z1          0.435    r    14.344       8  net: g_core$u_core/S_h1_activation[19],  gesture_bnn_core.v(66)
+--------------------------------------------------------------------  ---------------
+Arrival                                               14.344
+
+source latency                          0.000          0.000
+port                C4                  0.000          0.000          pin: I_sys_clk
+hierarchy                               0.000          0.000          pin: I_sys_clk_syn_2.ipad
+HDIO                x033y078            0.745          0.745          pin: I_sys_clk_syn_2.sg09_di
+HDIO                x033y078            0.629          1.374          pin: I_sys_clk_syn_2.di
+net (fo=1)                              0.492          1.866          net: I_sys_clk_dup_1,  replay_top.v(10)
+                                                                      pin: I_sys_clk_dup_1_created_gclkinst.clkin[0]
+GCLK                x023y039z16         0.014          1.880          pin: I_sys_clk_dup_1_created_gclkinst.clkout
+net (fo=4)                              0.330          2.210          net: I_sys_clk_syn_3,  replay_top.v(10)
+                                                                      pin: I_sys_clk_dup_1_created_gclkinst_auto_created_sclk_s_1_r_bk1.clkin
+SCLK                x023y059z12         0.068          2.278          pin: I_sys_clk_dup_1_created_gclkinst_auto_created_sclk_s_1_r_bk1.clkout
+net (fo=66)                             0.553          2.831          net: I_sys_clk_dup_1_created_gclkinst_auto_created_sclk_s_1_r_bk1_sclk_outnet,  NOFILE(0)
+                                                                      pin: g_core$u_core/S_h1_activation_reg[19]_syn_5.clk
+capture edge                           20.000    r    22.831
+--------------------------------------------------------------------  ---------------
+setup                                  -0.064         22.767
+clock uncertainty                      -0.075         22.692
+clock pessimism                         0.204         22.896
+--------------------------------------------------------------------  ---------------
+Required                                              22.896
+--------------------------------------------------------------------  ---------------
+Slack                                                  8.552
+
+Slack               : 8.659ns
+Begin Point         : g_core$u_core/S_l1_feature_reg[3]_syn_5.clk (rising edge triggered by clock sys_clk_50m  { rise@0.000000ns  fall@10.000000ns  period=20.000000 })
+End Point           : g_core$u_core/S_h1_activation_reg[9]_syn_5.ia (rising edge triggered by clock sys_clk_50m  { rise@0.000000ns  fall@10.000000ns  period=20.000000 })
+Check Type          : setup
+Process             : slow_m40c
+Budget              : 20.000ns { sys_clk_50m rising@20.000ns - sys_clk_50m rising@0.000ns }
+Data Path Delay     : 11.065ns (cell 3.895ns (35%), net 7.170ns (65%))
+Clock Skew          : 0.137ns
+Logic Level         : 8 ( LUT6=4  LUT5=2  ADDER=2 )
+Max Fanout          : 32
+Clock Uncertainty   : 0.075ns (sdc uncertainty: 0.000ns, default uncertainty: 0.075ns)
+
+Delay Type          Location             Incr           Path   Level  Netlist Info
+--------------------------------------------------------------------  ---------------
+source latency                          0.000          0.000
+port                C4                  0.000          0.000          pin: I_sys_clk
+hierarchy                               0.000          0.000          pin: I_sys_clk_syn_2.ipad
+HDIO                x033y078            0.810          0.810          pin: I_sys_clk_syn_2.sg09_di
+HDIO                x033y078            0.684          1.494          pin: I_sys_clk_syn_2.di
+net (fo=1)                              0.574          2.068          net: I_sys_clk_dup_1,  replay_top.v(10)
+                                                                      pin: I_sys_clk_dup_1_created_gclkinst.clkin[0]
+GCLK                x023y039z16         0.016          2.084          pin: I_sys_clk_dup_1_created_gclkinst.clkout
+net (fo=4)                              0.375          2.459          net: I_sys_clk_syn_3,  replay_top.v(10)
+                                                                      pin: I_sys_clk_dup_1_created_gclkinst_auto_created_sclk_s_0_l_bk1.clkin
+SCLK                x023y019z0          0.079          2.538          pin: I_sys_clk_dup_1_created_gclkinst_auto_created_sclk_s_0_l_bk1.clkout
+net (fo=609)                            0.632          3.170          net: I_sys_clk_dup_1_created_gclkinst_auto_created_sclk_s_0_l_bk1_sclk_outnet,  NOFILE(0)
+                                                                      pin: g_core$u_core/S_l1_feature_reg[3]_syn_5.clk
+launch edge                             0.000    r     3.170
+--------------------------------------------------------------------  ---------------
+clk2q               x019y038z0          0.126    f     3.296          pin: g_core$u_core/S_l1_feature_reg[3]_syn_5.oqa
+net (fo=18)                             2.629          5.925          net: g_core$u_core/S_l1_feature[3],  gesture_bnn_core.v(70)
+                                                                      pin: g_core$u_core/mux0_syn_610.f8sel
+F78MUX              x030y031            0.134    r     6.059          pin: g_core$u_core/mux0_syn_610.f8muxo
+net (fo=1)                              0.000          6.059          net: g_core$u_core/mux0_syn_1373,  gesture_bnn_core.v(84)
+                                                                      pin: g_core$u_core/mux0_syn_1366.f78i
+                    x030y031z2          0.078    f     6.137          pin: g_core$u_core/mux0_syn_1366.ofa
+net (fo=1)                              1.326          7.463          net: g_core$u_core/mux0_syn_1[22],  gesture_bnn_core.v(84)
+                                                                      pin: g_core$u_core/mux0_syn_1616.ib
+LUT6                x016y032z6          0.405    f     7.868       1  pin: g_core$u_core/mux0_syn_1616.relut6
+net (fo=1)                              0.000          7.868          net: g_core$u_core/mux0_syn_1619[2],  gesture_bnn_core.v(84)
+                                                                      pin: g_core$u_core/mux0_syn_939.muxi[2]
+F78MUX              x016y032            0.141    r     8.009          pin: g_core$u_core/mux0_syn_939.f8muxo
+net (fo=1)                              0.000          8.009          net: g_core$u_core/mux0_syn_1623,  gesture_bnn_core.v(84)
+                                                                      pin: g_core$u_core/mux0_syn_1616.f78i
+                    x016y032z6          0.078    f     8.087          pin: g_core$u_core/mux0_syn_1616.ofa
+net (fo=1)                              0.185          8.272          net: g_core$u_core/mux0_syn_897[1],  gesture_bnn_core.v(84)
+                                                                      pin: g_core$u_core/mux0_syn_1634.ic
+LUT6                x016y032z0          0.287    r     8.559       2  pin: g_core$u_core/mux0_syn_1634.ofb
+net (fo=1)                              0.388          8.947          net: g_core$u_core/C_l1_match_n2,  NOFILE(0)
+                                                                      pin: g_core$u_core/add1_syn_71.ie
+ADDER               x017y033z0          0.446    r     9.393       3  pin: g_core$u_core/add1_syn_71.fco
+net (fo=1)                              0.000          9.393          net: g_core$u_core/add1_syn_59,  gesture_bnn_core.v(85)
+                                                                      pin: g_core$u_core/add1_syn_72.fci
+ADDER               x017y033z1          0.059    r     9.452          pin: g_core$u_core/add1_syn_72.fco
+net (fo=1)                              0.000          9.452          net: g_core$u_core/add1_syn_60,  gesture_bnn_core.v(85)
+                                                                      pin: g_core$u_core/add1_syn_73.fci
+ADDER               x017y033z2          0.059    r     9.511          pin: g_core$u_core/add1_syn_73.fco
+net (fo=1)                              0.000          9.511          net: g_core$u_core/add1_syn_61,  gesture_bnn_core.v(85)
+                                                                      pin: g_core$u_core/add1_syn_74.fci
+ADDER               x017y033z3          0.059    r     9.570          pin: g_core$u_core/add1_syn_74.fco
+net (fo=1)                              0.000          9.570          net: g_core$u_core/add1_syn_62,  gesture_bnn_core.v(85)
+                                                                      pin: g_core$u_core/add1_syn_75.fci
+ADDER               x017y033z4          0.059    r     9.629          pin: g_core$u_core/add1_syn_75.fco
+net (fo=1)                              0.000          9.629          net: g_core$u_core/add1_syn_63,  gesture_bnn_core.v(85)
+                                                                      pin: g_core$u_core/add1_syn_76.fci
+ADDER               x017y033z5          0.059    r     9.688          pin: g_core$u_core/add1_syn_76.fco
+net (fo=1)                              0.000          9.688          net: g_core$u_core/add1_syn_64,  gesture_bnn_core.v(85)
+                                                                      pin: g_core$u_core/add1_syn_77.fci
+ADDER               x017y033z6          0.059    r     9.747          pin: g_core$u_core/add1_syn_77.fco
+net (fo=1)                              0.000          9.747          net: g_core$u_core/add1_syn_65,  gesture_bnn_core.v(85)
+                                                                      pin: g_core$u_core/add1_syn_78.fci
+ADDER               x017y033z7          0.295    f    10.042       4  pin: g_core$u_core/add1_syn_78.ofb
+net (fo=3)                              0.341         10.383          net: g_core$u_core/C_l1_candidate[7],  gesture_bnn_core.v(85)
+                                                                      pin: g_core$u_core/S_h1_activation_reg[92]_syn_25.ib
+LUT6                x017y034z4          0.427    f    10.810       5  pin: g_core$u_core/S_h1_activation_reg[92]_syn_25.ofb
+net (fo=1)                              0.269         11.079          net: g_core$u_core/S_h1_activation_reg[92]_syn_10,  gesture_bnn_core.v(202)
+                                                                      pin: g_core$u_core/S_h1_activation_reg[92]_syn_29.ib
+LUT6                x017y034z7          0.427    f    11.506       6  pin: g_core$u_core/S_h1_activation_reg[92]_syn_29.ofb
+net (fo=4)                              0.757         12.263          net: g_core$u_core/S_h1_activation_reg[92]_syn_14,  gesture_bnn_core.v(202)
+                                                                      pin: g_core$u_core/S_h1_activation_reg[92]_syn_34.ie
+LUT5                x021y042z1          0.262    f    12.525       7  pin: g_core$u_core/S_h1_activation_reg[92]_syn_34.ofa
+net (fo=32)                             1.275         13.800          net: g_core$u_core/mux94_syn_dup_1556,  gesture_bnn_core.v(229)
+                                                                      pin: g_core$u_core/S_h1_activation_reg[9]_syn_5.ia
+LUT5 (reg)          x021y048z6          0.435    r    14.235       8  net: g_core$u_core/S_h1_activation[9],  gesture_bnn_core.v(66)
+--------------------------------------------------------------------  ---------------
+Arrival                                               14.235
+
+source latency                          0.000          0.000
+port                C4                  0.000          0.000          pin: I_sys_clk
+hierarchy                               0.000          0.000          pin: I_sys_clk_syn_2.ipad
+HDIO                x033y078            0.745          0.745          pin: I_sys_clk_syn_2.sg09_di
+HDIO                x033y078            0.629          1.374          pin: I_sys_clk_syn_2.di
+net (fo=1)                              0.492          1.866          net: I_sys_clk_dup_1,  replay_top.v(10)
+                                                                      pin: I_sys_clk_dup_1_created_gclkinst.clkin[0]
+GCLK                x023y039z16         0.014          1.880          pin: I_sys_clk_dup_1_created_gclkinst.clkout
+net (fo=4)                              0.331          2.211          net: I_sys_clk_syn_3,  replay_top.v(10)
+                                                                      pin: I_sys_clk_dup_1_created_gclkinst_auto_created_sclk_s_1_l_bk1.clkin
+SCLK                x023y059z0          0.068          2.279          pin: I_sys_clk_dup_1_created_gclkinst_auto_created_sclk_s_1_l_bk1.clkout
+net (fo=210)                            0.550          2.829          net: I_sys_clk_dup_1_created_gclkinst_auto_created_sclk_s_1_l_bk1_sclk_outnet,  NOFILE(0)
+                                                                      pin: g_core$u_core/S_h1_activation_reg[9]_syn_5.clk
+capture edge                           20.000    r    22.829
+--------------------------------------------------------------------  ---------------
+setup                                  -0.064         22.765
+clock uncertainty                      -0.075         22.690
+clock pessimism                         0.204         22.894
+--------------------------------------------------------------------  ---------------
+Required                                              22.894
+--------------------------------------------------------------------  ---------------
+Slack                                                  8.659
+
+Slack               : 8.659ns
+Begin Point         : g_core$u_core/S_l1_feature_reg[3]_syn_5.clk (rising edge triggered by clock sys_clk_50m  { rise@0.000000ns  fall@10.000000ns  period=20.000000 })
+End Point           : g_core$u_core/S_h1_activation_reg[27]_syn_5.ia (rising edge triggered by clock sys_clk_50m  { rise@0.000000ns  fall@10.000000ns  period=20.000000 })
+Check Type          : setup
+Process             : slow_m40c
+Budget              : 20.000ns { sys_clk_50m rising@20.000ns - sys_clk_50m rising@0.000ns }
+Data Path Delay     : 11.065ns (cell 3.895ns (35%), net 7.170ns (65%))
+Clock Skew          : 0.137ns
+Logic Level         : 8 ( LUT6=4  LUT5=2  ADDER=2 )
+Max Fanout          : 32
+Clock Uncertainty   : 0.075ns (sdc uncertainty: 0.000ns, default uncertainty: 0.075ns)
+
+Delay Type          Location             Incr           Path   Level  Netlist Info
+--------------------------------------------------------------------  ---------------
+source latency                          0.000          0.000
+port                C4                  0.000          0.000          pin: I_sys_clk
+hierarchy                               0.000          0.000          pin: I_sys_clk_syn_2.ipad
+HDIO                x033y078            0.810          0.810          pin: I_sys_clk_syn_2.sg09_di
+HDIO                x033y078            0.684          1.494          pin: I_sys_clk_syn_2.di
+net (fo=1)                              0.574          2.068          net: I_sys_clk_dup_1,  replay_top.v(10)
+                                                                      pin: I_sys_clk_dup_1_created_gclkinst.clkin[0]
+GCLK                x023y039z16         0.016          2.084          pin: I_sys_clk_dup_1_created_gclkinst.clkout
+net (fo=4)                              0.375          2.459          net: I_sys_clk_syn_3,  replay_top.v(10)
+                                                                      pin: I_sys_clk_dup_1_created_gclkinst_auto_created_sclk_s_0_l_bk1.clkin
+SCLK                x023y019z0          0.079          2.538          pin: I_sys_clk_dup_1_created_gclkinst_auto_created_sclk_s_0_l_bk1.clkout
+net (fo=609)                            0.632          3.170          net: I_sys_clk_dup_1_created_gclkinst_auto_created_sclk_s_0_l_bk1_sclk_outnet,  NOFILE(0)
+                                                                      pin: g_core$u_core/S_l1_feature_reg[3]_syn_5.clk
+launch edge                             0.000    r     3.170
+--------------------------------------------------------------------  ---------------
+clk2q               x019y038z0          0.126    f     3.296          pin: g_core$u_core/S_l1_feature_reg[3]_syn_5.oqa
+net (fo=18)                             2.629          5.925          net: g_core$u_core/S_l1_feature[3],  gesture_bnn_core.v(70)
+                                                                      pin: g_core$u_core/mux0_syn_610.f8sel
+F78MUX              x030y031            0.134    r     6.059          pin: g_core$u_core/mux0_syn_610.f8muxo
+net (fo=1)                              0.000          6.059          net: g_core$u_core/mux0_syn_1373,  gesture_bnn_core.v(84)
+                                                                      pin: g_core$u_core/mux0_syn_1366.f78i
+                    x030y031z2          0.078    f     6.137          pin: g_core$u_core/mux0_syn_1366.ofa
+net (fo=1)                              1.326          7.463          net: g_core$u_core/mux0_syn_1[22],  gesture_bnn_core.v(84)
+                                                                      pin: g_core$u_core/mux0_syn_1616.ib
+LUT6                x016y032z6          0.405    f     7.868       1  pin: g_core$u_core/mux0_syn_1616.relut6
+net (fo=1)                              0.000          7.868          net: g_core$u_core/mux0_syn_1619[2],  gesture_bnn_core.v(84)
+                                                                      pin: g_core$u_core/mux0_syn_939.muxi[2]
+F78MUX              x016y032            0.141    r     8.009          pin: g_core$u_core/mux0_syn_939.f8muxo
+net (fo=1)                              0.000          8.009          net: g_core$u_core/mux0_syn_1623,  gesture_bnn_core.v(84)
+                                                                      pin: g_core$u_core/mux0_syn_1616.f78i
+                    x016y032z6          0.078    f     8.087          pin: g_core$u_core/mux0_syn_1616.ofa
+net (fo=1)                              0.185          8.272          net: g_core$u_core/mux0_syn_897[1],  gesture_bnn_core.v(84)
+                                                                      pin: g_core$u_core/mux0_syn_1634.ic
+LUT6                x016y032z0          0.287    r     8.559       2  pin: g_core$u_core/mux0_syn_1634.ofb
+net (fo=1)                              0.388          8.947          net: g_core$u_core/C_l1_match_n2,  NOFILE(0)
+                                                                      pin: g_core$u_core/add1_syn_71.ie
+ADDER               x017y033z0          0.446    r     9.393       3  pin: g_core$u_core/add1_syn_71.fco
+net (fo=1)                              0.000          9.393          net: g_core$u_core/add1_syn_59,  gesture_bnn_core.v(85)
+                                                                      pin: g_core$u_core/add1_syn_72.fci
+ADDER               x017y033z1          0.059    r     9.452          pin: g_core$u_core/add1_syn_72.fco
+net (fo=1)                              0.000          9.452          net: g_core$u_core/add1_syn_60,  gesture_bnn_core.v(85)
+                                                                      pin: g_core$u_core/add1_syn_73.fci
+ADDER               x017y033z2          0.059    r     9.511          pin: g_core$u_core/add1_syn_73.fco
+net (fo=1)                              0.000          9.511          net: g_core$u_core/add1_syn_61,  gesture_bnn_core.v(85)
+                                                                      pin: g_core$u_core/add1_syn_74.fci
+ADDER               x017y033z3          0.059    r     9.570          pin: g_core$u_core/add1_syn_74.fco
+net (fo=1)                              0.000          9.570          net: g_core$u_core/add1_syn_62,  gesture_bnn_core.v(85)
+                                                                      pin: g_core$u_core/add1_syn_75.fci
+ADDER               x017y033z4          0.059    r     9.629          pin: g_core$u_core/add1_syn_75.fco
+net (fo=1)                              0.000          9.629          net: g_core$u_core/add1_syn_63,  gesture_bnn_core.v(85)
+                                                                      pin: g_core$u_core/add1_syn_76.fci
+ADDER               x017y033z5          0.059    r     9.688          pin: g_core$u_core/add1_syn_76.fco
+net (fo=1)                              0.000          9.688          net: g_core$u_core/add1_syn_64,  gesture_bnn_core.v(85)
+                                                                      pin: g_core$u_core/add1_syn_77.fci
+ADDER               x017y033z6          0.059    r     9.747          pin: g_core$u_core/add1_syn_77.fco
+net (fo=1)                              0.000          9.747          net: g_core$u_core/add1_syn_65,  gesture_bnn_core.v(85)
+                                                                      pin: g_core$u_core/add1_syn_78.fci
+ADDER               x017y033z7          0.295    f    10.042       4  pin: g_core$u_core/add1_syn_78.ofb
+net (fo=3)                              0.341         10.383          net: g_core$u_core/C_l1_candidate[7],  gesture_bnn_core.v(85)
+                                                                      pin: g_core$u_core/S_h1_activation_reg[92]_syn_25.ib
+LUT6                x017y034z4          0.427    f    10.810       5  pin: g_core$u_core/S_h1_activation_reg[92]_syn_25.ofb
+net (fo=1)                              0.269         11.079          net: g_core$u_core/S_h1_activation_reg[92]_syn_10,  gesture_bnn_core.v(202)
+                                                                      pin: g_core$u_core/S_h1_activation_reg[92]_syn_29.ib
+LUT6                x017y034z7          0.427    f    11.506       6  pin: g_core$u_core/S_h1_activation_reg[92]_syn_29.ofb
+net (fo=4)                              0.757         12.263          net: g_core$u_core/S_h1_activation_reg[92]_syn_14,  gesture_bnn_core.v(202)
+                                                                      pin: g_core$u_core/S_h1_activation_reg[92]_syn_34.ie
+LUT5                x021y042z1          0.262    f    12.525       7  pin: g_core$u_core/S_h1_activation_reg[92]_syn_34.ofa
+net (fo=32)                             1.275         13.800          net: g_core$u_core/mux94_syn_dup_1556,  gesture_bnn_core.v(229)
+                                                                      pin: g_core$u_core/S_h1_activation_reg[27]_syn_5.ia
+LUT5 (reg)          x021y048z7          0.435    r    14.235       8  net: g_core$u_core/S_h1_activation[27],  gesture_bnn_core.v(66)
+--------------------------------------------------------------------  ---------------
+Arrival                                               14.235
+
+source latency                          0.000          0.000
+port                C4                  0.000          0.000          pin: I_sys_clk
+hierarchy                               0.000          0.000          pin: I_sys_clk_syn_2.ipad
+HDIO                x033y078            0.745          0.745          pin: I_sys_clk_syn_2.sg09_di
+HDIO                x033y078            0.629          1.374          pin: I_sys_clk_syn_2.di
+net (fo=1)                              0.492          1.866          net: I_sys_clk_dup_1,  replay_top.v(10)
+                                                                      pin: I_sys_clk_dup_1_created_gclkinst.clkin[0]
+GCLK                x023y039z16         0.014          1.880          pin: I_sys_clk_dup_1_created_gclkinst.clkout
+net (fo=4)                              0.331          2.211          net: I_sys_clk_syn_3,  replay_top.v(10)
+                                                                      pin: I_sys_clk_dup_1_created_gclkinst_auto_created_sclk_s_1_l_bk1.clkin
+SCLK                x023y059z0          0.068          2.279          pin: I_sys_clk_dup_1_created_gclkinst_auto_created_sclk_s_1_l_bk1.clkout
+net (fo=210)                            0.550          2.829          net: I_sys_clk_dup_1_created_gclkinst_auto_created_sclk_s_1_l_bk1_sclk_outnet,  NOFILE(0)
+                                                                      pin: g_core$u_core/S_h1_activation_reg[27]_syn_5.clk
+capture edge                           20.000    r    22.829
+--------------------------------------------------------------------  ---------------
+setup                                  -0.064         22.765
+clock uncertainty                      -0.075         22.690
+clock pessimism                         0.204         22.894
+--------------------------------------------------------------------  ---------------
+Required                                              22.894
+--------------------------------------------------------------------  ---------------
+Slack                                                  8.659
+
+Slack               : 8.659ns
+Begin Point         : g_core$u_core/S_l1_feature_reg[3]_syn_5.clk (rising edge triggered by clock sys_clk_50m  { rise@0.000000ns  fall@10.000000ns  period=20.000000 })
+End Point           : g_core$u_core/S_h1_activation_reg[26]_syn_5.ia (rising edge triggered by clock sys_clk_50m  { rise@0.000000ns  fall@10.000000ns  period=20.000000 })
+Check Type          : setup
+Process             : slow_m40c
+Budget              : 20.000ns { sys_clk_50m rising@20.000ns - sys_clk_50m rising@0.000ns }
+Data Path Delay     : 11.065ns (cell 3.895ns (35%), net 7.170ns (65%))
+Clock Skew          : 0.137ns
+Logic Level         : 8 ( LUT6=4  LUT5=2  ADDER=2 )
+Max Fanout          : 32
+Clock Uncertainty   : 0.075ns (sdc uncertainty: 0.000ns, default uncertainty: 0.075ns)
+
+Delay Type          Location             Incr           Path   Level  Netlist Info
+--------------------------------------------------------------------  ---------------
+source latency                          0.000          0.000
+port                C4                  0.000          0.000          pin: I_sys_clk
+hierarchy                               0.000          0.000          pin: I_sys_clk_syn_2.ipad
+HDIO                x033y078            0.810          0.810          pin: I_sys_clk_syn_2.sg09_di
+HDIO                x033y078            0.684          1.494          pin: I_sys_clk_syn_2.di
+net (fo=1)                              0.574          2.068          net: I_sys_clk_dup_1,  replay_top.v(10)
+                                                                      pin: I_sys_clk_dup_1_created_gclkinst.clkin[0]
+GCLK                x023y039z16         0.016          2.084          pin: I_sys_clk_dup_1_created_gclkinst.clkout
+net (fo=4)                              0.375          2.459          net: I_sys_clk_syn_3,  replay_top.v(10)
+                                                                      pin: I_sys_clk_dup_1_created_gclkinst_auto_created_sclk_s_0_l_bk1.clkin
+SCLK                x023y019z0          0.079          2.538          pin: I_sys_clk_dup_1_created_gclkinst_auto_created_sclk_s_0_l_bk1.clkout
+net (fo=609)                            0.632          3.170          net: I_sys_clk_dup_1_created_gclkinst_auto_created_sclk_s_0_l_bk1_sclk_outnet,  NOFILE(0)
+                                                                      pin: g_core$u_core/S_l1_feature_reg[3]_syn_5.clk
+launch edge                             0.000    r     3.170
+--------------------------------------------------------------------  ---------------
+clk2q               x019y038z0          0.126    f     3.296          pin: g_core$u_core/S_l1_feature_reg[3]_syn_5.oqa
+net (fo=18)                             2.629          5.925          net: g_core$u_core/S_l1_feature[3],  gesture_bnn_core.v(70)
+                                                                      pin: g_core$u_core/mux0_syn_610.f8sel
+F78MUX              x030y031            0.134    r     6.059          pin: g_core$u_core/mux0_syn_610.f8muxo
+net (fo=1)                              0.000          6.059          net: g_core$u_core/mux0_syn_1373,  gesture_bnn_core.v(84)
+                                                                      pin: g_core$u_core/mux0_syn_1366.f78i
+                    x030y031z2          0.078    f     6.137          pin: g_core$u_core/mux0_syn_1366.ofa
+net (fo=1)                              1.326          7.463          net: g_core$u_core/mux0_syn_1[22],  gesture_bnn_core.v(84)
+                                                                      pin: g_core$u_core/mux0_syn_1616.ib
+LUT6                x016y032z6          0.405    f     7.868       1  pin: g_core$u_core/mux0_syn_1616.relut6
+net (fo=1)                              0.000          7.868          net: g_core$u_core/mux0_syn_1619[2],  gesture_bnn_core.v(84)
+                                                                      pin: g_core$u_core/mux0_syn_939.muxi[2]
+F78MUX              x016y032            0.141    r     8.009          pin: g_core$u_core/mux0_syn_939.f8muxo
+net (fo=1)                              0.000          8.009          net: g_core$u_core/mux0_syn_1623,  gesture_bnn_core.v(84)
+                                                                      pin: g_core$u_core/mux0_syn_1616.f78i
+                    x016y032z6          0.078    f     8.087          pin: g_core$u_core/mux0_syn_1616.ofa
+net (fo=1)                              0.185          8.272          net: g_core$u_core/mux0_syn_897[1],  gesture_bnn_core.v(84)
+                                                                      pin: g_core$u_core/mux0_syn_1634.ic
+LUT6                x016y032z0          0.287    r     8.559       2  pin: g_core$u_core/mux0_syn_1634.ofb
+net (fo=1)                              0.388          8.947          net: g_core$u_core/C_l1_match_n2,  NOFILE(0)
+                                                                      pin: g_core$u_core/add1_syn_71.ie
+ADDER               x017y033z0          0.446    r     9.393       3  pin: g_core$u_core/add1_syn_71.fco
+net (fo=1)                              0.000          9.393          net: g_core$u_core/add1_syn_59,  gesture_bnn_core.v(85)
+                                                                      pin: g_core$u_core/add1_syn_72.fci
+ADDER               x017y033z1          0.059    r     9.452          pin: g_core$u_core/add1_syn_72.fco
+net (fo=1)                              0.000          9.452          net: g_core$u_core/add1_syn_60,  gesture_bnn_core.v(85)
+                                                                      pin: g_core$u_core/add1_syn_73.fci
+ADDER               x017y033z2          0.059    r     9.511          pin: g_core$u_core/add1_syn_73.fco
+net (fo=1)                              0.000          9.511          net: g_core$u_core/add1_syn_61,  gesture_bnn_core.v(85)
+                                                                      pin: g_core$u_core/add1_syn_74.fci
+ADDER               x017y033z3          0.059    r     9.570          pin: g_core$u_core/add1_syn_74.fco
+net (fo=1)                              0.000          9.570          net: g_core$u_core/add1_syn_62,  gesture_bnn_core.v(85)
+                                                                      pin: g_core$u_core/add1_syn_75.fci
+ADDER               x017y033z4          0.059    r     9.629          pin: g_core$u_core/add1_syn_75.fco
+net (fo=1)                              0.000          9.629          net: g_core$u_core/add1_syn_63,  gesture_bnn_core.v(85)
+                                                                      pin: g_core$u_core/add1_syn_76.fci
+ADDER               x017y033z5          0.059    r     9.688          pin: g_core$u_core/add1_syn_76.fco
+net (fo=1)                              0.000          9.688          net: g_core$u_core/add1_syn_64,  gesture_bnn_core.v(85)
+                                                                      pin: g_core$u_core/add1_syn_77.fci
+ADDER               x017y033z6          0.059    r     9.747          pin: g_core$u_core/add1_syn_77.fco
+net (fo=1)                              0.000          9.747          net: g_core$u_core/add1_syn_65,  gesture_bnn_core.v(85)
+                                                                      pin: g_core$u_core/add1_syn_78.fci
+ADDER               x017y033z7          0.295    f    10.042       4  pin: g_core$u_core/add1_syn_78.ofb
+net (fo=3)                              0.341         10.383          net: g_core$u_core/C_l1_candidate[7],  gesture_bnn_core.v(85)
+                                                                      pin: g_core$u_core/S_h1_activation_reg[92]_syn_25.ib
+LUT6                x017y034z4          0.427    f    10.810       5  pin: g_core$u_core/S_h1_activation_reg[92]_syn_25.ofb
+net (fo=1)                              0.269         11.079          net: g_core$u_core/S_h1_activation_reg[92]_syn_10,  gesture_bnn_core.v(202)
+                                                                      pin: g_core$u_core/S_h1_activation_reg[92]_syn_29.ib
+LUT6                x017y034z7          0.427    f    11.506       6  pin: g_core$u_core/S_h1_activation_reg[92]_syn_29.ofb
+net (fo=4)                              0.757         12.263          net: g_core$u_core/S_h1_activation_reg[92]_syn_14,  gesture_bnn_core.v(202)
+                                                                      pin: g_core$u_core/S_h1_activation_reg[92]_syn_34.ie
+LUT5                x021y042z1          0.262    f    12.525       7  pin: g_core$u_core/S_h1_activation_reg[92]_syn_34.ofa
+net (fo=32)                             1.275         13.800          net: g_core$u_core/mux94_syn_dup_1556,  gesture_bnn_core.v(229)
+                                                                      pin: g_core$u_core/S_h1_activation_reg[26]_syn_5.ia
+LUT5 (reg)          x021y048z4          0.435    r    14.235       8  net: g_core$u_core/S_h1_activation[26],  gesture_bnn_core.v(66)
+--------------------------------------------------------------------  ---------------
+Arrival                                               14.235
+
+source latency                          0.000          0.000
+port                C4                  0.000          0.000          pin: I_sys_clk
+hierarchy                               0.000          0.000          pin: I_sys_clk_syn_2.ipad
+HDIO                x033y078            0.745          0.745          pin: I_sys_clk_syn_2.sg09_di
+HDIO                x033y078            0.629          1.374          pin: I_sys_clk_syn_2.di
+net (fo=1)                              0.492          1.866          net: I_sys_clk_dup_1,  replay_top.v(10)
+                                                                      pin: I_sys_clk_dup_1_created_gclkinst.clkin[0]
+GCLK                x023y039z16         0.014          1.880          pin: I_sys_clk_dup_1_created_gclkinst.clkout
+net (fo=4)                              0.331          2.211          net: I_sys_clk_syn_3,  replay_top.v(10)
+                                                                      pin: I_sys_clk_dup_1_created_gclkinst_auto_created_sclk_s_1_l_bk1.clkin
+SCLK                x023y059z0          0.068          2.279          pin: I_sys_clk_dup_1_created_gclkinst_auto_created_sclk_s_1_l_bk1.clkout
+net (fo=210)                            0.550          2.829          net: I_sys_clk_dup_1_created_gclkinst_auto_created_sclk_s_1_l_bk1_sclk_outnet,  NOFILE(0)
+                                                                      pin: g_core$u_core/S_h1_activation_reg[26]_syn_5.clk
+capture edge                           20.000    r    22.829
+--------------------------------------------------------------------  ---------------
+setup                                  -0.064         22.765
+clock uncertainty                      -0.075         22.690
+clock pessimism                         0.204         22.894
+--------------------------------------------------------------------  ---------------
+Required                                              22.894
+--------------------------------------------------------------------  ---------------
+Slack                                                  8.659
+
+Slack               : 8.683ns
+Begin Point         : g_core$u_core/S_l1_feature_reg[3]_syn_5.clk (rising edge triggered by clock sys_clk_50m  { rise@0.000000ns  fall@10.000000ns  period=20.000000 })
+End Point           : g_core$u_core/S_h1_activation_reg[1]_syn_5.ia (rising edge triggered by clock sys_clk_50m  { rise@0.000000ns  fall@10.000000ns  period=20.000000 })
+Check Type          : setup
+Process             : slow_m40c
+Budget              : 20.000ns { sys_clk_50m rising@20.000ns - sys_clk_50m rising@0.000ns }
+Data Path Delay     : 11.043ns (cell 3.895ns (35%), net 7.148ns (65%))
+Clock Skew          : 0.135ns
+Logic Level         : 8 ( LUT6=4  LUT5=2  ADDER=2 )
+Max Fanout          : 32
+Clock Uncertainty   : 0.075ns (sdc uncertainty: 0.000ns, default uncertainty: 0.075ns)
+
+Delay Type          Location             Incr           Path   Level  Netlist Info
+--------------------------------------------------------------------  ---------------
+source latency                          0.000          0.000
+port                C4                  0.000          0.000          pin: I_sys_clk
+hierarchy                               0.000          0.000          pin: I_sys_clk_syn_2.ipad
+HDIO                x033y078            0.810          0.810          pin: I_sys_clk_syn_2.sg09_di
+HDIO                x033y078            0.684          1.494          pin: I_sys_clk_syn_2.di
+net (fo=1)                              0.574          2.068          net: I_sys_clk_dup_1,  replay_top.v(10)
+                                                                      pin: I_sys_clk_dup_1_created_gclkinst.clkin[0]
+GCLK                x023y039z16         0.016          2.084          pin: I_sys_clk_dup_1_created_gclkinst.clkout
+net (fo=4)                              0.375          2.459          net: I_sys_clk_syn_3,  replay_top.v(10)
+                                                                      pin: I_sys_clk_dup_1_created_gclkinst_auto_created_sclk_s_0_l_bk1.clkin
+SCLK                x023y019z0          0.079          2.538          pin: I_sys_clk_dup_1_created_gclkinst_auto_created_sclk_s_0_l_bk1.clkout
+net (fo=609)                            0.632          3.170          net: I_sys_clk_dup_1_created_gclkinst_auto_created_sclk_s_0_l_bk1_sclk_outnet,  NOFILE(0)
+                                                                      pin: g_core$u_core/S_l1_feature_reg[3]_syn_5.clk
+launch edge                             0.000    r     3.170
+--------------------------------------------------------------------  ---------------
+clk2q               x019y038z0          0.126    f     3.296          pin: g_core$u_core/S_l1_feature_reg[3]_syn_5.oqa
+net (fo=18)                             2.629          5.925          net: g_core$u_core/S_l1_feature[3],  gesture_bnn_core.v(70)
+                                                                      pin: g_core$u_core/mux0_syn_610.f8sel
+F78MUX              x030y031            0.134    r     6.059          pin: g_core$u_core/mux0_syn_610.f8muxo
+net (fo=1)                              0.000          6.059          net: g_core$u_core/mux0_syn_1373,  gesture_bnn_core.v(84)
+                                                                      pin: g_core$u_core/mux0_syn_1366.f78i
+                    x030y031z2          0.078    f     6.137          pin: g_core$u_core/mux0_syn_1366.ofa
+net (fo=1)                              1.326          7.463          net: g_core$u_core/mux0_syn_1[22],  gesture_bnn_core.v(84)
+                                                                      pin: g_core$u_core/mux0_syn_1616.ib
+LUT6                x016y032z6          0.405    f     7.868       1  pin: g_core$u_core/mux0_syn_1616.relut6
+net (fo=1)                              0.000          7.868          net: g_core$u_core/mux0_syn_1619[2],  gesture_bnn_core.v(84)
+                                                                      pin: g_core$u_core/mux0_syn_939.muxi[2]
+F78MUX              x016y032            0.141    r     8.009          pin: g_core$u_core/mux0_syn_939.f8muxo
+net (fo=1)                              0.000          8.009          net: g_core$u_core/mux0_syn_1623,  gesture_bnn_core.v(84)
+                                                                      pin: g_core$u_core/mux0_syn_1616.f78i
+                    x016y032z6          0.078    f     8.087          pin: g_core$u_core/mux0_syn_1616.ofa
+net (fo=1)                              0.185          8.272          net: g_core$u_core/mux0_syn_897[1],  gesture_bnn_core.v(84)
+                                                                      pin: g_core$u_core/mux0_syn_1634.ic
+LUT6                x016y032z0          0.287    r     8.559       2  pin: g_core$u_core/mux0_syn_1634.ofb
+net (fo=1)                              0.388          8.947          net: g_core$u_core/C_l1_match_n2,  NOFILE(0)
+                                                                      pin: g_core$u_core/add1_syn_71.ie
+ADDER               x017y033z0          0.446    r     9.393       3  pin: g_core$u_core/add1_syn_71.fco
+net (fo=1)                              0.000          9.393          net: g_core$u_core/add1_syn_59,  gesture_bnn_core.v(85)
+                                                                      pin: g_core$u_core/add1_syn_72.fci
+ADDER               x017y033z1          0.059    r     9.452          pin: g_core$u_core/add1_syn_72.fco
+net (fo=1)                              0.000          9.452          net: g_core$u_core/add1_syn_60,  gesture_bnn_core.v(85)
+                                                                      pin: g_core$u_core/add1_syn_73.fci
+ADDER               x017y033z2          0.059    r     9.511          pin: g_core$u_core/add1_syn_73.fco
+net (fo=1)                              0.000          9.511          net: g_core$u_core/add1_syn_61,  gesture_bnn_core.v(85)
+                                                                      pin: g_core$u_core/add1_syn_74.fci
+ADDER               x017y033z3          0.059    r     9.570          pin: g_core$u_core/add1_syn_74.fco
+net (fo=1)                              0.000          9.570          net: g_core$u_core/add1_syn_62,  gesture_bnn_core.v(85)
+                                                                      pin: g_core$u_core/add1_syn_75.fci
+ADDER               x017y033z4          0.059    r     9.629          pin: g_core$u_core/add1_syn_75.fco
+net (fo=1)                              0.000          9.629          net: g_core$u_core/add1_syn_63,  gesture_bnn_core.v(85)
+                                                                      pin: g_core$u_core/add1_syn_76.fci
+ADDER               x017y033z5          0.059    r     9.688          pin: g_core$u_core/add1_syn_76.fco
+net (fo=1)                              0.000          9.688          net: g_core$u_core/add1_syn_64,  gesture_bnn_core.v(85)
+                                                                      pin: g_core$u_core/add1_syn_77.fci
+ADDER               x017y033z6          0.059    r     9.747          pin: g_core$u_core/add1_syn_77.fco
+net (fo=1)                              0.000          9.747          net: g_core$u_core/add1_syn_65,  gesture_bnn_core.v(85)
+                                                                      pin: g_core$u_core/add1_syn_78.fci
+ADDER               x017y033z7          0.295    f    10.042       4  pin: g_core$u_core/add1_syn_78.ofb
+net (fo=3)                              0.341         10.383          net: g_core$u_core/C_l1_candidate[7],  gesture_bnn_core.v(85)
+                                                                      pin: g_core$u_core/S_h1_activation_reg[92]_syn_25.ib
+LUT6                x017y034z4          0.427    f    10.810       5  pin: g_core$u_core/S_h1_activation_reg[92]_syn_25.ofb
+net (fo=1)                              0.269         11.079          net: g_core$u_core/S_h1_activation_reg[92]_syn_10,  gesture_bnn_core.v(202)
+                                                                      pin: g_core$u_core/S_h1_activation_reg[92]_syn_29.ib
+LUT6                x017y034z7          0.427    f    11.506       6  pin: g_core$u_core/S_h1_activation_reg[92]_syn_29.ofb
+net (fo=4)                              0.757         12.263          net: g_core$u_core/S_h1_activation_reg[92]_syn_14,  gesture_bnn_core.v(202)
+                                                                      pin: g_core$u_core/S_h1_activation_reg[92]_syn_34.ie
+LUT5                x021y042z1          0.262    f    12.525       7  pin: g_core$u_core/S_h1_activation_reg[92]_syn_34.ofa
+net (fo=32)                             1.253         13.778          net: g_core$u_core/mux94_syn_dup_1556,  gesture_bnn_core.v(229)
+                                                                      pin: g_core$u_core/S_h1_activation_reg[1]_syn_5.ia
+LUT5 (reg)          x025y047z2          0.435    r    14.213       8  net: g_core$u_core/S_h1_activation[1],  gesture_bnn_core.v(66)
+--------------------------------------------------------------------  ---------------
+Arrival                                               14.213
+
+source latency                          0.000          0.000
+port                C4                  0.000          0.000          pin: I_sys_clk
+hierarchy                               0.000          0.000          pin: I_sys_clk_syn_2.ipad
+HDIO                x033y078            0.745          0.745          pin: I_sys_clk_syn_2.sg09_di
+HDIO                x033y078            0.629          1.374          pin: I_sys_clk_syn_2.di
+net (fo=1)                              0.492          1.866          net: I_sys_clk_dup_1,  replay_top.v(10)
+                                                                      pin: I_sys_clk_dup_1_created_gclkinst.clkin[0]
+GCLK                x023y039z16         0.014          1.880          pin: I_sys_clk_dup_1_created_gclkinst.clkout
+net (fo=4)                              0.330          2.210          net: I_sys_clk_syn_3,  replay_top.v(10)
+                                                                      pin: I_sys_clk_dup_1_created_gclkinst_auto_created_sclk_s_1_r_bk1.clkin
+SCLK                x023y059z12         0.068          2.278          pin: I_sys_clk_dup_1_created_gclkinst_auto_created_sclk_s_1_r_bk1.clkout
+net (fo=66)                             0.553          2.831          net: I_sys_clk_dup_1_created_gclkinst_auto_created_sclk_s_1_r_bk1_sclk_outnet,  NOFILE(0)
+                                                                      pin: g_core$u_core/S_h1_activation_reg[1]_syn_5.clk
+capture edge                           20.000    r    22.831
+--------------------------------------------------------------------  ---------------
+setup                                  -0.064         22.767
+clock uncertainty                      -0.075         22.692
+clock pessimism                         0.204         22.896
+--------------------------------------------------------------------  ---------------
+Required                                              22.896
+--------------------------------------------------------------------  ---------------
+Slack                                                  8.683
+
+Slack               : 8.764ns
+Begin Point         : g_core$u_core/S_l1_feature_reg[3]_syn_5.clk (rising edge triggered by clock sys_clk_50m  { rise@0.000000ns  fall@10.000000ns  period=20.000000 })
+End Point           : g_core$u_core/S_h1_activation_reg[15]_syn_8.ia (rising edge triggered by clock sys_clk_50m  { rise@0.000000ns  fall@10.000000ns  period=20.000000 })
+Check Type          : setup
+Process             : slow_m40c
+Budget              : 20.000ns { sys_clk_50m rising@20.000ns - sys_clk_50m rising@0.000ns }
+Data Path Delay     : 10.960ns (cell 4.032ns (36%), net 6.928ns (64%))
+Clock Skew          : 0.137ns
+Logic Level         : 8 ( LUT6=4  LUT5=2  ADDER=2 )
+Max Fanout          : 30
+Clock Uncertainty   : 0.075ns (sdc uncertainty: 0.000ns, default uncertainty: 0.075ns)
+
+Delay Type          Location             Incr           Path   Level  Netlist Info
+--------------------------------------------------------------------  ---------------
+source latency                          0.000          0.000
+port                C4                  0.000          0.000          pin: I_sys_clk
+hierarchy                               0.000          0.000          pin: I_sys_clk_syn_2.ipad
+HDIO                x033y078            0.810          0.810          pin: I_sys_clk_syn_2.sg09_di
+HDIO                x033y078            0.684          1.494          pin: I_sys_clk_syn_2.di
+net (fo=1)                              0.574          2.068          net: I_sys_clk_dup_1,  replay_top.v(10)
+                                                                      pin: I_sys_clk_dup_1_created_gclkinst.clkin[0]
+GCLK                x023y039z16         0.016          2.084          pin: I_sys_clk_dup_1_created_gclkinst.clkout
+net (fo=4)                              0.375          2.459          net: I_sys_clk_syn_3,  replay_top.v(10)
+                                                                      pin: I_sys_clk_dup_1_created_gclkinst_auto_created_sclk_s_0_l_bk1.clkin
+SCLK                x023y019z0          0.079          2.538          pin: I_sys_clk_dup_1_created_gclkinst_auto_created_sclk_s_0_l_bk1.clkout
+net (fo=609)                            0.632          3.170          net: I_sys_clk_dup_1_created_gclkinst_auto_created_sclk_s_0_l_bk1_sclk_outnet,  NOFILE(0)
+                                                                      pin: g_core$u_core/S_l1_feature_reg[3]_syn_5.clk
+launch edge                             0.000    r     3.170
+--------------------------------------------------------------------  ---------------
+clk2q               x019y038z0          0.126    f     3.296          pin: g_core$u_core/S_l1_feature_reg[3]_syn_5.oqa
+net (fo=18)                             2.629          5.925          net: g_core$u_core/S_l1_feature[3],  gesture_bnn_core.v(70)
+                                                                      pin: g_core$u_core/mux0_syn_610.f8sel
+F78MUX              x030y031            0.134    r     6.059          pin: g_core$u_core/mux0_syn_610.f8muxo
+net (fo=1)                              0.000          6.059          net: g_core$u_core/mux0_syn_1373,  gesture_bnn_core.v(84)
+                                                                      pin: g_core$u_core/mux0_syn_1366.f78i
+                    x030y031z2          0.078    f     6.137          pin: g_core$u_core/mux0_syn_1366.ofa
+net (fo=1)                              1.326          7.463          net: g_core$u_core/mux0_syn_1[22],  gesture_bnn_core.v(84)
+                                                                      pin: g_core$u_core/mux0_syn_1616.ib
+LUT6                x016y032z6          0.405    f     7.868       1  pin: g_core$u_core/mux0_syn_1616.relut6
+net (fo=1)                              0.000          7.868          net: g_core$u_core/mux0_syn_1619[2],  gesture_bnn_core.v(84)
+                                                                      pin: g_core$u_core/mux0_syn_939.muxi[2]
+F78MUX              x016y032            0.141    r     8.009          pin: g_core$u_core/mux0_syn_939.f8muxo
+net (fo=1)                              0.000          8.009          net: g_core$u_core/mux0_syn_1623,  gesture_bnn_core.v(84)
+                                                                      pin: g_core$u_core/mux0_syn_1616.f78i
+                    x016y032z6          0.078    f     8.087          pin: g_core$u_core/mux0_syn_1616.ofa
+net (fo=1)                              0.185          8.272          net: g_core$u_core/mux0_syn_897[1],  gesture_bnn_core.v(84)
+                                                                      pin: g_core$u_core/mux0_syn_1634.ic
+LUT6                x016y032z0          0.287    r     8.559       2  pin: g_core$u_core/mux0_syn_1634.ofb
+net (fo=1)                              0.388          8.947          net: g_core$u_core/C_l1_match_n2,  NOFILE(0)
+                                                                      pin: g_core$u_core/add1_syn_71.ie
+ADDER               x017y033z0          0.446    r     9.393       3  pin: g_core$u_core/add1_syn_71.fco
+net (fo=1)                              0.000          9.393          net: g_core$u_core/add1_syn_59,  gesture_bnn_core.v(85)
+                                                                      pin: g_core$u_core/add1_syn_72.fci
+ADDER               x017y033z1          0.059    r     9.452          pin: g_core$u_core/add1_syn_72.fco
+net (fo=1)                              0.000          9.452          net: g_core$u_core/add1_syn_60,  gesture_bnn_core.v(85)
+                                                                      pin: g_core$u_core/add1_syn_73.fci
+ADDER               x017y033z2          0.059    r     9.511          pin: g_core$u_core/add1_syn_73.fco
+net (fo=1)                              0.000          9.511          net: g_core$u_core/add1_syn_61,  gesture_bnn_core.v(85)
+                                                                      pin: g_core$u_core/add1_syn_74.fci
+ADDER               x017y033z3          0.059    r     9.570          pin: g_core$u_core/add1_syn_74.fco
+net (fo=1)                              0.000          9.570          net: g_core$u_core/add1_syn_62,  gesture_bnn_core.v(85)
+                                                                      pin: g_core$u_core/add1_syn_75.fci
+ADDER               x017y033z4          0.059    r     9.629          pin: g_core$u_core/add1_syn_75.fco
+net (fo=1)                              0.000          9.629          net: g_core$u_core/add1_syn_63,  gesture_bnn_core.v(85)
+                                                                      pin: g_core$u_core/add1_syn_76.fci
+ADDER               x017y033z5          0.059    r     9.688          pin: g_core$u_core/add1_syn_76.fco
+net (fo=1)                              0.000          9.688          net: g_core$u_core/add1_syn_64,  gesture_bnn_core.v(85)
+                                                                      pin: g_core$u_core/add1_syn_77.fci
+ADDER               x017y033z6          0.059    r     9.747          pin: g_core$u_core/add1_syn_77.fco
+net (fo=1)                              0.000          9.747          net: g_core$u_core/add1_syn_65,  gesture_bnn_core.v(85)
+                                                                      pin: g_core$u_core/add1_syn_78.fci
+ADDER               x017y033z7          0.295    f    10.042       4  pin: g_core$u_core/add1_syn_78.ofb
+net (fo=3)                              0.341         10.383          net: g_core$u_core/C_l1_candidate[7],  gesture_bnn_core.v(85)
+                                                                      pin: g_core$u_core/S_h1_activation_reg[92]_syn_25.ib
+LUT6                x017y034z4          0.427    f    10.810       5  pin: g_core$u_core/S_h1_activation_reg[92]_syn_25.ofb
+net (fo=1)                              0.269         11.079          net: g_core$u_core/S_h1_activation_reg[92]_syn_10,  gesture_bnn_core.v(202)
+                                                                      pin: g_core$u_core/S_h1_activation_reg[92]_syn_29.ib
+LUT6                x017y034z7          0.427    f    11.506       6  pin: g_core$u_core/S_h1_activation_reg[92]_syn_29.ofb
+net (fo=4)                              0.998         12.504          net: g_core$u_core/S_h1_activation_reg[92]_syn_14,  gesture_bnn_core.v(202)
+                                                                      pin: g_core$u_core/S_h1_activation_reg[92]_syn_30.ia
+LUT5                x017y042z3          0.399    f    12.903       7  pin: g_core$u_core/S_h1_activation_reg[92]_syn_30.ofb
+net (fo=30)                             0.792         13.695          net: g_core$u_core/mux94_syn_dup_1553,  gesture_bnn_core.v(229)
+                                                                      pin: g_core$u_core/S_h1_activation_reg[15]_syn_8.ia
+LUT5 (reg)          x017y047z5          0.435    r    14.130       8  net: g_core$u_core/S_h1_activation[15],  gesture_bnn_core.v(66)
+--------------------------------------------------------------------  ---------------
+Arrival                                               14.130
+
+source latency                          0.000          0.000
+port                C4                  0.000          0.000          pin: I_sys_clk
+hierarchy                               0.000          0.000          pin: I_sys_clk_syn_2.ipad
+HDIO                x033y078            0.745          0.745          pin: I_sys_clk_syn_2.sg09_di
+HDIO                x033y078            0.629          1.374          pin: I_sys_clk_syn_2.di
+net (fo=1)                              0.492          1.866          net: I_sys_clk_dup_1,  replay_top.v(10)
+                                                                      pin: I_sys_clk_dup_1_created_gclkinst.clkin[0]
+GCLK                x023y039z16         0.014          1.880          pin: I_sys_clk_dup_1_created_gclkinst.clkout
+net (fo=4)                              0.331          2.211          net: I_sys_clk_syn_3,  replay_top.v(10)
+                                                                      pin: I_sys_clk_dup_1_created_gclkinst_auto_created_sclk_s_1_l_bk1.clkin
+SCLK                x023y059z0          0.068          2.279          pin: I_sys_clk_dup_1_created_gclkinst_auto_created_sclk_s_1_l_bk1.clkout
+net (fo=210)                            0.550          2.829          net: I_sys_clk_dup_1_created_gclkinst_auto_created_sclk_s_1_l_bk1_sclk_outnet,  NOFILE(0)
+                                                                      pin: g_core$u_core/S_h1_activation_reg[15]_syn_8.clk
+capture edge                           20.000    r    22.829
+--------------------------------------------------------------------  ---------------
+setup                                  -0.064         22.765
+clock uncertainty                      -0.075         22.690
+clock pessimism                         0.204         22.894
+--------------------------------------------------------------------  ---------------
+Required                                              22.894
+--------------------------------------------------------------------  ---------------
+Slack                                                  8.764
+
+
+
+Min Paths
+----------------------------------------------------------------------------------------------------
+Slack               : 0.059ns
+Begin Point         : g_core$u_core/O_result_valid_reg_syn_9.clk (rising edge triggered by clock sys_clk_50m  { rise@0.000000ns  fall@10.000000ns  period=20.000000 })
+End Point           : packet_reg[71]_syn_2.ic (rising edge triggered by clock sys_clk_50m  { rise@0.000000ns  fall@10.000000ns  period=20.000000 })
+Check Type          : hold
+Process             : fast_m40c
+Budget              : 0.000ns { sys_clk_50m rising@0.000ns - sys_clk_50m rising@0.000ns }
+Data Path Delay     : 0.204ns (cell 0.134ns (65%), net 0.070ns (35%))
+Clock Skew          : 0.033ns
+Logic Level         : 1 ( LUT4=1 )
+Max Fanout          : 10
+Clock Uncertainty   : 0.100ns (sdc uncertainty: 0.000ns, default uncertainty: 0.100ns)
+
+Delay Type          Location             Incr           Path   Level  Netlist Info
+--------------------------------------------------------------------  ---------------
+source latency                          0.000          0.000
+port                C4                  0.000          0.000          pin: I_sys_clk
+hierarchy                               0.000          0.000          pin: I_sys_clk_syn_2.ipad
+HDIO                x033y078            0.810          0.810          pin: I_sys_clk_syn_2.sg09_di
+HDIO                x033y078            0.257          1.067          pin: I_sys_clk_syn_2.di
+net (fo=1)                              0.220          1.287          net: I_sys_clk_dup_1,  replay_top.v(10)
+                                                                      pin: I_sys_clk_dup_1_created_gclkinst.clkin[0]
+GCLK                x023y039z16         0.006          1.293          pin: I_sys_clk_dup_1_created_gclkinst.clkout
+net (fo=4)                              0.143          1.436          net: I_sys_clk_syn_3,  replay_top.v(10)
+                                                                      pin: I_sys_clk_dup_1_created_gclkinst_auto_created_sclk_s_1_l_bk1.clkin
+SCLK                x023y059z0          0.025          1.461          pin: I_sys_clk_dup_1_created_gclkinst_auto_created_sclk_s_1_l_bk1.clkout
+net (fo=210)                            0.219          1.680          net: I_sys_clk_dup_1_created_gclkinst_auto_created_sclk_s_1_l_bk1_sclk_outnet,  NOFILE(0)
+                                                                      pin: g_core$u_core/O_result_valid_reg_syn_9.clk
+launch edge                             0.000    r     1.680
+--------------------------------------------------------------------  ---------------
+clk2q               x021y040z1          0.062    f     1.742          pin: g_core$u_core/O_result_valid_reg_syn_9.oqa
+net (fo=10)                             0.070          1.812          net: result_valid_dup_177,  replay_top.v(44)
+                                                                      pin: packet_reg[71]_syn_2.ic
+LUT4 (reg)          x022y039z5          0.072    f     1.884       1  net: packet[76],  replay_top.v(70)
+--------------------------------------------------------------------  ---------------
+Arrival                                                1.884
+
+source latency                          0.000          0.000
+port                C4                  0.000          0.000          pin: I_sys_clk
+hierarchy                               0.000          0.000          pin: I_sys_clk_syn_2.ipad
+HDIO                x033y078            0.915          0.915          pin: I_sys_clk_syn_2.sg09_di
+HDIO                x033y078            0.290          1.205          pin: I_sys_clk_syn_2.di
+net (fo=1)                              0.238          1.443          net: I_sys_clk_dup_1,  replay_top.v(10)
+                                                                      pin: I_sys_clk_dup_1_created_gclkinst.clkin[0]
+GCLK                x023y039z16         0.007          1.450          pin: I_sys_clk_dup_1_created_gclkinst.clkout
+net (fo=4)                              0.148          1.598          net: I_sys_clk_syn_3,  replay_top.v(10)
+                                                                      pin: I_sys_clk_dup_1_created_gclkinst_auto_created_sclk_s_0_l_bk1.clkin
+SCLK                x023y019z0          0.030          1.628          pin: I_sys_clk_dup_1_created_gclkinst_auto_created_sclk_s_0_l_bk1.clkout
+net (fo=609)                            0.242          1.870          net: I_sys_clk_dup_1_created_gclkinst_auto_created_sclk_s_0_l_bk1_sclk_outnet,  NOFILE(0)
+                                                                      pin: packet_reg[71]_syn_2.clk
+capture edge                            0.000    r     1.870
+--------------------------------------------------------------------  ---------------
+hold                                    0.012          1.882
+clock uncertainty                       0.100          1.982
+clock pessimism                        -0.157          1.825
+--------------------------------------------------------------------  ---------------
+Required                                               1.825
+--------------------------------------------------------------------  ---------------
+Slack                                                  0.059
+
+Slack               : 0.059ns
+Begin Point         : g_core$u_core/O_result_valid_reg_syn_9.clk (rising edge triggered by clock sys_clk_50m  { rise@0.000000ns  fall@10.000000ns  period=20.000000 })
+End Point           : packet_reg[79]_syn_2.ic (rising edge triggered by clock sys_clk_50m  { rise@0.000000ns  fall@10.000000ns  period=20.000000 })
+Check Type          : hold
+Process             : fast_m40c
+Budget              : 0.000ns { sys_clk_50m rising@0.000ns - sys_clk_50m rising@0.000ns }
+Data Path Delay     : 0.204ns (cell 0.134ns (65%), net 0.070ns (35%))
+Clock Skew          : 0.033ns
+Logic Level         : 1 ( LUT4=1 )
+Max Fanout          : 10
+Clock Uncertainty   : 0.100ns (sdc uncertainty: 0.000ns, default uncertainty: 0.100ns)
+
+Delay Type          Location             Incr           Path   Level  Netlist Info
+--------------------------------------------------------------------  ---------------
+source latency                          0.000          0.000
+port                C4                  0.000          0.000          pin: I_sys_clk
+hierarchy                               0.000          0.000          pin: I_sys_clk_syn_2.ipad
+HDIO                x033y078            0.810          0.810          pin: I_sys_clk_syn_2.sg09_di
+HDIO                x033y078            0.257          1.067          pin: I_sys_clk_syn_2.di
+net (fo=1)                              0.220          1.287          net: I_sys_clk_dup_1,  replay_top.v(10)
+                                                                      pin: I_sys_clk_dup_1_created_gclkinst.clkin[0]
+GCLK                x023y039z16         0.006          1.293          pin: I_sys_clk_dup_1_created_gclkinst.clkout
+net (fo=4)                              0.143          1.436          net: I_sys_clk_syn_3,  replay_top.v(10)
+                                                                      pin: I_sys_clk_dup_1_created_gclkinst_auto_created_sclk_s_1_l_bk1.clkin
+SCLK                x023y059z0          0.025          1.461          pin: I_sys_clk_dup_1_created_gclkinst_auto_created_sclk_s_1_l_bk1.clkout
+net (fo=210)                            0.219          1.680          net: I_sys_clk_dup_1_created_gclkinst_auto_created_sclk_s_1_l_bk1_sclk_outnet,  NOFILE(0)
+                                                                      pin: g_core$u_core/O_result_valid_reg_syn_9.clk
+launch edge                             0.000    r     1.680
+--------------------------------------------------------------------  ---------------
+clk2q               x021y040z1          0.062    f     1.742          pin: g_core$u_core/O_result_valid_reg_syn_9.oqa
+net (fo=10)                             0.070          1.812          net: result_valid_dup_177,  replay_top.v(44)
+                                                                      pin: packet_reg[79]_syn_2.ic
+LUT4 (reg)          x022y039z7          0.072    f     1.884       1  net: packet[66],  replay_top.v(70)
+--------------------------------------------------------------------  ---------------
+Arrival                                                1.884
+
+source latency                          0.000          0.000
+port                C4                  0.000          0.000          pin: I_sys_clk
+hierarchy                               0.000          0.000          pin: I_sys_clk_syn_2.ipad
+HDIO                x033y078            0.915          0.915          pin: I_sys_clk_syn_2.sg09_di
+HDIO                x033y078            0.290          1.205          pin: I_sys_clk_syn_2.di
+net (fo=1)                              0.238          1.443          net: I_sys_clk_dup_1,  replay_top.v(10)
+                                                                      pin: I_sys_clk_dup_1_created_gclkinst.clkin[0]
+GCLK                x023y039z16         0.007          1.450          pin: I_sys_clk_dup_1_created_gclkinst.clkout
+net (fo=4)                              0.148          1.598          net: I_sys_clk_syn_3,  replay_top.v(10)
+                                                                      pin: I_sys_clk_dup_1_created_gclkinst_auto_created_sclk_s_0_l_bk1.clkin
+SCLK                x023y019z0          0.030          1.628          pin: I_sys_clk_dup_1_created_gclkinst_auto_created_sclk_s_0_l_bk1.clkout
+net (fo=609)                            0.242          1.870          net: I_sys_clk_dup_1_created_gclkinst_auto_created_sclk_s_0_l_bk1_sclk_outnet,  NOFILE(0)
+                                                                      pin: packet_reg[79]_syn_2.clk
+capture edge                            0.000    r     1.870
+--------------------------------------------------------------------  ---------------
+hold                                    0.012          1.882
+clock uncertainty                       0.100          1.982
+clock pessimism                        -0.157          1.825
+--------------------------------------------------------------------  ---------------
+Required                                               1.825
+--------------------------------------------------------------------  ---------------
+Slack                                                  0.059
+
+Slack               : 0.063ns
+Begin Point         : rom_addr_reg[0]_syn_7.clk (rising edge triggered by clock sys_clk_50m  { rise@0.000000ns  fall@10.000000ns  period=20.000000 })
+End Point           : ramread0_syn_13.addra[3] (rising edge triggered by clock sys_clk_50m  { rise@0.000000ns  fall@10.000000ns  period=20.000000 })
+Check Type          : hold
+Process             : fast_m40c
+Budget              : 0.000ns { sys_clk_50m rising@0.000ns - sys_clk_50m rising@0.000ns }
+Data Path Delay     : 0.297ns (cell 0.139ns (46%), net 0.158ns (54%))
+Clock Skew          : 0.059ns
+Logic Level         : 2 ( LUT3=1  ERAM=1 )
+Max Fanout          : 5
+Clock Uncertainty   : 0.100ns (sdc uncertainty: 0.000ns, default uncertainty: 0.100ns)
+
+Delay Type          Location             Incr           Path   Level  Netlist Info
+--------------------------------------------------------------------  ---------------
+source latency                          0.000          0.000
+port                C4                  0.000          0.000          pin: I_sys_clk
+hierarchy                               0.000          0.000          pin: I_sys_clk_syn_2.ipad
+HDIO                x033y078            0.810          0.810          pin: I_sys_clk_syn_2.sg09_di
+HDIO                x033y078            0.257          1.067          pin: I_sys_clk_syn_2.di
+net (fo=1)                              0.220          1.287          net: I_sys_clk_dup_1,  replay_top.v(10)
+                                                                      pin: I_sys_clk_dup_1_created_gclkinst.clkin[0]
+GCLK                x023y039z16         0.006          1.293          pin: I_sys_clk_dup_1_created_gclkinst.clkout
+net (fo=4)                              0.140          1.433          net: I_sys_clk_syn_3,  replay_top.v(10)
+                                                                      pin: I_sys_clk_dup_1_created_gclkinst_auto_created_sclk_s_1_r_bk1.clkin
+SCLK                x023y059z12         0.025          1.458          pin: I_sys_clk_dup_1_created_gclkinst_auto_created_sclk_s_1_r_bk1.clkout
+net (fo=66)                             0.221          1.679          net: I_sys_clk_dup_1_created_gclkinst_auto_created_sclk_s_1_r_bk1_sclk_outnet,  NOFILE(0)
+                                                                      pin: rom_addr_reg[0]_syn_7.clk
+launch edge                             0.000    r     1.679
+--------------------------------------------------------------------  ---------------
+clk2q               x025y049z7          0.062    f     1.741          pin: rom_addr_reg[0]_syn_7.oqa
+net (fo=5)                              0.033          1.774          net: rom_addr[0],  replay_top.v(29)
+                                                                      pin: rom_addr_reg[0]_syn_7.imf
+LUT3                x025y049z7          0.077    f     1.851       1  pin: rom_addr_reg[0]_syn_7.ofa
+net (fo=2)                              0.125          1.976          net: rom_addr_reg[0]_syn_4,  replay_top.v(79)
+                                                                      pin: ramread0_syn_13.addra[3]
+ERAM (reg)          x023y048            0.000    f     1.976       2
+--------------------------------------------------------------------  ---------------
+Arrival                                                1.976
+
+source latency                          0.000          0.000
+port                C4                  0.000          0.000          pin: I_sys_clk
+hierarchy                               0.000          0.000          pin: I_sys_clk_syn_2.ipad
+HDIO                x033y078            0.915          0.915          pin: I_sys_clk_syn_2.sg09_di
+HDIO                x033y078            0.290          1.205          pin: I_sys_clk_syn_2.di
+net (fo=1)                              0.238          1.443          net: I_sys_clk_dup_1,  replay_top.v(10)
+                                                                      pin: I_sys_clk_dup_1_created_gclkinst.clkin[0]
+GCLK                x023y039z16         0.007          1.450          pin: I_sys_clk_dup_1_created_gclkinst.clkout
+net (fo=4)                              0.155          1.605          net: I_sys_clk_syn_3,  replay_top.v(10)
+                                                                      pin: I_sys_clk_dup_1_created_gclkinst_auto_created_sclk_s_1_l_bk1.clkin
+SCLK                x023y059z0          0.030          1.635          pin: I_sys_clk_dup_1_created_gclkinst_auto_created_sclk_s_1_l_bk1.clkout
+net (fo=210)                            0.265          1.900          net: I_sys_clk_dup_1_created_gclkinst_auto_created_sclk_s_1_l_bk1_sclk_outnet,  NOFILE(0)
+                                                                      pin: ramread0_syn_13.clka
+capture edge                            0.000    r     1.900
+--------------------------------------------------------------------  ---------------
+hold                                    0.075          1.975
+clock uncertainty                       0.100          2.075
+clock pessimism                        -0.162          1.913
+--------------------------------------------------------------------  ---------------
+Required                                               1.913
+--------------------------------------------------------------------  ---------------
+Slack                                                  0.063
+
+Slack               : 0.065ns
+Begin Point         : rom_addr_reg[4]_syn_9.clk (rising edge triggered by clock sys_clk_50m  { rise@0.000000ns  fall@10.000000ns  period=20.000000 })
+End Point           : ramread0_syn_13.addra[8] (rising edge triggered by clock sys_clk_50m  { rise@0.000000ns  fall@10.000000ns  period=20.000000 })
+Check Type          : hold
+Process             : fast_m40c
+Budget              : 0.000ns { sys_clk_50m rising@0.000ns - sys_clk_50m rising@0.000ns }
+Data Path Delay     : 0.293ns (cell 0.117ns (39%), net 0.176ns (61%))
+Clock Skew          : 0.059ns
+Logic Level         : 2 ( LUT3=1  ERAM=1 )
+Max Fanout          : 2
+Clock Uncertainty   : 0.100ns (sdc uncertainty: 0.000ns, default uncertainty: 0.100ns)
+
+Delay Type          Location             Incr           Path   Level  Netlist Info
+--------------------------------------------------------------------  ---------------
+source latency                          0.000          0.000
+port                C4                  0.000          0.000          pin: I_sys_clk
+hierarchy                               0.000          0.000          pin: I_sys_clk_syn_2.ipad
+HDIO                x033y078            0.810          0.810          pin: I_sys_clk_syn_2.sg09_di
+HDIO                x033y078            0.257          1.067          pin: I_sys_clk_syn_2.di
+net (fo=1)                              0.220          1.287          net: I_sys_clk_dup_1,  replay_top.v(10)
+                                                                      pin: I_sys_clk_dup_1_created_gclkinst.clkin[0]
+GCLK                x023y039z16         0.006          1.293          pin: I_sys_clk_dup_1_created_gclkinst.clkout
+net (fo=4)                              0.140          1.433          net: I_sys_clk_syn_3,  replay_top.v(10)
+                                                                      pin: I_sys_clk_dup_1_created_gclkinst_auto_created_sclk_s_1_r_bk1.clkin
+SCLK                x023y059z12         0.025          1.458          pin: I_sys_clk_dup_1_created_gclkinst_auto_created_sclk_s_1_r_bk1.clkout
+net (fo=66)                             0.221          1.679          net: I_sys_clk_dup_1_created_gclkinst_auto_created_sclk_s_1_r_bk1_sclk_outnet,  NOFILE(0)
+                                                                      pin: rom_addr_reg[4]_syn_9.clk
+launch edge                             0.000    r     1.679
+--------------------------------------------------------------------  ---------------
+clk2q               x025y050z0          0.065    r     1.744          pin: rom_addr_reg[4]_syn_9.oqb
+net (fo=2)                              0.055          1.799          net: rom_addr[5],  replay_top.v(29)
+                                                                      pin: rom_addr_reg[4]_syn_9.ie
+LUT3                x025y050z0          0.052    f     1.851       1  pin: rom_addr_reg[4]_syn_9.ofb
+net (fo=2)                              0.121          1.972          net: rom_addr_reg[5]_syn_4,  replay_top.v(79)
+                                                                      pin: ramread0_syn_13.addra[8]
+ERAM (reg)          x023y048            0.000    f     1.972       2
+--------------------------------------------------------------------  ---------------
+Arrival                                                1.972
+
+source latency                          0.000          0.000
+port                C4                  0.000          0.000          pin: I_sys_clk
+hierarchy                               0.000          0.000          pin: I_sys_clk_syn_2.ipad
+HDIO                x033y078            0.915          0.915          pin: I_sys_clk_syn_2.sg09_di
+HDIO                x033y078            0.290          1.205          pin: I_sys_clk_syn_2.di
+net (fo=1)                              0.238          1.443          net: I_sys_clk_dup_1,  replay_top.v(10)
+                                                                      pin: I_sys_clk_dup_1_created_gclkinst.clkin[0]
+GCLK                x023y039z16         0.007          1.450          pin: I_sys_clk_dup_1_created_gclkinst.clkout
+net (fo=4)                              0.155          1.605          net: I_sys_clk_syn_3,  replay_top.v(10)
+                                                                      pin: I_sys_clk_dup_1_created_gclkinst_auto_created_sclk_s_1_l_bk1.clkin
+SCLK                x023y059z0          0.030          1.635          pin: I_sys_clk_dup_1_created_gclkinst_auto_created_sclk_s_1_l_bk1.clkout
+net (fo=210)                            0.265          1.900          net: I_sys_clk_dup_1_created_gclkinst_auto_created_sclk_s_1_l_bk1_sclk_outnet,  NOFILE(0)
+                                                                      pin: ramread0_syn_13.clka
+capture edge                            0.000    r     1.900
+--------------------------------------------------------------------  ---------------
+hold                                    0.069          1.969
+clock uncertainty                       0.100          2.069
+clock pessimism                        -0.162          1.907
+--------------------------------------------------------------------  ---------------
+Required                                               1.907
+--------------------------------------------------------------------  ---------------
+Slack                                                  0.065
+
+Slack               : 0.067ns
+Begin Point         : add6_syn_209.clk (rising edge triggered by clock sys_clk_50m  { rise@0.000000ns  fall@10.000000ns  period=20.000000 })
+End Point           : start_cycle_reg[15]_syn_2.ima (rising edge triggered by clock sys_clk_50m  { rise@0.000000ns  fall@10.000000ns  period=20.000000 })
+Check Type          : hold
+Process             : fast_m40c
+Budget              : 0.000ns { sys_clk_50m rising@0.000ns - sys_clk_50m rising@0.000ns }
+Data Path Delay     : 0.154ns (cell 0.094ns (61%), net 0.060ns (39%))
+Clock Skew          : 0.025ns
+Logic Level         : 0
+Max Fanout          : 3
+Clock Uncertainty   : 0.050ns (sdc uncertainty: 0.000ns, default uncertainty: 0.050ns)
+
+Delay Type          Location             Incr           Path   Level  Netlist Info
+--------------------------------------------------------------------  ---------------
+source latency                          0.000          0.000
+port                C4                  0.000          0.000          pin: I_sys_clk
+hierarchy                               0.000          0.000          pin: I_sys_clk_syn_2.ipad
+HDIO                x033y078            0.810          0.810          pin: I_sys_clk_syn_2.sg09_di
+HDIO                x033y078            0.257          1.067          pin: I_sys_clk_syn_2.di
+net (fo=1)                              0.220          1.287          net: I_sys_clk_dup_1,  replay_top.v(10)
+                                                                      pin: I_sys_clk_dup_1_created_gclkinst.clkin[0]
+GCLK                x023y039z16         0.006          1.293          pin: I_sys_clk_dup_1_created_gclkinst.clkout
+net (fo=4)                              0.136          1.429          net: I_sys_clk_syn_3,  replay_top.v(10)
+                                                                      pin: I_sys_clk_dup_1_created_gclkinst_auto_created_sclk_s_0_l_bk1.clkin
+SCLK                x023y019z0          0.025          1.454          pin: I_sys_clk_dup_1_created_gclkinst_auto_created_sclk_s_0_l_bk1.clkout
+net (fo=609)                            0.224          1.678          net: I_sys_clk_dup_1_created_gclkinst_auto_created_sclk_s_0_l_bk1_sclk_outnet,  NOFILE(0)
+                                                                      pin: add6_syn_209.clk
+launch edge                             0.000    r     1.678
+--------------------------------------------------------------------  ---------------
+clk2q               x011y027z3          0.065    r     1.743          pin: add6_syn_209.oqb
+net (fo=3)                              0.060          1.803          net: cycle_count[15],  replay_top.v(40)
+                                                                      pin: start_cycle_reg[15]_syn_2.ima
+reg                 x009y027z0          0.029    f     1.832          net: start_cycle[15],  replay_top.v(40)
+--------------------------------------------------------------------  ---------------
+Arrival                                                1.832
+
+source latency                          0.000          0.000
+port                C4                  0.000          0.000          pin: I_sys_clk
+hierarchy                               0.000          0.000          pin: I_sys_clk_syn_2.ipad
+HDIO                x033y078            0.915          0.915          pin: I_sys_clk_syn_2.sg09_di
+HDIO                x033y078            0.290          1.205          pin: I_sys_clk_syn_2.di
+net (fo=1)                              0.238          1.443          net: I_sys_clk_dup_1,  replay_top.v(10)
+                                                                      pin: I_sys_clk_dup_1_created_gclkinst.clkin[0]
+GCLK                x023y039z16         0.007          1.450          pin: I_sys_clk_dup_1_created_gclkinst.clkout
+net (fo=4)                              0.148          1.598          net: I_sys_clk_syn_3,  replay_top.v(10)
+                                                                      pin: I_sys_clk_dup_1_created_gclkinst_auto_created_sclk_s_0_l_bk1.clkin
+SCLK                x023y019z0          0.030          1.628          pin: I_sys_clk_dup_1_created_gclkinst_auto_created_sclk_s_0_l_bk1.clkout
+net (fo=609)                            0.250          1.878          net: I_sys_clk_dup_1_created_gclkinst_auto_created_sclk_s_0_l_bk1_sclk_outnet,  NOFILE(0)
+                                                                      pin: start_cycle_reg[15]_syn_2.clk
+capture edge                            0.000    r     1.878
+--------------------------------------------------------------------  ---------------
+hold                                    0.012          1.890
+clock uncertainty                       0.050          1.940
+clock pessimism                        -0.175          1.765
+--------------------------------------------------------------------  ---------------
+Required                                               1.765
+--------------------------------------------------------------------  ---------------
+Slack                                                  0.067
+
+Slack               : 0.068ns
+Begin Point         : add6_syn_218.clk (rising edge triggered by clock sys_clk_50m  { rise@0.000000ns  fall@10.000000ns  period=20.000000 })
+End Point           : start_cycle_reg[22]_syn_2.imb (rising edge triggered by clock sys_clk_50m  { rise@0.000000ns  fall@10.000000ns  period=20.000000 })
+Check Type          : hold
+Process             : fast_m40c
+Budget              : 0.000ns { sys_clk_50m rising@0.000ns - sys_clk_50m rising@0.000ns }
+Data Path Delay     : 0.155ns (cell 0.091ns (58%), net 0.064ns (42%))
+Clock Skew          : 0.025ns
+Logic Level         : 0
+Max Fanout          : 3
+Clock Uncertainty   : 0.050ns (sdc uncertainty: 0.000ns, default uncertainty: 0.050ns)
+
+Delay Type          Location             Incr           Path   Level  Netlist Info
+--------------------------------------------------------------------  ---------------
+source latency                          0.000          0.000
+port                C4                  0.000          0.000          pin: I_sys_clk
+hierarchy                               0.000          0.000          pin: I_sys_clk_syn_2.ipad
+HDIO                x033y078            0.810          0.810          pin: I_sys_clk_syn_2.sg09_di
+HDIO                x033y078            0.257          1.067          pin: I_sys_clk_syn_2.di
+net (fo=1)                              0.220          1.287          net: I_sys_clk_dup_1,  replay_top.v(10)
+                                                                      pin: I_sys_clk_dup_1_created_gclkinst.clkin[0]
+GCLK                x023y039z16         0.006          1.293          pin: I_sys_clk_dup_1_created_gclkinst.clkout
+net (fo=4)                              0.136          1.429          net: I_sys_clk_syn_3,  replay_top.v(10)
+                                                                      pin: I_sys_clk_dup_1_created_gclkinst_auto_created_sclk_s_0_l_bk1.clkin
+SCLK                x023y019z0          0.025          1.454          pin: I_sys_clk_dup_1_created_gclkinst_auto_created_sclk_s_0_l_bk1.clkout
+net (fo=609)                            0.224          1.678          net: I_sys_clk_dup_1_created_gclkinst_auto_created_sclk_s_0_l_bk1_sclk_outnet,  NOFILE(0)
+                                                                      pin: add6_syn_218.clk
+launch edge                             0.000    r     1.678
+--------------------------------------------------------------------  ---------------
+clk2q               x011y028z4          0.065    r     1.743          pin: add6_syn_218.oqb
+net (fo=3)                              0.064          1.807          net: cycle_count[24],  replay_top.v(40)
+                                                                      pin: start_cycle_reg[22]_syn_2.imb
+reg                 x009y028z7          0.026    f     1.833          net: start_cycle[24],  replay_top.v(40)
+--------------------------------------------------------------------  ---------------
+Arrival                                                1.833
+
+source latency                          0.000          0.000
+port                C4                  0.000          0.000          pin: I_sys_clk
+hierarchy                               0.000          0.000          pin: I_sys_clk_syn_2.ipad
+HDIO                x033y078            0.915          0.915          pin: I_sys_clk_syn_2.sg09_di
+HDIO                x033y078            0.290          1.205          pin: I_sys_clk_syn_2.di
+net (fo=1)                              0.238          1.443          net: I_sys_clk_dup_1,  replay_top.v(10)
+                                                                      pin: I_sys_clk_dup_1_created_gclkinst.clkin[0]
+GCLK                x023y039z16         0.007          1.450          pin: I_sys_clk_dup_1_created_gclkinst.clkout
+net (fo=4)                              0.148          1.598          net: I_sys_clk_syn_3,  replay_top.v(10)
+                                                                      pin: I_sys_clk_dup_1_created_gclkinst_auto_created_sclk_s_0_l_bk1.clkin
+SCLK                x023y019z0          0.030          1.628          pin: I_sys_clk_dup_1_created_gclkinst_auto_created_sclk_s_0_l_bk1.clkout
+net (fo=609)                            0.250          1.878          net: I_sys_clk_dup_1_created_gclkinst_auto_created_sclk_s_0_l_bk1_sclk_outnet,  NOFILE(0)
+                                                                      pin: start_cycle_reg[22]_syn_2.clk
+capture edge                            0.000    r     1.878
+--------------------------------------------------------------------  ---------------
+hold                                    0.012          1.890
+clock uncertainty                       0.050          1.940
+clock pessimism                        -0.175          1.765
+--------------------------------------------------------------------  ---------------
+Required                                               1.765
+--------------------------------------------------------------------  ---------------
+Slack                                                  0.068
+
+Slack               : 0.068ns
+Begin Point         : rom_addr_reg[3]_syn_7.clk (rising edge triggered by clock sys_clk_50m  { rise@0.000000ns  fall@10.000000ns  period=20.000000 })
+End Point           : ramread0_syn_13.addra[6] (rising edge triggered by clock sys_clk_50m  { rise@0.000000ns  fall@10.000000ns  period=20.000000 })
+Check Type          : hold
+Process             : fast_m40c
+Budget              : 0.000ns { sys_clk_50m rising@0.000ns - sys_clk_50m rising@0.000ns }
+Data Path Delay     : 0.293ns (cell 0.109ns (37%), net 0.184ns (63%))
+Clock Skew          : 0.059ns
+Logic Level         : 2 ( LUT6=1  ERAM=1 )
+Max Fanout          : 3
+Clock Uncertainty   : 0.100ns (sdc uncertainty: 0.000ns, default uncertainty: 0.100ns)
+
+Delay Type          Location             Incr           Path   Level  Netlist Info
+--------------------------------------------------------------------  ---------------
+source latency                          0.000          0.000
+port                C4                  0.000          0.000          pin: I_sys_clk
+hierarchy                               0.000          0.000          pin: I_sys_clk_syn_2.ipad
+HDIO                x033y078            0.810          0.810          pin: I_sys_clk_syn_2.sg09_di
+HDIO                x033y078            0.257          1.067          pin: I_sys_clk_syn_2.di
+net (fo=1)                              0.220          1.287          net: I_sys_clk_dup_1,  replay_top.v(10)
+                                                                      pin: I_sys_clk_dup_1_created_gclkinst.clkin[0]
+GCLK                x023y039z16         0.006          1.293          pin: I_sys_clk_dup_1_created_gclkinst.clkout
+net (fo=4)                              0.140          1.433          net: I_sys_clk_syn_3,  replay_top.v(10)
+                                                                      pin: I_sys_clk_dup_1_created_gclkinst_auto_created_sclk_s_1_r_bk1.clkin
+SCLK                x023y059z12         0.025          1.458          pin: I_sys_clk_dup_1_created_gclkinst_auto_created_sclk_s_1_r_bk1.clkout
+net (fo=66)                             0.221          1.679          net: I_sys_clk_dup_1_created_gclkinst_auto_created_sclk_s_1_r_bk1_sclk_outnet,  NOFILE(0)
+                                                                      pin: rom_addr_reg[3]_syn_7.clk
+launch edge                             0.000    r     1.679
+--------------------------------------------------------------------  ---------------
+clk2q               x025y050z7          0.062    f     1.741          pin: rom_addr_reg[3]_syn_7.oqa
+net (fo=3)                              0.029          1.770          net: rom_addr[3],  replay_top.v(29)
+                                                                      pin: rom_addr_reg[3]_syn_7.imf
+LUT6                x025y050z7          0.047    f     1.817       1  pin: rom_addr_reg[3]_syn_7.ofb
+net (fo=2)                              0.155          1.972          net: rom_addr_reg[3]_syn_4,  replay_top.v(79)
+                                                                      pin: ramread0_syn_13.addra[6]
+ERAM (reg)          x023y048            0.000    f     1.972       2
+--------------------------------------------------------------------  ---------------
+Arrival                                                1.972
+
+source latency                          0.000          0.000
+port                C4                  0.000          0.000          pin: I_sys_clk
+hierarchy                               0.000          0.000          pin: I_sys_clk_syn_2.ipad
+HDIO                x033y078            0.915          0.915          pin: I_sys_clk_syn_2.sg09_di
+HDIO                x033y078            0.290          1.205          pin: I_sys_clk_syn_2.di
+net (fo=1)                              0.238          1.443          net: I_sys_clk_dup_1,  replay_top.v(10)
+                                                                      pin: I_sys_clk_dup_1_created_gclkinst.clkin[0]
+GCLK                x023y039z16         0.007          1.450          pin: I_sys_clk_dup_1_created_gclkinst.clkout
+net (fo=4)                              0.155          1.605          net: I_sys_clk_syn_3,  replay_top.v(10)
+                                                                      pin: I_sys_clk_dup_1_created_gclkinst_auto_created_sclk_s_1_l_bk1.clkin
+SCLK                x023y059z0          0.030          1.635          pin: I_sys_clk_dup_1_created_gclkinst_auto_created_sclk_s_1_l_bk1.clkout
+net (fo=210)                            0.265          1.900          net: I_sys_clk_dup_1_created_gclkinst_auto_created_sclk_s_1_l_bk1_sclk_outnet,  NOFILE(0)
+                                                                      pin: ramread0_syn_13.clka
+capture edge                            0.000    r     1.900
+--------------------------------------------------------------------  ---------------
+hold                                    0.066          1.966
+clock uncertainty                       0.100          2.066
+clock pessimism                        -0.162          1.904
+--------------------------------------------------------------------  ---------------
+Required                                               1.904
+--------------------------------------------------------------------  ---------------
+Slack                                                  0.068
+
+Slack               : 0.071ns
+Begin Point         : rom_addr_reg[1]_syn_7.clk (rising edge triggered by clock sys_clk_50m  { rise@0.000000ns  fall@10.000000ns  period=20.000000 })
+End Point           : ramread0_syn_13.addra[5] (rising edge triggered by clock sys_clk_50m  { rise@0.000000ns  fall@10.000000ns  period=20.000000 })
+Check Type          : hold
+Process             : fast_m40c
+Budget              : 0.000ns { sys_clk_50m rising@0.000ns - sys_clk_50m rising@0.000ns }
+Data Path Delay     : 0.298ns (cell 0.117ns (39%), net 0.181ns (61%))
+Clock Skew          : 0.059ns
+Logic Level         : 2 ( LUT5=1  ERAM=1 )
+Max Fanout          : 4
+Clock Uncertainty   : 0.100ns (sdc uncertainty: 0.000ns, default uncertainty: 0.100ns)
+
+Delay Type          Location             Incr           Path   Level  Netlist Info
+--------------------------------------------------------------------  ---------------
+source latency                          0.000          0.000
+port                C4                  0.000          0.000          pin: I_sys_clk
+hierarchy                               0.000          0.000          pin: I_sys_clk_syn_2.ipad
+HDIO                x033y078            0.810          0.810          pin: I_sys_clk_syn_2.sg09_di
+HDIO                x033y078            0.257          1.067          pin: I_sys_clk_syn_2.di
+net (fo=1)                              0.220          1.287          net: I_sys_clk_dup_1,  replay_top.v(10)
+                                                                      pin: I_sys_clk_dup_1_created_gclkinst.clkin[0]
+GCLK                x023y039z16         0.006          1.293          pin: I_sys_clk_dup_1_created_gclkinst.clkout
+net (fo=4)                              0.140          1.433          net: I_sys_clk_syn_3,  replay_top.v(10)
+                                                                      pin: I_sys_clk_dup_1_created_gclkinst_auto_created_sclk_s_1_r_bk1.clkin
+SCLK                x023y059z12         0.025          1.458          pin: I_sys_clk_dup_1_created_gclkinst_auto_created_sclk_s_1_r_bk1.clkout
+net (fo=66)                             0.221          1.679          net: I_sys_clk_dup_1_created_gclkinst_auto_created_sclk_s_1_r_bk1_sclk_outnet,  NOFILE(0)
+                                                                      pin: rom_addr_reg[1]_syn_7.clk
+launch edge                             0.000    r     1.679
+--------------------------------------------------------------------  ---------------
+clk2q               x025y049z6          0.065    r     1.744          pin: rom_addr_reg[1]_syn_7.oqb
+net (fo=4)                              0.031          1.775          net: rom_addr[2],  replay_top.v(29)
+                                                                      pin: rom_addr_reg[1]_syn_7.ie
+LUT5                x025y049z6          0.052    f     1.827       1  pin: rom_addr_reg[1]_syn_7.ofb
+net (fo=2)                              0.150          1.977          net: rom_addr_reg[2]_syn_4,  replay_top.v(79)
+                                                                      pin: ramread0_syn_13.addra[5]
+ERAM (reg)          x023y048            0.000    f     1.977       2
+--------------------------------------------------------------------  ---------------
+Arrival                                                1.977
+
+source latency                          0.000          0.000
+port                C4                  0.000          0.000          pin: I_sys_clk
+hierarchy                               0.000          0.000          pin: I_sys_clk_syn_2.ipad
+HDIO                x033y078            0.915          0.915          pin: I_sys_clk_syn_2.sg09_di
+HDIO                x033y078            0.290          1.205          pin: I_sys_clk_syn_2.di
+net (fo=1)                              0.238          1.443          net: I_sys_clk_dup_1,  replay_top.v(10)
+                                                                      pin: I_sys_clk_dup_1_created_gclkinst.clkin[0]
+GCLK                x023y039z16         0.007          1.450          pin: I_sys_clk_dup_1_created_gclkinst.clkout
+net (fo=4)                              0.155          1.605          net: I_sys_clk_syn_3,  replay_top.v(10)
+                                                                      pin: I_sys_clk_dup_1_created_gclkinst_auto_created_sclk_s_1_l_bk1.clkin
+SCLK                x023y059z0          0.030          1.635          pin: I_sys_clk_dup_1_created_gclkinst_auto_created_sclk_s_1_l_bk1.clkout
+net (fo=210)                            0.265          1.900          net: I_sys_clk_dup_1_created_gclkinst_auto_created_sclk_s_1_l_bk1_sclk_outnet,  NOFILE(0)
+                                                                      pin: ramread0_syn_13.clka
+capture edge                            0.000    r     1.900
+--------------------------------------------------------------------  ---------------
+hold                                    0.068          1.968
+clock uncertainty                       0.100          2.068
+clock pessimism                        -0.162          1.906
+--------------------------------------------------------------------  ---------------
+Required                                               1.906
+--------------------------------------------------------------------  ---------------
+Slack                                                  0.071
+
+Slack               : 0.072ns
+Begin Point         : packet_reg[232]_syn_2.clk (rising edge triggered by clock sys_clk_50m  { rise@0.000000ns  fall@10.000000ns  period=20.000000 })
+End Point           : packet_reg[239]_syn_2.ie (rising edge triggered by clock sys_clk_50m  { rise@0.000000ns  fall@10.000000ns  period=20.000000 })
+Check Type          : hold
+Process             : fast_m40c
+Budget              : 0.000ns { sys_clk_50m rising@0.000ns - sys_clk_50m rising@0.000ns }
+Data Path Delay     : 0.134ns (cell 0.106ns (79%), net 0.028ns (21%))
+Clock Skew          : 0.000ns
+Logic Level         : 1 ( LUT4=1 )
+Max Fanout          : 1
+Clock Uncertainty   : 0.050ns (sdc uncertainty: 0.000ns, default uncertainty: 0.050ns)
+
+Delay Type          Location             Incr           Path   Level  Netlist Info
+--------------------------------------------------------------------  ---------------
+source latency                          0.000          0.000
+port                C4                  0.000          0.000          pin: I_sys_clk
+hierarchy                               0.000          0.000          pin: I_sys_clk_syn_2.ipad
+HDIO                x033y078            0.810          0.810          pin: I_sys_clk_syn_2.sg09_di
+HDIO                x033y078            0.257          1.067          pin: I_sys_clk_syn_2.di
+net (fo=1)                              0.220          1.287          net: I_sys_clk_dup_1,  replay_top.v(10)
+                                                                      pin: I_sys_clk_dup_1_created_gclkinst.clkin[0]
+GCLK                x023y039z16         0.006          1.293          pin: I_sys_clk_dup_1_created_gclkinst.clkout
+net (fo=4)                              0.136          1.429          net: I_sys_clk_syn_3,  replay_top.v(10)
+                                                                      pin: I_sys_clk_dup_1_created_gclkinst_auto_created_sclk_s_0_l_bk1.clkin
+SCLK                x023y019z0          0.025          1.454          pin: I_sys_clk_dup_1_created_gclkinst_auto_created_sclk_s_0_l_bk1.clkout
+net (fo=609)                            0.219          1.673          net: I_sys_clk_dup_1_created_gclkinst_auto_created_sclk_s_0_l_bk1_sclk_outnet,  NOFILE(0)
+                                                                      pin: packet_reg[232]_syn_2.clk
+launch edge                             0.000    r     1.673
+--------------------------------------------------------------------  ---------------
+clk2q               x012y029z4          0.062    f     1.735          pin: packet_reg[232]_syn_2.oqa
+net (fo=1)                              0.028          1.763          net: packet[232],  replay_top.v(70)
+                                                                      pin: packet_reg[239]_syn_2.ie
+LUT4 (reg)          x012y029z6          0.044    f     1.807       1  net: packet[224],  replay_top.v(70)
+--------------------------------------------------------------------  ---------------
+Arrival                                                1.807
+
+source latency                          0.000          0.000
+port                C4                  0.000          0.000          pin: I_sys_clk
+hierarchy                               0.000          0.000          pin: I_sys_clk_syn_2.ipad
+HDIO                x033y078            0.915          0.915          pin: I_sys_clk_syn_2.sg09_di
+HDIO                x033y078            0.290          1.205          pin: I_sys_clk_syn_2.di
+net (fo=1)                              0.238          1.443          net: I_sys_clk_dup_1,  replay_top.v(10)
+                                                                      pin: I_sys_clk_dup_1_created_gclkinst.clkin[0]
+GCLK                x023y039z16         0.007          1.450          pin: I_sys_clk_dup_1_created_gclkinst.clkout
+net (fo=4)                              0.148          1.598          net: I_sys_clk_syn_3,  replay_top.v(10)
+                                                                      pin: I_sys_clk_dup_1_created_gclkinst_auto_created_sclk_s_0_l_bk1.clkin
+SCLK                x023y019z0          0.030          1.628          pin: I_sys_clk_dup_1_created_gclkinst_auto_created_sclk_s_0_l_bk1.clkout
+net (fo=609)                            0.242          1.870          net: I_sys_clk_dup_1_created_gclkinst_auto_created_sclk_s_0_l_bk1_sclk_outnet,  NOFILE(0)
+                                                                      pin: packet_reg[239]_syn_2.clk
+capture edge                            0.000    r     1.870
+--------------------------------------------------------------------  ---------------
+hold                                    0.012          1.882
+clock uncertainty                       0.050          1.932
+clock pessimism                        -0.197          1.735
+--------------------------------------------------------------------  ---------------
+Required                                               1.735
+--------------------------------------------------------------------  ---------------
+Slack                                                  0.072
+
+Slack               : 0.072ns
+Begin Point         : packet_reg[205]_syn_2.clk (rising edge triggered by clock sys_clk_50m  { rise@0.000000ns  fall@10.000000ns  period=20.000000 })
+End Point           : packet_reg[207]_syn_2.ie (rising edge triggered by clock sys_clk_50m  { rise@0.000000ns  fall@10.000000ns  period=20.000000 })
+Check Type          : hold
+Process             : fast_m40c
+Budget              : 0.000ns { sys_clk_50m rising@0.000ns - sys_clk_50m rising@0.000ns }
+Data Path Delay     : 0.134ns (cell 0.106ns (79%), net 0.028ns (21%))
+Clock Skew          : 0.000ns
+Logic Level         : 1 ( LUT4=1 )
+Max Fanout          : 1
+Clock Uncertainty   : 0.050ns (sdc uncertainty: 0.000ns, default uncertainty: 0.050ns)
+
+Delay Type          Location             Incr           Path   Level  Netlist Info
+--------------------------------------------------------------------  ---------------
+source latency                          0.000          0.000
+port                C4                  0.000          0.000          pin: I_sys_clk
+hierarchy                               0.000          0.000          pin: I_sys_clk_syn_2.ipad
+HDIO                x033y078            0.810          0.810          pin: I_sys_clk_syn_2.sg09_di
+HDIO                x033y078            0.257          1.067          pin: I_sys_clk_syn_2.di
+net (fo=1)                              0.220          1.287          net: I_sys_clk_dup_1,  replay_top.v(10)
+                                                                      pin: I_sys_clk_dup_1_created_gclkinst.clkin[0]
+GCLK                x023y039z16         0.006          1.293          pin: I_sys_clk_dup_1_created_gclkinst.clkout
+net (fo=4)                              0.136          1.429          net: I_sys_clk_syn_3,  replay_top.v(10)
+                                                                      pin: I_sys_clk_dup_1_created_gclkinst_auto_created_sclk_s_0_l_bk1.clkin
+SCLK                x023y019z0          0.025          1.454          pin: I_sys_clk_dup_1_created_gclkinst_auto_created_sclk_s_0_l_bk1.clkout
+net (fo=609)                            0.218          1.672          net: I_sys_clk_dup_1_created_gclkinst_auto_created_sclk_s_0_l_bk1_sclk_outnet,  NOFILE(0)
+                                                                      pin: packet_reg[205]_syn_2.clk
+launch edge                             0.000    r     1.672
+--------------------------------------------------------------------  ---------------
+clk2q               x018y033z4          0.062    f     1.734          pin: packet_reg[205]_syn_2.oqa
+net (fo=1)                              0.028          1.762          net: packet[205],  replay_top.v(70)
+                                                                      pin: packet_reg[207]_syn_2.ie
+LUT4 (reg)          x018y033z7          0.044    f     1.806       1  net: packet[197],  replay_top.v(70)
+--------------------------------------------------------------------  ---------------
+Arrival                                                1.806
+
+source latency                          0.000          0.000
+port                C4                  0.000          0.000          pin: I_sys_clk
+hierarchy                               0.000          0.000          pin: I_sys_clk_syn_2.ipad
+HDIO                x033y078            0.915          0.915          pin: I_sys_clk_syn_2.sg09_di
+HDIO                x033y078            0.290          1.205          pin: I_sys_clk_syn_2.di
+net (fo=1)                              0.238          1.443          net: I_sys_clk_dup_1,  replay_top.v(10)
+                                                                      pin: I_sys_clk_dup_1_created_gclkinst.clkin[0]
+GCLK                x023y039z16         0.007          1.450          pin: I_sys_clk_dup_1_created_gclkinst.clkout
+net (fo=4)                              0.148          1.598          net: I_sys_clk_syn_3,  replay_top.v(10)
+                                                                      pin: I_sys_clk_dup_1_created_gclkinst_auto_created_sclk_s_0_l_bk1.clkin
+SCLK                x023y019z0          0.030          1.628          pin: I_sys_clk_dup_1_created_gclkinst_auto_created_sclk_s_0_l_bk1.clkout
+net (fo=609)                            0.241          1.869          net: I_sys_clk_dup_1_created_gclkinst_auto_created_sclk_s_0_l_bk1_sclk_outnet,  NOFILE(0)
+                                                                      pin: packet_reg[207]_syn_2.clk
+capture edge                            0.000    r     1.869
+--------------------------------------------------------------------  ---------------
+hold                                    0.012          1.881
+clock uncertainty                       0.050          1.931
+clock pessimism                        -0.197          1.734
+--------------------------------------------------------------------  ---------------
+Required                                               1.734
+--------------------------------------------------------------------  ---------------
+Slack                                                  0.072
+
+
+Inter clock domain timing
+--------------------------------------------------
+
+IP timing
+--------------------------------------------------
